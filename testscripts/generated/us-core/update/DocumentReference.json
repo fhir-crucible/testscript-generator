@@ -5,13 +5,13 @@
   "name": "US CORE Document Reference Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "vdxC3BgGoSMrNbbD",
+      "name": "u5eRs5naoVPehUpv",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "9sYAhFD3GH4jqwsA"
+      "sourceId": "JPH1qlhzdDnFMUIM"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "DocumentReference",
           "encodeRequestUrl": false,
           "params": "?_type=DocumentReference",
-          "responseId": "9sYAhFD3GH4jqwsA"
+          "responseId": "JPH1qlhzdDnFMUIM"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "DocumentReference",
             "encodeRequestUrl": false,
-            "params": "/${vdxC3BgGoSMrNbbD}"
+            "params": "/${u5eRs5naoVPehUpv}"
           }
         },
         {

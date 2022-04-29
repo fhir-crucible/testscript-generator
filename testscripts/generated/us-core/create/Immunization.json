@@ -5,13 +5,13 @@
   "name": "US CORE Immunization Create TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "mC67XcbexfDnLw3A",
+      "name": "sgrNoxvf0fyim98m",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "pX1A0o57tfzm8UD0"
+      "sourceId": "2JxDq2uOgRkIFiGm"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Immunization",
           "encodeRequestUrl": false,
           "params": "?_type=Immunization",
-          "responseId": "pX1A0o57tfzm8UD0"
+          "responseId": "2JxDq2uOgRkIFiGm"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Immunization",
             "encodeRequestUrl": false,
-            "params": "/${mC67XcbexfDnLw3A}"
+            "params": "/${sgrNoxvf0fyim98m}"
           }
         },
         {

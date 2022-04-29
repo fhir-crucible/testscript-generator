@@ -5,13 +5,13 @@
   "name": "US CORE Device Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "nycTAL1cUk42ATK9",
+      "name": "GX1lWB0QuFGNzYQG",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "e8Sm3SlqYDTQ7Vxm"
+      "sourceId": "vO01tAGF4jgRzpVH"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Device",
           "encodeRequestUrl": false,
           "params": "?_type=Device",
-          "responseId": "e8Sm3SlqYDTQ7Vxm"
+          "responseId": "vO01tAGF4jgRzpVH"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "Device",
             "encodeRequestUrl": false,
-            "params": "/${nycTAL1cUk42ATK9}"
+            "params": "/${GX1lWB0QuFGNzYQG}"
           }
         },
         {

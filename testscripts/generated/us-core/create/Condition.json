@@ -5,13 +5,13 @@
   "name": "US CORE Condition Create TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "yJ3Xcne665VYn37T",
+      "name": "8lUofAfX72Q37tQH",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "HKoCdh7ZbeK6kvi1"
+      "sourceId": "qXpc8mp9SSj0hO4O"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Condition",
           "encodeRequestUrl": false,
           "params": "?_type=Condition",
-          "responseId": "HKoCdh7ZbeK6kvi1"
+          "responseId": "qXpc8mp9SSj0hO4O"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Condition",
             "encodeRequestUrl": false,
-            "params": "/${yJ3Xcne665VYn37T}"
+            "params": "/${8lUofAfX72Q37tQH}"
           }
         },
         {

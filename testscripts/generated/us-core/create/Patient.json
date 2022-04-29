@@ -5,13 +5,13 @@
   "name": "US CORE Patient Create TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "GgCnQuM4OJT5tcMx",
+      "name": "Lr0WJlfZbLiT9e1d",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "mMHarNMv2DEfqi4Z"
+      "sourceId": "RSC3wmyiYb0FErFd"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Patient",
           "encodeRequestUrl": false,
           "params": "?_type=Patient",
-          "responseId": "mMHarNMv2DEfqi4Z"
+          "responseId": "RSC3wmyiYb0FErFd"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Patient",
             "encodeRequestUrl": false,
-            "params": "/${GgCnQuM4OJT5tcMx}"
+            "params": "/${Lr0WJlfZbLiT9e1d}"
           }
         },
         {

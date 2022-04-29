@@ -5,13 +5,13 @@
   "name": "US CORE Location Create TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "JjsF7TUAvIy38Sdi",
+      "name": "XPPQGkjfoUmso2mQ",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "esXnP0ahpYjpvc6K"
+      "sourceId": "CQUdoLacqXJyHCgE"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Location",
           "encodeRequestUrl": false,
           "params": "?_type=Location",
-          "responseId": "esXnP0ahpYjpvc6K"
+          "responseId": "CQUdoLacqXJyHCgE"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Location",
             "encodeRequestUrl": false,
-            "params": "/${JjsF7TUAvIy38Sdi}"
+            "params": "/${XPPQGkjfoUmso2mQ}"
           }
         },
         {

@@ -1,11 +1,11 @@
-require_relative './ig_resource'
-require 'warning'
+require_relative './IGResource'
 require 'pry-nav'
+require 'rubygems/package'
 
 module IGExtractor
   def load_igs 
     FHIR.logger = Logger.new('/dev/null')
-    igs = Dir.glob("/Users/jfraser/Desktop/fhir-foundry/generator/igs/*").map do |package|
+    igs = Dir.glob("#{Dir.getwd}/igs/*").map do |package|
       case package.split('.').last
       when 'zip'
         load_zipped_ig package

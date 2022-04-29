@@ -5,13 +5,13 @@
   "name": "US CORE Medication Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "EPX9DJYlEVpbEA7i",
+      "name": "HsPWSw0O78H9Ml12",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "HtKRfzmaoDW6mHZg"
+      "sourceId": "L4uHfF5oO0vaNYw6"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Medication",
           "encodeRequestUrl": false,
           "params": "?_type=Medication",
-          "responseId": "HtKRfzmaoDW6mHZg"
+          "responseId": "L4uHfF5oO0vaNYw6"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Medication",
             "encodeRequestUrl": false,
-            "params": "/${EPX9DJYlEVpbEA7i}"
+            "params": "/${HsPWSw0O78H9Ml12}"
           }
         },
         {

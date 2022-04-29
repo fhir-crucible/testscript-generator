@@ -5,13 +5,13 @@
   "name": "US CORE Observation Create TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "r3XA5j9TMjp6Vg5F",
+      "name": "mwzDjRWlDGLRrxOc",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "usqlcyBxlXF2f9yq"
+      "sourceId": "19OIHL7kcAPFN9Jo"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Observation",
           "encodeRequestUrl": false,
           "params": "?_type=Observation",
-          "responseId": "usqlcyBxlXF2f9yq"
+          "responseId": "19OIHL7kcAPFN9Jo"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Observation",
             "encodeRequestUrl": false,
-            "params": "/${r3XA5j9TMjp6Vg5F}"
+            "params": "/${mwzDjRWlDGLRrxOc}"
           }
         },
         {

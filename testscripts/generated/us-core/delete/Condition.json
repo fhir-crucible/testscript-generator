@@ -5,13 +5,13 @@
   "name": "US CORE Condition Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "dTPfvlZXKen6KOYs",
+      "name": "HBt5mgAKClYM4HGh",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "RC667B7zvugAfVgT"
+      "sourceId": "0awQIZ4MGhstI7Kn"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Condition",
           "encodeRequestUrl": false,
           "params": "?_type=Condition",
-          "responseId": "RC667B7zvugAfVgT"
+          "responseId": "0awQIZ4MGhstI7Kn"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Condition",
             "encodeRequestUrl": false,
-            "params": "/${dTPfvlZXKen6KOYs}"
+            "params": "/${HBt5mgAKClYM4HGh}"
           }
         },
         {

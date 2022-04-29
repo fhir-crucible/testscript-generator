@@ -5,13 +5,13 @@
   "name": "US CORE Practitioner Role Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "6XdkWOHL24RYKeFK",
+      "name": "4W0Ci9YfGeeCRxAV",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "tTHmvClgyAmdbSO3"
+      "sourceId": "qD4trjPt6qpKNRWe"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "PractitionerRole",
           "encodeRequestUrl": false,
           "params": "?_type=PractitionerRole",
-          "responseId": "tTHmvClgyAmdbSO3"
+          "responseId": "qD4trjPt6qpKNRWe"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "PractitionerRole",
             "encodeRequestUrl": false,
-            "params": "/${6XdkWOHL24RYKeFK}"
+            "params": "/${4W0Ci9YfGeeCRxAV}"
           }
         },
         {

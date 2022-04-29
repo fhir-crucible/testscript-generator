@@ -5,13 +5,13 @@
   "name": "US CORE Organization Read TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "djBz4v00YUUon6Fx",
+      "name": "WNuZ4dKlqmWjM4QQ",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "cOxhn6fUXCZuQjn9"
+      "sourceId": "qZHfpGhzivWI72J8"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Organization",
           "encodeRequestUrl": false,
           "params": "?_type=Organization",
-          "responseId": "cOxhn6fUXCZuQjn9"
+          "responseId": "qZHfpGhzivWI72J8"
         }
       }
     ]
@@ -41,7 +41,7 @@
             },
             "resource": "Organization",
             "encodeRequestUrl": false,
-            "params": "/${djBz4v00YUUon6Fx}"
+            "params": "/${WNuZ4dKlqmWjM4QQ}"
           }
         },
         {

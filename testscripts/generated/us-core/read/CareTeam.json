@@ -5,13 +5,13 @@
   "name": "US CORE Care Team Read TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "l4uUTMndc0PzEFPb",
+      "name": "petPZTzucixSn92s",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "u8yFmsrlzfcM3wZK"
+      "sourceId": "5L77Qix4hu8LWuZM"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "CareTeam",
           "encodeRequestUrl": false,
           "params": "?_type=CareTeam",
-          "responseId": "u8yFmsrlzfcM3wZK"
+          "responseId": "5L77Qix4hu8LWuZM"
         }
       }
     ]
@@ -41,7 +41,7 @@
             },
             "resource": "CareTeam",
             "encodeRequestUrl": false,
-            "params": "/${l4uUTMndc0PzEFPb}"
+            "params": "/${petPZTzucixSn92s}"
           }
         },
         {

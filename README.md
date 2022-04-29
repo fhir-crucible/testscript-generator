@@ -1,4 +1,7 @@
 **Commands:**
+  - `bundle install`
+    - Functionality
+      - This installs the dependencies specified in the Gemfile, allowing the generator to run. Run this command after downloading the repo and before running `ruby driver.rb` for the first time. 
   - `ruby driver.rb`
     - Functionality
       - This runs the driver, which is currently the means for running and testing using the generator. It creates TestScripts that test the supported CRUD interactions, as specified by the IG(s). The IG(s) to be used for generation should be added to the `./igs` directory and generated TestScripts will be written out in the `./testscripts` directory. 

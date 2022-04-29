@@ -5,13 +5,13 @@
   "name": "US CORE Practitioner Role Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "enieMCAQ1STQa5bC",
+      "name": "5S59uibamx2FZJXC",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "jdL1iQEJwGztpR7h"
+      "sourceId": "hZBQateljFuib5LV"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "PractitionerRole",
           "encodeRequestUrl": false,
           "params": "?_type=PractitionerRole",
-          "responseId": "jdL1iQEJwGztpR7h"
+          "responseId": "hZBQateljFuib5LV"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "PractitionerRole",
             "encodeRequestUrl": false,
-            "params": "/${enieMCAQ1STQa5bC}"
+            "params": "/${5S59uibamx2FZJXC}"
           }
         },
         {

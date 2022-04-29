@@ -5,13 +5,13 @@
   "name": "US CORE Location Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "unw53XBOTvQxYhyI",
+      "name": "iA0o6UQSePNBgBsR",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "orzSvVFymNttFjD9"
+      "sourceId": "hc7g2C9T9ghL0uHY"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Location",
           "encodeRequestUrl": false,
           "params": "?_type=Location",
-          "responseId": "orzSvVFymNttFjD9"
+          "responseId": "hc7g2C9T9ghL0uHY"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "Location",
             "encodeRequestUrl": false,
-            "params": "/${unw53XBOTvQxYhyI}"
+            "params": "/${iA0o6UQSePNBgBsR}"
           }
         },
         {
