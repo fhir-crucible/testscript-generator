@@ -1,0 +1,65 @@
+{
+  "id": "us-core-provenance-read-testscript",
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "version": "0.0",
+  "name": "US CORE Provenance Read TestScript",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-04-29T07:10:21-04:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "LUP4371NrmF6egWX",
+      "expression": "Bundle.entry.first.resource.id",
+      "sourceId": "Iq5sYb9UYixRLnba"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+            "code": "search"
+          },
+          "resource": "Provenance",
+          "encodeRequestUrl": false,
+          "params": "?_type=Provenance",
+          "responseId": "Iq5sYb9UYixRLnba"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+              "code": "read"
+            },
+            "resource": "Provenance",
+            "encodeRequestUrl": false,
+            "params": "/${LUP4371NrmF6egWX}"
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Provenance.",
+            "resource": "Provenance",
+            "warningOnly": false
+          }
+        }
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}

@@ -1,0 +1,65 @@
+{
+  "id": "us-core-immunization-read-testscript",
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "version": "0.0",
+  "name": "US CORE Immunization Read TestScript",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-04-29T07:10:21-04:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "7F0aZ0CbLORy1eVh",
+      "expression": "Bundle.entry.first.resource.id",
+      "sourceId": "qOygqc1a3mdkZK7b"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+            "code": "search"
+          },
+          "resource": "Immunization",
+          "encodeRequestUrl": false,
+          "params": "?_type=Immunization",
+          "responseId": "qOygqc1a3mdkZK7b"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+              "code": "read"
+            },
+            "resource": "Immunization",
+            "encodeRequestUrl": false,
+            "params": "/${7F0aZ0CbLORy1eVh}"
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Immunization.",
+            "resource": "Immunization",
+            "warningOnly": false
+          }
+        }
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}

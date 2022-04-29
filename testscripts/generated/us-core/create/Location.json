@@ -1,0 +1,79 @@
+{
+  "id": "us-core-location-create-testscript",
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "version": "0.0",
+  "name": "US CORE Location Create TestScript",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-04-29T07:10:21-04:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "JjsF7TUAvIy38Sdi",
+      "expression": "Bundle.entry.first.resource.id",
+      "sourceId": "esXnP0ahpYjpvc6K"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+            "code": "delete"
+          },
+          "resource": "Location",
+          "encodeRequestUrl": false,
+          "params": "?_type=Location",
+          "responseId": "esXnP0ahpYjpvc6K"
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+              "code": "create"
+            },
+            "resource": "Location",
+            "encodeRequestUrl": false,
+            "params": "/${JjsF7TUAvIy38Sdi}"
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is OperationOutcome.",
+            "resource": "OperationOutcome",
+            "warningOnly": false
+          }
+        }
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}
