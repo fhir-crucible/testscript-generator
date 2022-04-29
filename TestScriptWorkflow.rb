@@ -1,11 +1,3 @@
-# TODO: Is DEPENDENCIES necessary? Is it really giving any information
-#       that a computer couldn't determine? I.e. if you're either fetching 
-#       or sending. 
-#           --> If you're fetching, you need to know something exists to 
-#               fetch. This can be done by sending the thing or fetching 
-#               randomly and cherry-picking.
-#           --> If you're sending, you need to fetch to confirm that the
-#               the sending worked properly.  
 class TestScriptWorkflow
   Workflow = Struct.new(:setup, :execution, :teardown)
 
@@ -43,11 +35,6 @@ class TestScriptWorkflow
     end 
   end
 
-  # TODO: Create this. 
-  # Notes: I don't want to write this out. I want the STRUCTURE of the DEPENDENCIES constant to basically inform this
-  # anyways. 
-  # PROBLEM: Hashing by dependency type, which is a problem because you can have multiple 'methods' that use the same
-  #           dependency type 
   def design_workflow dependence
     case dependence
     when ['search-type']
