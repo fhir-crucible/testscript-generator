@@ -1,0 +1,79 @@
+{
+  "id": "us-core-organization-create-testscript",
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "version": "0.0",
+  "name": "US CORE Organization Create TestScript",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-04-29T07:10:21-04:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "ACWGkBQxH8cSvsXH",
+      "expression": "Bundle.entry.first.resource.id",
+      "sourceId": "i5T3yVex0koKfhsF"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+            "code": "delete"
+          },
+          "resource": "Organization",
+          "encodeRequestUrl": false,
+          "params": "?_type=Organization",
+          "responseId": "i5T3yVex0koKfhsF"
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+              "code": "create"
+            },
+            "resource": "Organization",
+            "encodeRequestUrl": false,
+            "params": "/${ACWGkBQxH8cSvsXH}"
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is OperationOutcome.",
+            "resource": "OperationOutcome",
+            "warningOnly": false
+          }
+        }
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}

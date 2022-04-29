@@ -1,0 +1,79 @@
+{
+  "id": "us-core-device-create-testscript",
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "version": "0.0",
+  "name": "US CORE Device Create TestScript",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-04-29T07:10:21-04:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "S2qeajkoqsOawWSh",
+      "expression": "Bundle.entry.first.resource.id",
+      "sourceId": "zdUJT2Rgs2xEikki"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+            "code": "delete"
+          },
+          "resource": "Device",
+          "encodeRequestUrl": false,
+          "params": "?_type=Device",
+          "responseId": "zdUJT2Rgs2xEikki"
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+              "code": "create"
+            },
+            "resource": "Device",
+            "encodeRequestUrl": false,
+            "params": "/${S2qeajkoqsOawWSh}"
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is OperationOutcome.",
+            "resource": "OperationOutcome",
+            "warningOnly": false
+          }
+        }
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}

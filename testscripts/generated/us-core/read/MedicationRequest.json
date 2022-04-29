@@ -1,0 +1,65 @@
+{
+  "id": "us-core-medication-request-read-testscript",
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "version": "0.0",
+  "name": "US CORE Medication Request Read TestScript",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-04-29T07:10:21-04:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "dJCpLlyaaBmLeouv",
+      "expression": "Bundle.entry.first.resource.id",
+      "sourceId": "wbzxTFT1s1Hx60NG"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+            "code": "search"
+          },
+          "resource": "MedicationRequest",
+          "encodeRequestUrl": false,
+          "params": "?_type=MedicationRequest",
+          "responseId": "wbzxTFT1s1Hx60NG"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+              "code": "read"
+            },
+            "resource": "MedicationRequest",
+            "encodeRequestUrl": false,
+            "params": "/${dJCpLlyaaBmLeouv}"
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is MedicationRequest.",
+            "resource": "MedicationRequest",
+            "warningOnly": false
+          }
+        }
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}

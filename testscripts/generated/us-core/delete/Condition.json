@@ -1,0 +1,79 @@
+{
+  "id": "us-core-condition-delete-testscript",
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "version": "0.0",
+  "name": "US CORE Condition Delete TestScript",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-04-29T07:10:21-04:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "dTPfvlZXKen6KOYs",
+      "expression": "Bundle.entry.first.resource.id",
+      "sourceId": "RC667B7zvugAfVgT"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+            "code": "read"
+          },
+          "resource": "Condition",
+          "encodeRequestUrl": false,
+          "params": "?_type=Condition",
+          "responseId": "RC667B7zvugAfVgT"
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is Condition.",
+          "resource": "Condition",
+          "warningOnly": false
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes",
+              "code": "delete"
+            },
+            "resource": "Condition",
+            "encodeRequestUrl": false,
+            "params": "/${dTPfvlZXKen6KOYs}"
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is OperationOutcome.",
+            "resource": "OperationOutcome",
+            "warningOnly": false
+          }
+        }
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}
