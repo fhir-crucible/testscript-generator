@@ -5,13 +5,13 @@
   "name": "US CORE Care Plan Read TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "dz4dciHT1Kjof4vV",
+      "name": "3l1cDQZ2uf9HO5jU",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "iGJMwBeuVg6CWvat"
+      "sourceId": "1JeRZIAHckSpenpx"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "CarePlan",
           "encodeRequestUrl": false,
           "params": "?_type=CarePlan",
-          "responseId": "iGJMwBeuVg6CWvat"
+          "responseId": "1JeRZIAHckSpenpx"
         }
       }
     ]
@@ -41,7 +41,7 @@
             },
             "resource": "CarePlan",
             "encodeRequestUrl": false,
-            "params": "/${dz4dciHT1Kjof4vV}"
+            "params": "/${3l1cDQZ2uf9HO5jU}"
           }
         },
         {

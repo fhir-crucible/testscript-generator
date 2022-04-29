@@ -5,13 +5,13 @@
   "name": "US CORE Procedure Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "h4yCzJJ37jsKcZ52",
+      "name": "xOAbbJZbkHo5A8fK",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "578N599Tu9DLqNFU"
+      "sourceId": "DjnP5kUNDgzRjL7U"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Procedure",
           "encodeRequestUrl": false,
           "params": "?_type=Procedure",
-          "responseId": "578N599Tu9DLqNFU"
+          "responseId": "DjnP5kUNDgzRjL7U"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Procedure",
             "encodeRequestUrl": false,
-            "params": "/${h4yCzJJ37jsKcZ52}"
+            "params": "/${xOAbbJZbkHo5A8fK}"
           }
         },
         {

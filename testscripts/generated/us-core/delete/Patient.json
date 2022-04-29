@@ -5,13 +5,13 @@
   "name": "US CORE Patient Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "5eQDrmUnsSgRXn8N",
+      "name": "SXghg8P3wccE1EfH",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "lbCT4F4YyHNYuufS"
+      "sourceId": "YL4KOXaFQyGMXz96"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Patient",
           "encodeRequestUrl": false,
           "params": "?_type=Patient",
-          "responseId": "lbCT4F4YyHNYuufS"
+          "responseId": "YL4KOXaFQyGMXz96"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Patient",
             "encodeRequestUrl": false,
-            "params": "/${5eQDrmUnsSgRXn8N}"
+            "params": "/${SXghg8P3wccE1EfH}"
           }
         },
         {

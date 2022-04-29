@@ -5,13 +5,13 @@
   "name": "US CORE Diagnostic Report Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "KkXGxXk7hDlcA8cO",
+      "name": "FlEMrxMrB79jLx7E",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "rLf3QyAD9t436gdN"
+      "sourceId": "jupow51jeiF2VR6X"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "DiagnosticReport",
           "encodeRequestUrl": false,
           "params": "?_type=DiagnosticReport",
-          "responseId": "rLf3QyAD9t436gdN"
+          "responseId": "jupow51jeiF2VR6X"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "DiagnosticReport",
             "encodeRequestUrl": false,
-            "params": "/${KkXGxXk7hDlcA8cO}"
+            "params": "/${FlEMrxMrB79jLx7E}"
           }
         },
         {

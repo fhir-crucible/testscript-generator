@@ -5,13 +5,13 @@
   "name": "US CORE Allergy Intolerance Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "PXvWENWnM6Nlmhha",
+      "name": "0MO8smk9RgeJVi6Z",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "RjdxsXtnAGSGkQqP"
+      "sourceId": "GXX7CHunNndWhAGn"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "AllergyIntolerance",
           "encodeRequestUrl": false,
           "params": "?_type=AllergyIntolerance",
-          "responseId": "RjdxsXtnAGSGkQqP"
+          "responseId": "GXX7CHunNndWhAGn"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "AllergyIntolerance",
             "encodeRequestUrl": false,
-            "params": "/${PXvWENWnM6Nlmhha}"
+            "params": "/${0MO8smk9RgeJVi6Z}"
           }
         },
         {

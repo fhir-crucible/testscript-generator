@@ -5,13 +5,13 @@
   "name": "US CORE Encounter Create TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "A6CRhWC4K34usd4w",
+      "name": "91ChuObviJXdErUo",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "uSrGue7W3v2LrIvY"
+      "sourceId": "pcv5KVOzsgunXdKa"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Encounter",
           "encodeRequestUrl": false,
           "params": "?_type=Encounter",
-          "responseId": "uSrGue7W3v2LrIvY"
+          "responseId": "pcv5KVOzsgunXdKa"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Encounter",
             "encodeRequestUrl": false,
-            "params": "/${A6CRhWC4K34usd4w}"
+            "params": "/${91ChuObviJXdErUo}"
           }
         },
         {

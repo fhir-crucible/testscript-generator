@@ -5,13 +5,13 @@
   "name": "US CORE Diagnostic Report Create TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "cB3nr8fRErEpn3fw",
+      "name": "3qLoBqnJgjjZ298L",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "8CCWQhBH3RY1Gce3"
+      "sourceId": "i3EbK6FdOySjPHwt"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "DiagnosticReport",
           "encodeRequestUrl": false,
           "params": "?_type=DiagnosticReport",
-          "responseId": "8CCWQhBH3RY1Gce3"
+          "responseId": "i3EbK6FdOySjPHwt"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "DiagnosticReport",
             "encodeRequestUrl": false,
-            "params": "/${cB3nr8fRErEpn3fw}"
+            "params": "/${3qLoBqnJgjjZ298L}"
           }
         },
         {

@@ -5,13 +5,13 @@
   "name": "US CORE Procedure Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "ARLWm6E5XzQp8ndd",
+      "name": "PnM1WpcszWHdrOrO",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "sfrxRSKFBv0genbk"
+      "sourceId": "EPjij2GGaa1w5l6m"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Procedure",
           "encodeRequestUrl": false,
           "params": "?_type=Procedure",
-          "responseId": "sfrxRSKFBv0genbk"
+          "responseId": "EPjij2GGaa1w5l6m"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "Procedure",
             "encodeRequestUrl": false,
-            "params": "/${ARLWm6E5XzQp8ndd}"
+            "params": "/${PnM1WpcszWHdrOrO}"
           }
         },
         {

@@ -5,13 +5,13 @@
   "name": "US CORE Provenance Read TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "LUP4371NrmF6egWX",
+      "name": "5DdCFWIog0WEiBeI",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "Iq5sYb9UYixRLnba"
+      "sourceId": "Akfy1NMi4xBfPSNy"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Provenance",
           "encodeRequestUrl": false,
           "params": "?_type=Provenance",
-          "responseId": "Iq5sYb9UYixRLnba"
+          "responseId": "Akfy1NMi4xBfPSNy"
         }
       }
     ]
@@ -41,7 +41,7 @@
             },
             "resource": "Provenance",
             "encodeRequestUrl": false,
-            "params": "/${LUP4371NrmF6egWX}"
+            "params": "/${5DdCFWIog0WEiBeI}"
           }
         },
         {

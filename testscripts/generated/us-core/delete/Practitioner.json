@@ -5,13 +5,13 @@
   "name": "US CORE Practitioner Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "1eraLHcSWE7pa0I2",
+      "name": "akq1zcSIYPV6MBY5",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "HK6yLqJFXU6d1cyR"
+      "sourceId": "adUNp9MsBzl3FfbE"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Practitioner",
           "encodeRequestUrl": false,
           "params": "?_type=Practitioner",
-          "responseId": "HK6yLqJFXU6d1cyR"
+          "responseId": "adUNp9MsBzl3FfbE"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Practitioner",
             "encodeRequestUrl": false,
-            "params": "/${1eraLHcSWE7pa0I2}"
+            "params": "/${akq1zcSIYPV6MBY5}"
           }
         },
         {

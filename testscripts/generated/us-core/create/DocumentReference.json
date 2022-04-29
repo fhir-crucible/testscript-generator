@@ -5,13 +5,13 @@
   "name": "US CORE Document Reference Create TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "tq6RqQghyVMDCh2j",
+      "name": "xmNfH1QjPL8KPa1S",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "7B12b4rCdYankojT"
+      "sourceId": "8ePKbNORpxefKBCi"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "DocumentReference",
           "encodeRequestUrl": false,
           "params": "?_type=DocumentReference",
-          "responseId": "7B12b4rCdYankojT"
+          "responseId": "8ePKbNORpxefKBCi"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "DocumentReference",
             "encodeRequestUrl": false,
-            "params": "/${tq6RqQghyVMDCh2j}"
+            "params": "/${xmNfH1QjPL8KPa1S}"
           }
         },
         {

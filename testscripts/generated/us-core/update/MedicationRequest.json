@@ -5,13 +5,13 @@
   "name": "US CORE Medication Request Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "dtnJn4KXKHVI1Cjb",
+      "name": "SMcWKMPPGIHN9KZh",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "yOCP6PEjt7gaIS9E"
+      "sourceId": "oQVqOEMi5BReqQ7y"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "MedicationRequest",
           "encodeRequestUrl": false,
           "params": "?_type=MedicationRequest",
-          "responseId": "yOCP6PEjt7gaIS9E"
+          "responseId": "oQVqOEMi5BReqQ7y"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "MedicationRequest",
             "encodeRequestUrl": false,
-            "params": "/${dtnJn4KXKHVI1Cjb}"
+            "params": "/${SMcWKMPPGIHN9KZh}"
           }
         },
         {

@@ -5,13 +5,13 @@
   "name": "US CORE Practitioner Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "fK85TIUadxZj9sTX",
+      "name": "agbmQYepTLPIsq1M",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "Ikf0UUKntxjMxkcZ"
+      "sourceId": "gtu3JgQKsIgek8xT"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Practitioner",
           "encodeRequestUrl": false,
           "params": "?_type=Practitioner",
-          "responseId": "Ikf0UUKntxjMxkcZ"
+          "responseId": "gtu3JgQKsIgek8xT"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "Practitioner",
             "encodeRequestUrl": false,
-            "params": "/${fK85TIUadxZj9sTX}"
+            "params": "/${agbmQYepTLPIsq1M}"
           }
         },
         {

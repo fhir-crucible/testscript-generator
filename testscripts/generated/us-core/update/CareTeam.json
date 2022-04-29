@@ -5,13 +5,13 @@
   "name": "US CORE Care Team Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "FM6cHkyQUVw5eYT2",
+      "name": "q99FE7ZJgddoHFHd",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "sX4SNLXCD16KduOi"
+      "sourceId": "ecduca38fKTQD9j9"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "CareTeam",
           "encodeRequestUrl": false,
           "params": "?_type=CareTeam",
-          "responseId": "sX4SNLXCD16KduOi"
+          "responseId": "ecduca38fKTQD9j9"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "CareTeam",
             "encodeRequestUrl": false,
-            "params": "/${FM6cHkyQUVw5eYT2}"
+            "params": "/${q99FE7ZJgddoHFHd}"
           }
         },
         {

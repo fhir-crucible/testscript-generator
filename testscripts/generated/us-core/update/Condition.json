@@ -5,13 +5,13 @@
   "name": "US CORE Condition Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "VxIML3jxyEslyrgT",
+      "name": "UXWzHTAPWZ4Fs7Fn",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "Uf082teSt51sSkXl"
+      "sourceId": "6ZrUVvH9SIgWaboE"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Condition",
           "encodeRequestUrl": false,
           "params": "?_type=Condition",
-          "responseId": "Uf082teSt51sSkXl"
+          "responseId": "6ZrUVvH9SIgWaboE"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "Condition",
             "encodeRequestUrl": false,
-            "params": "/${VxIML3jxyEslyrgT}"
+            "params": "/${UXWzHTAPWZ4Fs7Fn}"
           }
         },
         {

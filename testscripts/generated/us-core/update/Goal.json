@@ -5,13 +5,13 @@
   "name": "US CORE Goal Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "lqXY1ikJouqzZTlU",
+      "name": "cHkPJBOgkyBD7tSQ",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "fq7vMMDQbRG3hXNO"
+      "sourceId": "lFtKOyBooYZcUFrZ"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Goal",
           "encodeRequestUrl": false,
           "params": "?_type=Goal",
-          "responseId": "fq7vMMDQbRG3hXNO"
+          "responseId": "lFtKOyBooYZcUFrZ"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "Goal",
             "encodeRequestUrl": false,
-            "params": "/${lqXY1ikJouqzZTlU}"
+            "params": "/${cHkPJBOgkyBD7tSQ}"
           }
         },
         {

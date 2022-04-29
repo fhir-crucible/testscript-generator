@@ -5,13 +5,13 @@
   "name": "US CORE Location Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "zjkTOE2N0piDb03X",
+      "name": "ZZJWaaPR0mOWRYhq",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "j3VL737FZOWdhHBy"
+      "sourceId": "PCOO879Rf7wqyd4L"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Location",
           "encodeRequestUrl": false,
           "params": "?_type=Location",
-          "responseId": "j3VL737FZOWdhHBy"
+          "responseId": "PCOO879Rf7wqyd4L"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Location",
             "encodeRequestUrl": false,
-            "params": "/${zjkTOE2N0piDb03X}"
+            "params": "/${ZZJWaaPR0mOWRYhq}"
           }
         },
         {

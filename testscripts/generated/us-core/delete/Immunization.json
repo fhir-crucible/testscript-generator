@@ -5,13 +5,13 @@
   "name": "US CORE Immunization Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "8tg0vYgJMXsGtuhR",
+      "name": "oWAmLlB7U04sDQlV",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "N1YLABjH9iOvTBn7"
+      "sourceId": "PqIC9ikmhH8NYifD"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Immunization",
           "encodeRequestUrl": false,
           "params": "?_type=Immunization",
-          "responseId": "N1YLABjH9iOvTBn7"
+          "responseId": "PqIC9ikmhH8NYifD"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Immunization",
             "encodeRequestUrl": false,
-            "params": "/${8tg0vYgJMXsGtuhR}"
+            "params": "/${oWAmLlB7U04sDQlV}"
           }
         },
         {

@@ -5,13 +5,13 @@
   "name": "US CORE Diagnostic Report Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "OD9T4Lia9DuBUxMW",
+      "name": "skOAaS2WcTCDkFsn",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "XP7NJp1Pr89AJGdP"
+      "sourceId": "pPSH6YfGQPKjKhjg"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "DiagnosticReport",
           "encodeRequestUrl": false,
           "params": "?_type=DiagnosticReport",
-          "responseId": "XP7NJp1Pr89AJGdP"
+          "responseId": "pPSH6YfGQPKjKhjg"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "DiagnosticReport",
             "encodeRequestUrl": false,
-            "params": "/${OD9T4Lia9DuBUxMW}"
+            "params": "/${skOAaS2WcTCDkFsn}"
           }
         },
         {

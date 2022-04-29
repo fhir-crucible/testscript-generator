@@ -1,0 +1,43 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bcp47 (0.3.3)
+      i18n
+    concurrent-ruby (1.1.10)
+    crack (0.4.5)
+      rexml
+    date_time_precision (0.8.1)
+    fhir_models (4.2.1)
+      bcp47 (>= 0.3)
+      date_time_precision (>= 0.8)
+      mime-types (>= 3.0)
+      nokogiri (>= 1.11.4)
+    i18n (1.10.0)
+      concurrent-ruby (~> 1.0)
+    json (2.6.1)
+    mime-types (3.4.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2022.0105)
+    nokogiri (1.13.4-x86_64-darwin)
+      racc (~> 1.4)
+    package (0.0.1)
+    racc (1.6.0)
+    rexml (3.2.5)
+    securerandom (0.2.0)
+    zip (2.0.2)
+    zlib (2.1.1)
+
+PLATFORMS
+  x86_64-darwin-20
+
+DEPENDENCIES
+  crack
+  fhir_models
+  json
+  package
+  securerandom
+  zip
+  zlib
+
+BUNDLED WITH
+   2.3.12

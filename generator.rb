@@ -1,7 +1,7 @@
 # TODO: Naming and organization clean-up
 require 'zlib'
 require 'zip'
-require 'rubygems/package'
+require 'package'
 require 'json'
 require 'crack'
 require 'fhir_models'

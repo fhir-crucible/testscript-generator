@@ -5,13 +5,13 @@
   "name": "US CORE Organization Create TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "ACWGkBQxH8cSvsXH",
+      "name": "GRUnKC9j8oNbRfmb",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "i5T3yVex0koKfhsF"
+      "sourceId": "WYzrizhAzGL81npr"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Organization",
           "encodeRequestUrl": false,
           "params": "?_type=Organization",
-          "responseId": "i5T3yVex0koKfhsF"
+          "responseId": "WYzrizhAzGL81npr"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Organization",
             "encodeRequestUrl": false,
-            "params": "/${ACWGkBQxH8cSvsXH}"
+            "params": "/${GRUnKC9j8oNbRfmb}"
           }
         },
         {

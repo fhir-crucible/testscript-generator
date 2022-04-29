@@ -5,13 +5,13 @@
   "name": "US CORE Care Team Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "9GCcgaV5A72b0B0c",
+      "name": "HChFGWdMFUFybPDU",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "vAjt3gSMQK9NM2Hu"
+      "sourceId": "eW7tvaM3tUwh9Ann"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "CareTeam",
           "encodeRequestUrl": false,
           "params": "?_type=CareTeam",
-          "responseId": "vAjt3gSMQK9NM2Hu"
+          "responseId": "eW7tvaM3tUwh9Ann"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "CareTeam",
             "encodeRequestUrl": false,
-            "params": "/${9GCcgaV5A72b0B0c}"
+            "params": "/${HChFGWdMFUFybPDU}"
           }
         },
         {

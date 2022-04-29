@@ -5,13 +5,13 @@
   "name": "US CORE Provenance Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "VfAlQWzZn3lK398h",
+      "name": "ySC2qe1C78JOJZXs",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "mVxaHCILHxLRaLlr"
+      "sourceId": "2D2S0XGVN9taPj7S"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Provenance",
           "encodeRequestUrl": false,
           "params": "?_type=Provenance",
-          "responseId": "mVxaHCILHxLRaLlr"
+          "responseId": "2D2S0XGVN9taPj7S"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "Provenance",
             "encodeRequestUrl": false,
-            "params": "/${VfAlQWzZn3lK398h}"
+            "params": "/${ySC2qe1C78JOJZXs}"
           }
         },
         {

@@ -5,13 +5,13 @@
   "name": "US CORE Document Reference Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "sawoBhuZAa0FgMmC",
+      "name": "fYALUcS7r82yTE8V",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "yPcWBQfgSZPQ0xZ0"
+      "sourceId": "903GKY6U6TmuzjV0"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "DocumentReference",
           "encodeRequestUrl": false,
           "params": "?_type=DocumentReference",
-          "responseId": "yPcWBQfgSZPQ0xZ0"
+          "responseId": "903GKY6U6TmuzjV0"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "DocumentReference",
             "encodeRequestUrl": false,
-            "params": "/${sawoBhuZAa0FgMmC}"
+            "params": "/${fYALUcS7r82yTE8V}"
           }
         },
         {

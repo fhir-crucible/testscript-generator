@@ -5,13 +5,13 @@
   "name": "US CORE Observation Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "f8HafuCpgn9N87Nz",
+      "name": "KiHnifXAr77Q4TzW",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "UKPmlQJCUQbQq1pL"
+      "sourceId": "pu690BPTNKquTWBj"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Observation",
           "encodeRequestUrl": false,
           "params": "?_type=Observation",
-          "responseId": "UKPmlQJCUQbQq1pL"
+          "responseId": "pu690BPTNKquTWBj"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "Observation",
             "encodeRequestUrl": false,
-            "params": "/${f8HafuCpgn9N87Nz}"
+            "params": "/${KiHnifXAr77Q4TzW}"
           }
         },
         {

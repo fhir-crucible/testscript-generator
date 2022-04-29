@@ -5,13 +5,13 @@
   "name": "US CORE Care Plan Delete TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "vpLIv9Da4qxwoLRn",
+      "name": "6mkDscNgoupBCnY9",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "SFJucUc2Gz9VovME"
+      "sourceId": "PrUjlRAmMCWXwoxr"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "CarePlan",
           "encodeRequestUrl": false,
           "params": "?_type=CarePlan",
-          "responseId": "SFJucUc2Gz9VovME"
+          "responseId": "PrUjlRAmMCWXwoxr"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "CarePlan",
             "encodeRequestUrl": false,
-            "params": "/${vpLIv9Da4qxwoLRn}"
+            "params": "/${6mkDscNgoupBCnY9}"
           }
         },
         {

@@ -5,13 +5,13 @@
   "name": "US CORE Allergy Intolerance Create TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "UXouGqwFAtAGELQP",
+      "name": "gTPLkCqa50q8Usdj",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "LSN2h8XeIrd4u8Ew"
+      "sourceId": "lHGb1DdgqZrwICon"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "AllergyIntolerance",
           "encodeRequestUrl": false,
           "params": "?_type=AllergyIntolerance",
-          "responseId": "LSN2h8XeIrd4u8Ew"
+          "responseId": "lHGb1DdgqZrwICon"
         }
       },
       {
@@ -55,7 +55,7 @@
             },
             "resource": "AllergyIntolerance",
             "encodeRequestUrl": false,
-            "params": "/${UXouGqwFAtAGELQP}"
+            "params": "/${gTPLkCqa50q8Usdj}"
           }
         },
         {

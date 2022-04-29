@@ -5,13 +5,13 @@
   "name": "US CORE Organization Update TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "zlYCf51fFY7iXnfq",
+      "name": "Pt8b2i0ZZL1OvqPv",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "ZoxeyEkSIRyr8zwb"
+      "sourceId": "QlOI22FJPn2FWrL7"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Organization",
           "encodeRequestUrl": false,
           "params": "?_type=Organization",
-          "responseId": "ZoxeyEkSIRyr8zwb"
+          "responseId": "QlOI22FJPn2FWrL7"
         }
       },
       {
@@ -54,7 +54,7 @@
             },
             "resource": "Organization",
             "encodeRequestUrl": false,
-            "params": "/${zlYCf51fFY7iXnfq}"
+            "params": "/${Pt8b2i0ZZL1OvqPv}"
           }
         },
         {

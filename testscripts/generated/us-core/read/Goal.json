@@ -5,13 +5,13 @@
   "name": "US CORE Goal Read TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "Oc1RYFX1KuBHM7Mk",
+      "name": "mjckRTYvEg6CCb5A",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "UbchOwcxEPQJbnI7"
+      "sourceId": "pJitvDcCaeh5RG2q"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Goal",
           "encodeRequestUrl": false,
           "params": "?_type=Goal",
-          "responseId": "UbchOwcxEPQJbnI7"
+          "responseId": "pJitvDcCaeh5RG2q"
         }
       }
     ]
@@ -41,7 +41,7 @@
             },
             "resource": "Goal",
             "encodeRequestUrl": false,
-            "params": "/${Oc1RYFX1KuBHM7Mk}"
+            "params": "/${mjckRTYvEg6CCb5A}"
           }
         },
         {

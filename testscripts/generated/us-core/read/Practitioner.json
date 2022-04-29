@@ -5,13 +5,13 @@
   "name": "US CORE Practitioner Read TestScript",
   "status": "draft",
   "experimental": true,
-  "date": "2022-04-29T07:10:21-04:00",
+  "date": "2022-04-29T11:43:01-04:00",
   "publisher": "The MITRE Corporation",
   "variable": [
     {
-      "name": "YwPdY4xDGN5ukHay",
+      "name": "k0KBpE6wgV9h9WGk",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "yMZyeDLZpNQlYQ8B"
+      "sourceId": "gugyGArQfr8qjKGN"
     }
   ],
   "setup": {
@@ -25,7 +25,7 @@
           "resource": "Practitioner",
           "encodeRequestUrl": false,
           "params": "?_type=Practitioner",
-          "responseId": "yMZyeDLZpNQlYQ8B"
+          "responseId": "gugyGArQfr8qjKGN"
         }
       }
     ]
@@ -41,7 +41,7 @@
             },
             "resource": "Practitioner",
             "encodeRequestUrl": false,
-            "params": "/${YwPdY4xDGN5ukHay}"
+            "params": "/${k0KBpE6wgV9h9WGk}"
           }
         },
         {
