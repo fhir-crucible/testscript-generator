@@ -9,7 +9,7 @@
     {
       "name": "variable",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "NCE29UWn7MeXvSc6"
+      "sourceId": "LWJ9eEuQ4YhDfSDe"
     }
   ],
   "setup": {
@@ -22,25 +22,23 @@
           },
           "resource": "AllergyIntolerance",
           "encodeRequestUrl": false,
-          "responseId": "NCE29UWn7MeXvSc6"
+          "responseId": "LWJ9eEuQ4YhDfSDe"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is Bundle.",
-            "resource": "Bundle",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is Bundle.",
+          "resource": "Bundle",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -54,25 +52,23 @@
             },
             "resource": "AllergyIntolerance",
             "encodeRequestUrl": false,
-            "url": "/AllergyIntolerance/${NCE29UWn7MeXvSc6}"
+            "url": "/AllergyIntolerance/${LWJ9eEuQ4YhDfSDe}"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is AllergyIntolerance.",
-              "resource": "AllergyIntolerance",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is AllergyIntolerance.",
+            "resource": "AllergyIntolerance",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

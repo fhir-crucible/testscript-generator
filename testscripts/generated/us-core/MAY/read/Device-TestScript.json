@@ -15,26 +15,24 @@
           },
           "resource": "Device",
           "encodeRequestUrl": false,
-          "responseId": "IxRMuJr2UsjGOMAJ",
+          "responseId": "oeFEVxIyOaNBnrVd",
           "sourceId": "Device-example"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is OperationOutcome.",
-            "resource": "OperationOutcome",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -48,25 +46,23 @@
             },
             "resource": "Device",
             "encodeRequestUrl": false,
-            "targetId": "IxRMuJr2UsjGOMAJ"
+            "targetId": "oeFEVxIyOaNBnrVd"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Device.",
-              "resource": "Device",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Device.",
+            "resource": "Device",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

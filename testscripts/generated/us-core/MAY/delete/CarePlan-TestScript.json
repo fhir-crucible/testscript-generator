@@ -15,11 +15,40 @@
           },
           "resource": "CarePlan",
           "encodeRequestUrl": false,
-          "responseId": "T68gWZJbScXJGwKp",
+          "responseId": "TtUyBYkd0qzr6vmb",
           "sourceId": "CarePlan-example"
         }
       },
-      [
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+              "code": "delete"
+            },
+            "resource": "CarePlan",
+            "encodeRequestUrl": false,
+            "targetId": "TtUyBYkd0qzr6vmb"
+          }
+        },
         {
           "assert": {
             "description": "Confirm that the returned HTTP status is 200(OK).",
@@ -34,39 +63,6 @@
             "warningOnly": false
           }
         }
-      ]
-    ]
-  },
-  "test": [
-    {
-      "action": [
-        {
-          "operation": {
-            "type": {
-              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
-              "code": "delete"
-            },
-            "resource": "CarePlan",
-            "encodeRequestUrl": false,
-            "targetId": "T68gWZJbScXJGwKp"
-          }
-        },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is OperationOutcome.",
-              "resource": "OperationOutcome",
-              "warningOnly": false
-            }
-          }
-        ]
       ]
     }
   ],

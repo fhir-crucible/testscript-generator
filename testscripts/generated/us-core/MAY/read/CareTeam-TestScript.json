@@ -15,26 +15,24 @@
           },
           "resource": "CareTeam",
           "encodeRequestUrl": false,
-          "responseId": "YnzSGRm7HQ5fEj7r",
+          "responseId": "Fsir3xeTw8NFonSa",
           "sourceId": "CareTeam-example"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is OperationOutcome.",
-            "resource": "OperationOutcome",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -48,25 +46,23 @@
             },
             "resource": "CareTeam",
             "encodeRequestUrl": false,
-            "targetId": "YnzSGRm7HQ5fEj7r"
+            "targetId": "Fsir3xeTw8NFonSa"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is CareTeam.",
-              "resource": "CareTeam",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is CareTeam.",
+            "resource": "CareTeam",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

@@ -17,25 +17,23 @@
             "resource": "Observation",
             "encodeRequestUrl": false,
             "sourceId": "Observation-example",
-            "targetId": "RhbkhcbwfNXJQzln"
+            "targetId": "E88gzAfNELtsczcn"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is OperationOutcome.",
-              "resource": "OperationOutcome",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is OperationOutcome.",
+            "resource": "OperationOutcome",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

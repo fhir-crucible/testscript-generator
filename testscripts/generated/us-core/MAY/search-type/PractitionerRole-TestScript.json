@@ -16,25 +16,23 @@
             },
             "resource": "PractitionerRole",
             "encodeRequestUrl": false,
-            "targetId": "j2Mp8jN4ihPz1MK2"
+            "targetId": "uDNbezO8T7Q5p0bz"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Bundle.",
-              "resource": "Bundle",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Bundle.",
+            "resource": "Bundle",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

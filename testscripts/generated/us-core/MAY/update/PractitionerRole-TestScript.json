@@ -15,11 +15,40 @@
           },
           "resource": "PractitionerRole",
           "encodeRequestUrl": false,
-          "responseId": "Gi5KcrGQKkiSDYbk",
+          "responseId": "9y08OJzIFsRp5nb9",
           "sourceId": "PractitionerRole-example"
         }
       },
-      [
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+              "code": "update"
+            },
+            "resource": "PractitionerRole",
+            "encodeRequestUrl": false,
+            "targetId": "9y08OJzIFsRp5nb9"
+          }
+        },
         {
           "assert": {
             "description": "Confirm that the returned HTTP status is 200(OK).",
@@ -34,39 +63,6 @@
             "warningOnly": false
           }
         }
-      ]
-    ]
-  },
-  "test": [
-    {
-      "action": [
-        {
-          "operation": {
-            "type": {
-              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
-              "code": "update"
-            },
-            "resource": "PractitionerRole",
-            "encodeRequestUrl": false,
-            "targetId": "Gi5KcrGQKkiSDYbk"
-          }
-        },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is OperationOutcome.",
-              "resource": "OperationOutcome",
-              "warningOnly": false
-            }
-          }
-        ]
       ]
     }
   ],

@@ -15,26 +15,24 @@
           },
           "resource": "Patient",
           "encodeRequestUrl": false,
-          "responseId": "tSmZyn0nCtUc6Myk",
+          "responseId": "4S3jLhb2MzJ8cwq0",
           "sourceId": "Patient-example"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is OperationOutcome.",
-            "resource": "OperationOutcome",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -48,25 +46,23 @@
             },
             "resource": "Patient",
             "encodeRequestUrl": false,
-            "targetId": "tSmZyn0nCtUc6Myk"
+            "targetId": "4S3jLhb2MzJ8cwq0"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Patient.",
-              "resource": "Patient",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Patient.",
+            "resource": "Patient",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

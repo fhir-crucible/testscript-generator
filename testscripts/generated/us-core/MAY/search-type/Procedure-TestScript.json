@@ -16,25 +16,23 @@
             },
             "resource": "Procedure",
             "encodeRequestUrl": false,
-            "targetId": "E1sMaiH5Gyqd29r4"
+            "targetId": "oqHRda2XhJelPOb1"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Bundle.",
-              "resource": "Bundle",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Bundle.",
+            "resource": "Bundle",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

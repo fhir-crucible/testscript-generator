@@ -15,26 +15,24 @@
           },
           "resource": "Observation",
           "encodeRequestUrl": false,
-          "responseId": "1ypWewHf8hHF1LkB",
+          "responseId": "IhwykHVgSaMWufga",
           "sourceId": "Observation-example"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is OperationOutcome.",
-            "resource": "OperationOutcome",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -48,25 +46,23 @@
             },
             "resource": "Observation",
             "encodeRequestUrl": false,
-            "targetId": "1ypWewHf8hHF1LkB"
+            "targetId": "IhwykHVgSaMWufga"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Observation.",
-              "resource": "Observation",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Observation.",
+            "resource": "Observation",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

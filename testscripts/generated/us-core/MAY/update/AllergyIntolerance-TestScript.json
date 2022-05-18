@@ -15,11 +15,40 @@
           },
           "resource": "AllergyIntolerance",
           "encodeRequestUrl": false,
-          "responseId": "WcT272AjKlIOpF9m",
+          "responseId": "4a2wG6j0XiQve3dt",
           "sourceId": "AllergyIntolerance-example"
         }
       },
-      [
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+              "code": "update"
+            },
+            "resource": "AllergyIntolerance",
+            "encodeRequestUrl": false,
+            "targetId": "4a2wG6j0XiQve3dt"
+          }
+        },
         {
           "assert": {
             "description": "Confirm that the returned HTTP status is 200(OK).",
@@ -34,39 +63,6 @@
             "warningOnly": false
           }
         }
-      ]
-    ]
-  },
-  "test": [
-    {
-      "action": [
-        {
-          "operation": {
-            "type": {
-              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
-              "code": "update"
-            },
-            "resource": "AllergyIntolerance",
-            "encodeRequestUrl": false,
-            "targetId": "WcT272AjKlIOpF9m"
-          }
-        },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is OperationOutcome.",
-              "resource": "OperationOutcome",
-              "warningOnly": false
-            }
-          }
-        ]
       ]
     }
   ],

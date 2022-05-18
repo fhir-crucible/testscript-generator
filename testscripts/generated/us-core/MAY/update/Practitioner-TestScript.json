@@ -15,11 +15,40 @@
           },
           "resource": "Practitioner",
           "encodeRequestUrl": false,
-          "responseId": "64T8G19Fp5lNfypn",
+          "responseId": "fPCZBlyEmBCKT9un",
           "sourceId": "Practitioner-example"
         }
       },
-      [
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
+        }
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+              "code": "update"
+            },
+            "resource": "Practitioner",
+            "encodeRequestUrl": false,
+            "targetId": "fPCZBlyEmBCKT9un"
+          }
+        },
         {
           "assert": {
             "description": "Confirm that the returned HTTP status is 200(OK).",
@@ -34,39 +63,6 @@
             "warningOnly": false
           }
         }
-      ]
-    ]
-  },
-  "test": [
-    {
-      "action": [
-        {
-          "operation": {
-            "type": {
-              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
-              "code": "update"
-            },
-            "resource": "Practitioner",
-            "encodeRequestUrl": false,
-            "targetId": "64T8G19Fp5lNfypn"
-          }
-        },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is OperationOutcome.",
-              "resource": "OperationOutcome",
-              "warningOnly": false
-            }
-          }
-        ]
       ]
     }
   ],

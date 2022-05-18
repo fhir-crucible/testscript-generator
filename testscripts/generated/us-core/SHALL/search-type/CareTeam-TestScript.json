@@ -16,25 +16,23 @@
             },
             "resource": "CareTeam",
             "encodeRequestUrl": false,
-            "targetId": "WHnrccGwE9o7dTG3"
+            "targetId": "nv7pXYD8RkZuAZW7"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Bundle.",
-              "resource": "Bundle",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Bundle.",
+            "resource": "Bundle",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

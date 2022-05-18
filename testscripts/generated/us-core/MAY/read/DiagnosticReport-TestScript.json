@@ -15,26 +15,24 @@
           },
           "resource": "DiagnosticReport",
           "encodeRequestUrl": false,
-          "responseId": "O32rCrYtnhbnMP6R",
+          "responseId": "U0rshNKhCP5i5xN1",
           "sourceId": "DiagnosticReport-example"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is OperationOutcome.",
-            "resource": "OperationOutcome",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -48,25 +46,23 @@
             },
             "resource": "DiagnosticReport",
             "encodeRequestUrl": false,
-            "targetId": "O32rCrYtnhbnMP6R"
+            "targetId": "U0rshNKhCP5i5xN1"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is DiagnosticReport.",
-              "resource": "DiagnosticReport",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is DiagnosticReport.",
+            "resource": "DiagnosticReport",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

@@ -9,7 +9,7 @@
     {
       "name": "variable",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "17ysyMeUlVQvfLf1"
+      "sourceId": "huKQHYm9yv7XSxaU"
     }
   ],
   "setup": {
@@ -22,25 +22,23 @@
           },
           "resource": "Patient",
           "encodeRequestUrl": false,
-          "responseId": "17ysyMeUlVQvfLf1"
+          "responseId": "huKQHYm9yv7XSxaU"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is Bundle.",
-            "resource": "Bundle",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is Bundle.",
+          "resource": "Bundle",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -54,25 +52,23 @@
             },
             "resource": "Patient",
             "encodeRequestUrl": false,
-            "url": "/Patient/${17ysyMeUlVQvfLf1}"
+            "url": "/Patient/${huKQHYm9yv7XSxaU}"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Patient.",
-              "resource": "Patient",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Patient.",
+            "resource": "Patient",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

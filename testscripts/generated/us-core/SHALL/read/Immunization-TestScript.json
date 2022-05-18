@@ -9,7 +9,7 @@
     {
       "name": "variable",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "yascyeFLNpuKqms1"
+      "sourceId": "1wXaQfVPJpmCp4gH"
     }
   ],
   "setup": {
@@ -22,25 +22,23 @@
           },
           "resource": "Immunization",
           "encodeRequestUrl": false,
-          "responseId": "yascyeFLNpuKqms1"
+          "responseId": "1wXaQfVPJpmCp4gH"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is Bundle.",
-            "resource": "Bundle",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is Bundle.",
+          "resource": "Bundle",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -54,25 +52,23 @@
             },
             "resource": "Immunization",
             "encodeRequestUrl": false,
-            "url": "/Immunization/${yascyeFLNpuKqms1}"
+            "url": "/Immunization/${1wXaQfVPJpmCp4gH}"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Immunization.",
-              "resource": "Immunization",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Immunization.",
+            "resource": "Immunization",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

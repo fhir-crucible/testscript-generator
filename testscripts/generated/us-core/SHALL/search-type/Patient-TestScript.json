@@ -16,25 +16,23 @@
             },
             "resource": "Patient",
             "encodeRequestUrl": false,
-            "targetId": "F62CJbU7pDNVA0OI"
+            "targetId": "NPubrqLEVEcCQodB"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Bundle.",
-              "resource": "Bundle",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Bundle.",
+            "resource": "Bundle",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

@@ -16,25 +16,23 @@
             },
             "resource": "CarePlan",
             "encodeRequestUrl": false,
-            "targetId": "wU4WAqMGX4KlF4A1"
+            "targetId": "yeME449PrKQ22iNg"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Bundle.",
-              "resource": "Bundle",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Bundle.",
+            "resource": "Bundle",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

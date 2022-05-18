@@ -9,7 +9,7 @@
     {
       "name": "variable",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "yea3no2iznz8HBy8"
+      "sourceId": "CghK0lLncP10Zm11"
     }
   ],
   "setup": {
@@ -22,25 +22,23 @@
           },
           "resource": "Encounter",
           "encodeRequestUrl": false,
-          "responseId": "yea3no2iznz8HBy8"
+          "responseId": "CghK0lLncP10Zm11"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is Bundle.",
-            "resource": "Bundle",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is Bundle.",
+          "resource": "Bundle",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -54,25 +52,23 @@
             },
             "resource": "Encounter",
             "encodeRequestUrl": false,
-            "url": "/Encounter/${yea3no2iznz8HBy8}"
+            "url": "/Encounter/${CghK0lLncP10Zm11}"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Encounter.",
-              "resource": "Encounter",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Encounter.",
+            "resource": "Encounter",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

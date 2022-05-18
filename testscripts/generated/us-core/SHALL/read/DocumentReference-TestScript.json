@@ -15,26 +15,24 @@
           },
           "resource": "DocumentReference",
           "encodeRequestUrl": false,
-          "responseId": "zI7Zk5jXaVMBrSmZ",
+          "responseId": "G7K2fEq62FUOrYux",
           "sourceId": "DocumentReference-example"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is OperationOutcome.",
-            "resource": "OperationOutcome",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -48,25 +46,23 @@
             },
             "resource": "DocumentReference",
             "encodeRequestUrl": false,
-            "targetId": "zI7Zk5jXaVMBrSmZ"
+            "targetId": "G7K2fEq62FUOrYux"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is DocumentReference.",
-              "resource": "DocumentReference",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is DocumentReference.",
+            "resource": "DocumentReference",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

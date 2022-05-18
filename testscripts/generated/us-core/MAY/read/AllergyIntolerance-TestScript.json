@@ -15,26 +15,24 @@
           },
           "resource": "AllergyIntolerance",
           "encodeRequestUrl": false,
-          "responseId": "BIu5sxyXzHP4xQwm",
+          "responseId": "5P4o2mRi8G4zJi2X",
           "sourceId": "AllergyIntolerance-example"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is OperationOutcome.",
-            "resource": "OperationOutcome",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -48,25 +46,23 @@
             },
             "resource": "AllergyIntolerance",
             "encodeRequestUrl": false,
-            "targetId": "BIu5sxyXzHP4xQwm"
+            "targetId": "5P4o2mRi8G4zJi2X"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is AllergyIntolerance.",
-              "resource": "AllergyIntolerance",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is AllergyIntolerance.",
+            "resource": "AllergyIntolerance",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

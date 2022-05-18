@@ -15,26 +15,24 @@
           },
           "resource": "Practitioner",
           "encodeRequestUrl": false,
-          "responseId": "KTPAL4fg3KR0AVpj",
+          "responseId": "vzi96R9zExmBAHhH",
           "sourceId": "Practitioner-example"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is OperationOutcome.",
-            "resource": "OperationOutcome",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -48,25 +46,23 @@
             },
             "resource": "Practitioner",
             "encodeRequestUrl": false,
-            "targetId": "KTPAL4fg3KR0AVpj"
+            "targetId": "vzi96R9zExmBAHhH"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Practitioner.",
-              "resource": "Practitioner",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Practitioner.",
+            "resource": "Practitioner",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

@@ -9,7 +9,7 @@
     {
       "name": "variable",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "gtpFZu0Jr3wrk9x4"
+      "sourceId": "IOcTHov5CPmrfD2q"
     }
   ],
   "setup": {
@@ -22,25 +22,23 @@
           },
           "resource": "Location",
           "encodeRequestUrl": false,
-          "responseId": "gtpFZu0Jr3wrk9x4"
+          "responseId": "IOcTHov5CPmrfD2q"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is Bundle.",
-            "resource": "Bundle",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is Bundle.",
+          "resource": "Bundle",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -54,25 +52,23 @@
             },
             "resource": "Location",
             "encodeRequestUrl": false,
-            "url": "/Location/${gtpFZu0Jr3wrk9x4}"
+            "url": "/Location/${IOcTHov5CPmrfD2q}"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Location.",
-              "resource": "Location",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Location.",
+            "resource": "Location",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

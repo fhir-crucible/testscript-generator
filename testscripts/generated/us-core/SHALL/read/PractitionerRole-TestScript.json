@@ -9,7 +9,7 @@
     {
       "name": "variable",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "a73fMbsEvFfc4lM7"
+      "sourceId": "h5v0Ga1H8Pfkb5zK"
     }
   ],
   "setup": {
@@ -22,25 +22,23 @@
           },
           "resource": "PractitionerRole",
           "encodeRequestUrl": false,
-          "responseId": "a73fMbsEvFfc4lM7"
+          "responseId": "h5v0Ga1H8Pfkb5zK"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is Bundle.",
-            "resource": "Bundle",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is Bundle.",
+          "resource": "Bundle",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -54,25 +52,23 @@
             },
             "resource": "PractitionerRole",
             "encodeRequestUrl": false,
-            "url": "/PractitionerRole/${a73fMbsEvFfc4lM7}"
+            "url": "/PractitionerRole/${h5v0Ga1H8Pfkb5zK}"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is PractitionerRole.",
-              "resource": "PractitionerRole",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is PractitionerRole.",
+            "resource": "PractitionerRole",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

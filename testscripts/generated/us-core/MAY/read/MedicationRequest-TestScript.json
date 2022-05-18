@@ -15,26 +15,24 @@
           },
           "resource": "MedicationRequest",
           "encodeRequestUrl": false,
-          "responseId": "4shdHQwotogABd7k",
+          "responseId": "QT1QLOFGqqAEUlbm",
           "sourceId": "MedicationRequest-example"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is OperationOutcome.",
-            "resource": "OperationOutcome",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -48,25 +46,23 @@
             },
             "resource": "MedicationRequest",
             "encodeRequestUrl": false,
-            "targetId": "4shdHQwotogABd7k"
+            "targetId": "QT1QLOFGqqAEUlbm"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is MedicationRequest.",
-              "resource": "MedicationRequest",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is MedicationRequest.",
+            "resource": "MedicationRequest",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

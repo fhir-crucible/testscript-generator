@@ -9,7 +9,7 @@
     {
       "name": "variable",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "A3v5wAPELzPaGzqs"
+      "sourceId": "TIPoVH18sStudWje"
     }
   ],
   "setup": {
@@ -22,25 +22,23 @@
           },
           "resource": "Procedure",
           "encodeRequestUrl": false,
-          "responseId": "A3v5wAPELzPaGzqs"
+          "responseId": "TIPoVH18sStudWje"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is Bundle.",
-            "resource": "Bundle",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is Bundle.",
+          "resource": "Bundle",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -54,25 +52,23 @@
             },
             "resource": "Procedure",
             "encodeRequestUrl": false,
-            "url": "/Procedure/${A3v5wAPELzPaGzqs}"
+            "url": "/Procedure/${TIPoVH18sStudWje}"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Procedure.",
-              "resource": "Procedure",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Procedure.",
+            "resource": "Procedure",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

@@ -9,7 +9,7 @@
     {
       "name": "variable",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "jtBGLmm6QTyf2jpP"
+      "sourceId": "fz7OOBd7ek1e4vUn"
     }
   ],
   "setup": {
@@ -22,25 +22,23 @@
           },
           "resource": "Goal",
           "encodeRequestUrl": false,
-          "responseId": "jtBGLmm6QTyf2jpP"
+          "responseId": "fz7OOBd7ek1e4vUn"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is Bundle.",
-            "resource": "Bundle",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is Bundle.",
+          "resource": "Bundle",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -54,25 +52,23 @@
             },
             "resource": "Goal",
             "encodeRequestUrl": false,
-            "url": "/Goal/${jtBGLmm6QTyf2jpP}"
+            "url": "/Goal/${fz7OOBd7ek1e4vUn}"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Goal.",
-              "resource": "Goal",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Goal.",
+            "resource": "Goal",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

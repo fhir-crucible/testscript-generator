@@ -9,7 +9,7 @@
     {
       "name": "variable",
       "expression": "Bundle.entry.first.resource.id",
-      "sourceId": "oZJSiPhTHulD6Bok"
+      "sourceId": "gwDkft5x0ITrude1"
     }
   ],
   "setup": {
@@ -22,25 +22,23 @@
           },
           "resource": "Organization",
           "encodeRequestUrl": false,
-          "responseId": "oZJSiPhTHulD6Bok"
+          "responseId": "gwDkft5x0ITrude1"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is Bundle.",
-            "resource": "Bundle",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is Bundle.",
+          "resource": "Bundle",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -54,25 +52,23 @@
             },
             "resource": "Organization",
             "encodeRequestUrl": false,
-            "url": "/Organization/${oZJSiPhTHulD6Bok}"
+            "url": "/Organization/${gwDkft5x0ITrude1}"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is Organization.",
-              "resource": "Organization",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Organization.",
+            "resource": "Organization",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

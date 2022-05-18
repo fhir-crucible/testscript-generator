@@ -15,26 +15,24 @@
           },
           "resource": "CarePlan",
           "encodeRequestUrl": false,
-          "responseId": "rCgUWlt3lu9EjgAe",
+          "responseId": "Fq33hhv1b6Bs2y9R",
           "sourceId": "CarePlan-example"
         }
       },
-      [
-        {
-          "assert": {
-            "description": "Confirm that the returned HTTP status is 200(OK).",
-            "response": "okay",
-            "warningOnly": false
-          }
-        },
-        {
-          "assert": {
-            "description": "Confirm that the returned resource type is OperationOutcome.",
-            "resource": "OperationOutcome",
-            "warningOnly": false
-          }
+      {
+        "assert": {
+          "description": "Confirm that the returned HTTP status is 200(OK).",
+          "response": "okay",
+          "warningOnly": false
         }
-      ]
+      },
+      {
+        "assert": {
+          "description": "Confirm that the returned resource type is OperationOutcome.",
+          "resource": "OperationOutcome",
+          "warningOnly": false
+        }
+      }
     ]
   },
   "test": [
@@ -48,25 +46,23 @@
             },
             "resource": "CarePlan",
             "encodeRequestUrl": false,
-            "targetId": "rCgUWlt3lu9EjgAe"
+            "targetId": "Fq33hhv1b6Bs2y9R"
           }
         },
-        [
-          {
-            "assert": {
-              "description": "Confirm that the returned HTTP status is 200(OK).",
-              "response": "okay",
-              "warningOnly": false
-            }
-          },
-          {
-            "assert": {
-              "description": "Confirm that the returned resource type is CarePlan.",
-              "resource": "CarePlan",
-              "warningOnly": false
-            }
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
           }
-        ]
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is CarePlan.",
+            "resource": "CarePlan",
+            "warningOnly": false
+          }
+        }
       ]
     }
   ],

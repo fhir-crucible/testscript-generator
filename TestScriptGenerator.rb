@@ -94,7 +94,7 @@ class TestScriptGenerator
   def build_setup(script, id)
     script.setup = FHIR::TestScript::Setup.new 
     script.setup.action << setup_action(build_setup_operation(id))
-    script.setup.action << build_asserts(id).map { |assert| setup_action(assert) }
+    script.setup.action.concat build_asserts(id).map { |assert| setup_action(assert) }
     script.variable << build_var(id) if id == 'search-type'
   end 
 
@@ -121,7 +121,7 @@ class TestScriptGenerator
   def build_test(script, id)
     script.test << FHIR::TestScript::Test.new
     script.test.first.action << action(build_operation(id, !script.variable.empty?))
-    script.test.first.action << build_asserts(id).map { |assert| action(assert) }
+    script.test.first.action.concat build_asserts(id).map { |assert| action(assert) }
   end 
 
   def action(base_action)
