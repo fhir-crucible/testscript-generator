@@ -1,0 +1,74 @@
+{
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "name": "us-core-Condition-read",
+  "status": {
+    "system": "http://hl7.org/fhir/ValueSet/publication-status",
+    "code": "draft"
+  },
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+            "code": "create"
+          },
+          "resource": "Condition",
+          "encodeRequestUrl": false,
+          "responseId": "DVRHJkPlLWiz7Ozr",
+          "sourceId": "Condition-example"
+        }
+      },
+      [
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is OperationOutcome.",
+            "resource": "OperationOutcome",
+            "warningOnly": false
+          }
+        }
+      ]
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+              "code": "read"
+            },
+            "resource": "Condition",
+            "encodeRequestUrl": false,
+            "targetId": "DVRHJkPlLWiz7Ozr"
+          }
+        },
+        [
+          {
+            "assert": {
+              "description": "Confirm that the returned HTTP status is 200(OK).",
+              "response": "okay",
+              "warningOnly": false
+            }
+          },
+          {
+            "assert": {
+              "description": "Confirm that the returned resource type is Condition.",
+              "resource": "Condition",
+              "warningOnly": false
+            }
+          }
+        ]
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}

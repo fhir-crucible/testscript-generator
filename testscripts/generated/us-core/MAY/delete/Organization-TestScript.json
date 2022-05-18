@@ -1,0 +1,74 @@
+{
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "name": "us-core-Organization-delete",
+  "status": {
+    "system": "http://hl7.org/fhir/ValueSet/publication-status",
+    "code": "draft"
+  },
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+            "code": "create"
+          },
+          "resource": "Organization",
+          "encodeRequestUrl": false,
+          "responseId": "xBE7EvGSKslLtPXW",
+          "sourceId": "Organization-example"
+        }
+      },
+      [
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is OperationOutcome.",
+            "resource": "OperationOutcome",
+            "warningOnly": false
+          }
+        }
+      ]
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+              "code": "delete"
+            },
+            "resource": "Organization",
+            "encodeRequestUrl": false,
+            "targetId": "xBE7EvGSKslLtPXW"
+          }
+        },
+        [
+          {
+            "assert": {
+              "description": "Confirm that the returned HTTP status is 200(OK).",
+              "response": "okay",
+              "warningOnly": false
+            }
+          },
+          {
+            "assert": {
+              "description": "Confirm that the returned resource type is OperationOutcome.",
+              "resource": "OperationOutcome",
+              "warningOnly": false
+            }
+          }
+        ]
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}

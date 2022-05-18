@@ -1,0 +1,74 @@
+{
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "name": "us-core-DocumentReference-read",
+  "status": {
+    "system": "http://hl7.org/fhir/ValueSet/publication-status",
+    "code": "draft"
+  },
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+            "code": "create"
+          },
+          "resource": "DocumentReference",
+          "encodeRequestUrl": false,
+          "responseId": "UtrZYWoNAaXeIE0X",
+          "sourceId": "DocumentReference-example"
+        }
+      },
+      [
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is OperationOutcome.",
+            "resource": "OperationOutcome",
+            "warningOnly": false
+          }
+        }
+      ]
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+              "code": "read"
+            },
+            "resource": "DocumentReference",
+            "encodeRequestUrl": false,
+            "targetId": "UtrZYWoNAaXeIE0X"
+          }
+        },
+        [
+          {
+            "assert": {
+              "description": "Confirm that the returned HTTP status is 200(OK).",
+              "response": "okay",
+              "warningOnly": false
+            }
+          },
+          {
+            "assert": {
+              "description": "Confirm that the returned resource type is DocumentReference.",
+              "resource": "DocumentReference",
+              "warningOnly": false
+            }
+          }
+        ]
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}

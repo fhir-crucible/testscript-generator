@@ -1,0 +1,74 @@
+{
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "name": "us-core-PractitionerRole-delete",
+  "status": {
+    "system": "http://hl7.org/fhir/ValueSet/publication-status",
+    "code": "draft"
+  },
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+            "code": "create"
+          },
+          "resource": "PractitionerRole",
+          "encodeRequestUrl": false,
+          "responseId": "E1sMaiH5Gyqd29r4",
+          "sourceId": "PractitionerRole-example"
+        }
+      },
+      [
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is OperationOutcome.",
+            "resource": "OperationOutcome",
+            "warningOnly": false
+          }
+        }
+      ]
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+              "code": "delete"
+            },
+            "resource": "PractitionerRole",
+            "encodeRequestUrl": false,
+            "targetId": "E1sMaiH5Gyqd29r4"
+          }
+        },
+        [
+          {
+            "assert": {
+              "description": "Confirm that the returned HTTP status is 200(OK).",
+              "response": "okay",
+              "warningOnly": false
+            }
+          },
+          {
+            "assert": {
+              "description": "Confirm that the returned resource type is OperationOutcome.",
+              "resource": "OperationOutcome",
+              "warningOnly": false
+            }
+          }
+        ]
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}

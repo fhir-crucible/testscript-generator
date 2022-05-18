@@ -4,7 +4,9 @@ require 'rubygems/package'
 
 module IGExtractor
   def load_igs 
+    FHIR.logger.info "Loading Implementation Guides (IGs) from #{Dir.getwd}/igs ..."
     FHIR.logger = Logger.new('/dev/null')
+
     igs = Dir.glob("#{Dir.getwd}/igs/*").map do |package|
       case package.split('.').last
       when 'zip'
@@ -13,7 +15,11 @@ module IGExtractor
         load_tgzed_ig package
       end 
     end 
+
     FHIR.logger = Logger.new(STDOUT)
+    igs.each { |ig| FHIR.logger.info "    Successfully loaded #{ig.name} IG." }
+    FHIR.logger.info "... finished loading IGs.\n"
+
     return igs
   end 
 

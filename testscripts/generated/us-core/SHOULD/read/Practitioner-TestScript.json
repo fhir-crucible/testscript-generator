@@ -1,0 +1,80 @@
+{
+  "url": "https://gitlab.mitre.org/fhir-foundry/",
+  "name": "us-core-Practitioner-read",
+  "status": {
+    "system": "http://hl7.org/fhir/ValueSet/publication-status",
+    "code": "draft"
+  },
+  "variable": [
+    {
+      "name": "variable",
+      "expression": "Bundle.entry.first.resource.id",
+      "sourceId": "SA6UrIL9o0hxSTMT"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "type": {
+            "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+            "code": "search-type"
+          },
+          "resource": "Practitioner",
+          "encodeRequestUrl": false,
+          "responseId": "SA6UrIL9o0hxSTMT"
+        }
+      },
+      [
+        {
+          "assert": {
+            "description": "Confirm that the returned HTTP status is 200(OK).",
+            "response": "okay",
+            "warningOnly": false
+          }
+        },
+        {
+          "assert": {
+            "description": "Confirm that the returned resource type is Bundle.",
+            "resource": "Bundle",
+            "warningOnly": false
+          }
+        }
+      ]
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "type": {
+              "system": "http://hl7.org/fhir/ValueSet/testscript-operation-codes",
+              "code": "read"
+            },
+            "resource": "Practitioner",
+            "encodeRequestUrl": false,
+            "url": "/Practitioner/${SA6UrIL9o0hxSTMT}"
+          }
+        },
+        [
+          {
+            "assert": {
+              "description": "Confirm that the returned HTTP status is 200(OK).",
+              "response": "okay",
+              "warningOnly": false
+            }
+          },
+          {
+            "assert": {
+              "description": "Confirm that the returned resource type is Practitioner.",
+              "resource": "Practitioner",
+              "warningOnly": false
+            }
+          }
+        ]
+      ]
+    }
+  ],
+  "resourceType": "TestScript"
+}

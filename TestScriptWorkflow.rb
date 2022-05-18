@@ -1,3 +1,6 @@
+# Invariants
+  # Every interaction returns the server-ID for some resource
+
 class TestScriptWorkflow
   Workflow = Struct.new(:setup, :execution, :teardown)
 
