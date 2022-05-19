@@ -1,3 +1,30 @@
+# TestScript Resource Generator
+
+## Background and Overview
+
+The TestScript Generator aims to ease the testing process by creating a complete suite of TestScripts to be leveraged against any FHIR endpoint that conforms to a given Implementation Guide (IG). 
+
+The generator accomplishes this through several steps:
+
+- Unzips, processes, and stores the IG(s) contained within the `/igs` directory
+- For each stored IG, extracts the resource-level interactions outlined in the server-side Capability Statement 
+- Filters those interactions by conformance level (i.e. **SHALL**, **SHOULD**, **MAY**) and creates tests for each level   
+- 
+    
+
+
+This generator is intended to be used in concert with the [TestScript Engine](https://github.com/fhir-crucible/testscript-engine): users should auto-create TestScripts via this generator and then execute them against endpoint(s) using the engine. Currently, there is no pipeline between the generator and the engine, and any generated TestScripts must be manually transferred to the `/TestScripts` directory within the engine's directory structure. 
+
+## Future Directions
+
+- [ ] Explore TestScript generation informed by alternatives to IGs
+    - Cucumber/Gherkin syntax
+    - ExampleScenario Resources
+- [ ] Increase variety in how TestScript generation is organized
+    - __For example__, instead of generating/storing by conformance level, generate by interaction type or by resource
+
+## Running the Generator
+
 **Commands:**
   - `bundle install`
     - Functionality
