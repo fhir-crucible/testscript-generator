@@ -27,7 +27,7 @@ The generator does the legwork of first determining what information is necessar
 
 ## Future Directions
 
-- [ ] Explore TestScript generation informed by alternatives to IGs
+- [ ] Explore TestScript generation using alternative inputs
     - Cucumber/Gherkin syntax
     - ExampleScenario Resources
 - [ ] Increase variety in how TestScript generation is organized
