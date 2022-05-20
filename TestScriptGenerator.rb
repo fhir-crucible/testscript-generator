@@ -43,6 +43,8 @@ class TestScriptGenerator
           dirname = "#{root}/#{target_verb}/#{interaction}"
           FileUtils.mkdir_p dirname unless File.exists? dirname
 
+          script.id = "#{resource}-#{interaction}-TestScript"
+          
           File.write("#{dirname}/#{resource}-TestScript.json", script.to_json.gsub('$RESOURCETYPE', resource))
           FHIR.logger.info "    Created '#{resource} #{interaction}' TestScript"
         end
@@ -86,7 +88,7 @@ class TestScriptGenerator
   def boilerplate(script, target)
     script.name = "#{name}-$RESOURCETYPE-#{target}"
     script.url = 'https://gitlab.mitre.org/fhir-foundry/'
-    script.status = FHIR::Coding.new({ code: 'draft', system: 'http://hl7.org/fhir/ValueSet/publication-status' })
+    script.status = 'draft'
 
     return script 
   end 
@@ -94,7 +96,7 @@ class TestScriptGenerator
   def build_setup(script, id)
     script.setup = FHIR::TestScript::Setup.new 
     script.setup.action << setup_action(build_setup_operation(id))
-    script.setup.action << build_asserts(id).map { |assert| setup_action(assert) }
+    script.setup.action.concat build_asserts(id).map { |assert| setup_action(assert) }
     script.variable << build_var(id) if id == 'search-type'
   end 
 
@@ -107,7 +109,7 @@ class TestScriptGenerator
 
   def build_setup_operation id 
     operation = FHIR::TestScript::Setup::Action::Operation.new({
-      type: FHIR::Coding.new({ code: id, system: 'http://hl7.org/fhir/ValueSet/testscript-operation-codes' }),
+      type: FHIR::Coding.new({ code: id, system: 'http://terminology.hl7.org/CodeSystem/testscript-operation-codes' }),
       encodeRequestUrl: false,
       responseId: set_identifier,
       resource: '$RESOURCETYPE' 
@@ -121,7 +123,7 @@ class TestScriptGenerator
   def build_test(script, id)
     script.test << FHIR::TestScript::Test.new
     script.test.first.action << action(build_operation(id, !script.variable.empty?))
-    script.test.first.action << build_asserts(id).map { |assert| action(assert) }
+    script.test.first.action.concat build_asserts(id).map { |assert| action(assert) }
   end 
 
   def action(base_action)
@@ -133,14 +135,18 @@ class TestScriptGenerator
 
   def build_operation(id, var)
     operation = FHIR::TestScript::Setup::Action::Operation.new({
-      type: FHIR::Coding.new({ code: id, system: 'http://hl7.org/fhir/ValueSet/testscript-operation-codes' }),
+      type: FHIR::Coding.new({ code: (id == 'search-type' ? 'search' : id), system: 'http://terminology.hl7.org/CodeSystem/testscript-operation-codes' }),
       encodeRequestUrl: 'false',
       resource: '$RESOURCETYPE'
     })
 
     operation.sourceId = '$RESOURCETYPE-example' if id == 'create'
-    operation.params = '' if id == 'search-type'
-    var ? operation.url = "/$RESOURCETYPE/${#{identifier}}" : operation.targetId = identifier
+    if id == 'search-type'
+      operation.params = ' ' 
+    else
+      var ? operation.url = "/$RESOURCETYPE/${#{identifier}}" : operation.targetId = identifier
+    end 
+
     return operation
   end 
 
