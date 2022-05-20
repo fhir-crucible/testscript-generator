@@ -1,19 +1,23 @@
-# TestScript Resource Generator
+# TestScript Generator
 
 ## Background and Overview
 
-The TestScript Generator aims to ease the testing process by creating a complete suite of TestScripts to be leveraged against any FHIR endpoint that conforms to a given Implementation Guide (IG). 
+The TestScript Generator aims to ease the testing process by creating a complete suite of TestScripts to be leveraged against any FHIR endpoint that conforms to a given Implementation Guide (IG). *__The generator accomplishes this through several steps__*:
 
-The generator accomplishes this through several steps:
+> - Unzips, processes, and stores the IG(s) contained within the `/igs` directory
+>
+> - For each stored IG, extracts the resource-level interactions outlined in the server-side Capability Statement 
+> 
+> - Filters those interactions by conformance level (i.e. **SHALL**, **SHOULD**, **MAY**) and creates groups of tests categorized by their level of conformance 
+>   - See the __*Generation Methodology*__ section for more information on how tests are created
+> - Writes the generated tests out to the `/testscripts` directory, organizing them by their related conformance level 
 
-- Unzips, processes, and stores the IG(s) contained within the `/igs` directory
-- For each stored IG, extracts the resource-level interactions outlined in the server-side Capability Statement 
-- Filters those interactions by conformance level (i.e. **SHALL**, **SHOULD**, **MAY**) and creates tests for each level   
-- 
-    
 
+This generator is intended to be used in concert with the [TestScript Engine](https://github.com/fhir-crucible/testscript-engine): users can auto-create TestScripts with this generator and then execute them against endpoint(s) with the engine. Currently, there is no pipeline between the generator and the engine, and any generated TestScripts must be manually transferred to the `/TestScripts` directory within the engine's directory structure. 
 
-This generator is intended to be used in concert with the [TestScript Engine](https://github.com/fhir-crucible/testscript-engine): users should auto-create TestScripts via this generator and then execute them against endpoint(s) using the engine. Currently, there is no pipeline between the generator and the engine, and any generated TestScripts must be manually transferred to the `/TestScripts` directory within the engine's directory structure. 
+## Generation Methodology 
+
+Currently, generated TestScripts test singular resource-level interactions on individual resource types (*e.g.*, read an AllergyIntolerance or create a Patient). Further, these tests are categorized by their conformance level. What this means is that any generated test with a **SHALL** conformance level only utilizes interactions that **SHALL** be supported by the IG implementation. For some interactions this is a non-factor: consider the *search* interaction. A *search* can be done without any prior knowledge about the data stored on the implementation and all Patients saved on an endpoint will be served as a bundle response to a system-level *search* request. Server-specific information such as unique Patient ID is not required in order to perform - and effectively to test - the *search* interaction. This is not the case for an interaction like *read*, where a unique ID is a requirement for any *read* request. Therefore, to test interactions like *read* that require a specific ID, the test needs either prior knowledge of the data stored on the server __OR__ to utilize another interaction during setup to dynamically discover a testable unique ID. For example, if both *read* and *search* interactions *SHALL* be supported by an endpoint, the generated test will perform a system-level Patient *search* during setup, store the returned bundle of Patients, extract a unique id from the Patient bundle using a variable, and then apply that unique id to the *read* interaction in the test section of the TestScript. The generator does the legwork of first determining what information is necessary to test an interaction and then deciding how to piece together interactions of the same conformance level to accomplish this 'dynamic discovery'.
 
 ## Future Directions
 
@@ -21,8 +25,10 @@ This generator is intended to be used in concert with the [TestScript Engine](ht
     - Cucumber/Gherkin syntax
     - ExampleScenario Resources
 - [ ] Increase variety in how TestScript generation is organized
-    - __For example__, instead of generating/storing by conformance level, generate by interaction type or by resource
-
+    - Instead of generating/storing by conformance level, generate by interaction type or by resource
+- [ ] Command-line option for pipeline between TestScript Generator and TestScript Engine
+- [ ] Generating tests that verify multi-system interactions 
+    
 ## Running the Generator
 
 **Commands:**
