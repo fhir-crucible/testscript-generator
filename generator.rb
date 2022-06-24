@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # TODO: Naming and organization clean-up
 require 'zlib'
 require 'zip'
@@ -11,31 +13,30 @@ require_relative './TestScriptWorkflow'
 require_relative './TestScriptGenerator'
 
 class Generator
-  
   MAPPING = {
     'read' => 'read',
     'create' => 'create',
     'delete' => 'delete',
     'search-type' => 'search'
-  }
+  }.freeze
 
-  def igs 
-    @igs ||= begin 
-      Dir.glob("#{Dir.getwd}/igs/*").each_with_object({}) do |package, store|
-        ig = IG.new(package)
-        store[ig.name] = ig 
-      end 
-    end 
-  end 
+  def igs
+    @igs ||= Dir.glob("#{Dir.getwd}/igs/*").each_with_object({}) do |package, store|
+      ig = IG.new(package)
+      store[ig.name] = ig
+    end
+  end
 
   def root
-    @root ||= "./testscripts/generated"
-  end 
+    @root ||= './testscripts/generated'
+  end
 
-  def title *new_title
-    @title = "#{new_title[0].split('-').each(&:upcase!).join(' ')} #{new_title[1].scan(/[A-Z][a-z]+/).join(' ')} #{new_title[2].capitalize} TestScript" unless new_title.empty?
-    return @title
-  end 
+  def title(*new_title)
+    unless new_title.empty?
+      @title = "#{new_title[0].split('-').each(&:upcase!).join(' ')} #{new_title[1].scan(/[A-Z][a-z]+/).join(' ')} #{new_title[2].capitalize} TestScript"
+    end
+    @title
+  end
 
   def generate_scripts
     igs.each do |name, ig|
@@ -45,11 +46,11 @@ class Generator
       script_generator.conformance_generation
 
       FHIR.logger.info "... finished generating TestScripts from #{name} IG.\n"
-    end 
-  end 
+    end
+  end
 
-  def script_boilerplate action
-    return {
+  def script_boilerplate(_action)
+    {
       url: 'https://gitlab.mitre.org/fhir-foundry/',
       version: '0.0',
       id: @title.split(' ').each(&:downcase!).join('-'),
@@ -58,6 +59,6 @@ class Generator
       experimental: true,
       date: DateTime.now.to_s,
       publisher: 'The MITRE Corporation'
-    } 
-  end 
-end 
+    }
+  end
+end
