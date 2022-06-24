@@ -51,11 +51,9 @@ The generator does the legwork of first determining what information is necessar
   - driver.rb
     - Currently, the primary method for running this generator. Use the command listed above.
   - generator.rb
-    - Utilizes the IGExtractor and TestScriptWorkflow classes to first determine what interactions a conformant FHIR Implementation ought to be able to handle and then to generate workflows to guide the TestScripts that will test these interactions. Finally, it translates the workflows into TestScripts and outputs hem as JSON files in the `./testscripts` folder. 
-  - IGExtractor.rb
-    - Handles unpacking and loading in FHIR Implementation Guides (IGs) in either .zip or .tgz format. Looks for IGs to be loaded in the `./igs` directory
-  - IGResource.rb
-    - Class for storing the IGs as they're processed by the IGExtractor.
+    - Utilizes the IG object and TestScriptWorkflow classes to first determine what interactions a conformant FHIR Implementation ought to be able to handle and then to generate workflows to guide the TestScripts that will test these interactions. Finally, it translates the workflows into TestScripts and outputs hem as JSON files in the `./testscripts` folder. 
+  - IG.rb
+    - Class for unpacking and loading in a FHIR Implementation Guide (IG) in .zip or .tgz format and then storing the IG as an object.
   - TestScriptWorkflow.rb
     - Given an IG and a target interaction ('create', 'read', etc.), creates the workflow for the TestScript designed to test this interaction. Conceptually, a 'workflow' defines, through its structure, what needs to be accomplished in each section of the TestScript, what information needs to be persisted between the sections, and how that information should be used. 
 
