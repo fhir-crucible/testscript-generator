@@ -22,7 +22,12 @@ class Generator
   }
 
   def igs 
-    @igs ||= load_igs
+    @igs ||= begin 
+      Dir.glob("#{Dir.getwd}/igs/*").each_with_object({}) do |package, store|
+        ig = IG.new(package)
+        store[ig.name] = ig 
+      end 
+    end 
   end 
 
   def interactions_map
@@ -39,6 +44,7 @@ class Generator
   end 
 
   def map_interactions
+    binding.pry
     igs.each_with_object({}) do |ig, igs_map|
       resources = ig.capability_statement&.resource
       return unless resources
