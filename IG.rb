@@ -75,11 +75,7 @@ class IG
         tar.each do |entry|
           next unless entry.file? && entry.header.name.end_with?('json', 'xml')
 
-          begin
-            store_resource(FHIR.from_contents(entry.read))
-          rescue StandardError
-            {}
-          end
+          ( store_resource(FHIR.from_contents(entry.read)) ) rescue {}
         end
       end
     end
@@ -90,11 +86,7 @@ class IG
       unzipped.entries.each do |entry|
         next unless entry.file? && entry.name.end_with?('json', 'xml')
 
-        begin
-          store_resource(FHIR.from_contents(entry.get_input_stream.read))
-        rescue StandardError
-          {}
-        end
+        ( store_resource(FHIR.from_contents(entry.get_input_stream.read)) ) rescue {}
       end
     end
   end
