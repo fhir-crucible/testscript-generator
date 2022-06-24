@@ -1,56 +1,62 @@
+# frozen_string_literal: true
+
+require 'rubygems/package'
+
 class IG
-  attr_accessor :name
+  attr_reader :implementation_guide, :name
 
   def initialize(ig_package)
     load_from_package(ig_package)
-  end 
+  end
 
   def capability_statements
     @capability_statements ||= []
-  end 
+  end
 
   def capability_statement(statement = nil)
     @capability_statement = statement if statement
-    @capability_statement ||= begin 
-      capability_statements.find { |cs| cs.rest.first.mode == 'server' }
-    end 
-  end 
+    @capability_statement ||= capability_statements.find { |cs| cs.rest.find { |rest| rest.mode == 'server' } }
+  end
 
-  def implementation_guide
-    @implementation_guide
-  end 
+  def interactions
+    @interactions ||= rest.resource.each_with_object({}) do |resource, r_map|
+      r_map[resource.type] = resource.interaction.each_with_object({}) do |interaction, i_map|
+        i_map[interaction.code] = interaction.extension[0]&.valueCode
+      end
+    end
+  end
 
   def operation_defs
     @operation_defs ||= []
-  end 
+  end
 
-  def structure_defs 
-    @structure_defs ||= Hash.new { |h, k| h[k] = [] } 
-  end 
+  def structure_defs
+    @structure_defs ||= Hash.new { |h, k| h[k] = [] }
+  end
 
   def search_params
-    @search_params ||= Hash.new { |h, k| h[k] = [] } 
-  end 
+    @search_params ||= Hash.new { |h, k| h[k] = [] }
+  end
 
   def code_systems
     @code_systems ||= []
-  end 
+  end
 
   def value_sets
     @value_sets ||= []
-  end 
+  end
 
-  def examples 
-    @examples ||= Hash.new { |h, k| h[k] = [] } 
-  end 
+  def examples
+    @examples ||= Hash.new { |h, k| h[k] = [] }
+  end
 
-  def name
-    @name
-  end 
+  def rest
+    @rest ||= capability_statement.rest.find { |rest| rest.mode == 'server' }
+  end
 
   def extract_name(name)
     @name = name.split('/').last.split('.').first.gsub('-package', '')
-  end 
+  end
 
   def load_from_package(package)
     FHIR.logger.info "Loading Implementation Guide from #{package} ..."
@@ -59,31 +65,39 @@ class IG
     extract_name(package)
     package.split('.').last == 'tgz' ? load_tgz(package) : load_zip(package)
 
-    FHIR.logger = Logger.new(STDOUT)
+    FHIR.logger = Logger.new($stdout)
     FHIR.logger.info "... finished loading IG.\n"
-  end 
+  end
 
   def load_tgz(package)
     Zlib::GzipReader.wrap(File.open(package)) do |gzip|
       Gem::Package::TarReader.new(gzip) do |tar|
         tar.each do |entry|
-          next unless entry.file? and entry.header.name.end_with?('json', 'xml') 
+          next unless entry.file? && entry.header.name.end_with?('json', 'xml')
 
-          ( store_resource(FHIR.from_contents(entry.read)) ) rescue {}
-        end 
-      end 
-    end 
-  end 
+          begin
+            store_resource(FHIR.from_contents(entry.read))
+          rescue StandardError
+            {}
+          end
+        end
+      end
+    end
+  end
 
   def load_zip(package)
     Zip::File.open(package) do |unzipped|
       unzipped.entries.each do |entry|
-        next unless entry.file? and entry.name.end_with?('json', 'xml')
+        next unless entry.file? && entry.name.end_with?('json', 'xml')
 
-        ( store_resource(FHIR.from_contents(entry.get_input_stream.read)) ) rescue {}
-      end 
+        begin
+          store_resource(FHIR.from_contents(entry.get_input_stream.read))
+        rescue StandardError
+          {}
+        end
+      end
     end
-  end 
+  end
 
   def store_resource(resource)
     return unless resource
@@ -104,9 +118,9 @@ class IG
     when 'ValueSet'
       value_sets << resource
     when 'Bundle'
-      return
+      nil
     else
       examples[resource.resourceType] << resource
-    end 
-  end 
-end 
+    end
+  end
+end
