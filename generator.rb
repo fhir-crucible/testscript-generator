@@ -13,6 +13,8 @@ require_relative './TestScriptWorkflow'
 require_relative './TestScriptGenerator'
 
 class Generator
+  attr_accessor :igs_directory
+
   MAPPING = {
     'read' => 'read',
     'create' => 'create',
@@ -20,8 +22,12 @@ class Generator
     'search-type' => 'search'
   }.freeze
 
+  def initialize(path)
+    self.igs_directory = path
+  end
+
   def igs
-    @igs ||= Dir.glob("#{Dir.getwd}/igs/*").each_with_object({}) do |package, store|
+    @igs ||= Dir.glob("#{igs_directory}/*").each_with_object({}) do |package, store|
       ig = IG.new(package)
       store[ig.name] = ig
     end
