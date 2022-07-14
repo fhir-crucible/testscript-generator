@@ -39,11 +39,11 @@ class IG
   end
 
   def code_systems
-    @code_systems ||= []
+    @code_systems ||= Hash.new { |h, k| h[k] = [] }
   end
 
   def value_sets
-    @value_sets ||= []
+    @value_sets ||= Hash.new { |h, k| h[k] = [] }
   end
 
   def examples
@@ -106,9 +106,9 @@ class IG
     when 'SearchParameter'
       resource.base.each { |type| search_params[type] << resource }
     when 'CodeSystem'
-      code_systems << resource
+      code_systems[resource.url] = resource
     when 'ValueSet'
-      value_sets << resource
+      value_sets[resource.url] = resource
     when 'Bundle'
       nil
     else
