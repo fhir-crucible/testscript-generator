@@ -60,7 +60,7 @@ class IG
 
   def load_from_package(package)
     FHIR.logger.info "Loading Implementation Guide from #{package} ..."
-    FHIR.logger = Logger.new('/dev/null')
+    FHIR.logger = Logger.new(nil)
 
     extract_name(package)
     package.split('.').last == 'tgz' ? load_tgz(package) : load_zip(package)
