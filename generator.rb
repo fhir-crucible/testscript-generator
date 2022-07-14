@@ -51,7 +51,7 @@ class Generator
 
   def script_boilerplate(_action)
     {
-      url: 'https://gitlab.mitre.org/fhir-foundry/',
+      url: 'https://github.com/fhir-crucible/testscript-generator',
       version: '0.0',
       id: @title.split(' ').each(&:downcase!).join('-'),
       name: @title,
