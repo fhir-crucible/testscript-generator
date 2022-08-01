@@ -235,13 +235,13 @@ class WorkflowBuilder
     params = params || determine_parameters(test)
     responseId = determine_responseId(test) if interactions_meta[test].modify
 
-    workflow.test << Operation.new({
+    workflow.test << [Operation.new({
       method: METHODS[test],
       resource: determine_resource(test),
       sourceId: determine_sourceId(test),
       responseId: responseId,
       params: params
-    })
+    })]
 
     build_variable(test) if teardown_required?(test)
     build_teardown(test)
