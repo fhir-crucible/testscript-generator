@@ -42,6 +42,11 @@ class WorkflowBuilder
     end
   end
 
+  class Assertion
+    def initialize(input)
+    end
+  end
+
   class InteractionMeta
     attr_accessor :send, :fetch, :modify, :getId, :dynamicReq, :staticReq, :getResource, :expression
 
