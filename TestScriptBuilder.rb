@@ -19,9 +19,11 @@ class TestScriptBuilder
 		script = FHIR::TestScript.new
 		script.variable = create_variables(workflow)
 
-		script.setup = create_setup(workflow)
-		script.test = create_test(workflow)
-		script.teardown = create_teardown(workflow)
+		script.setup = build_setup(workflow)
+		script.test = build_test(workflow)
+		script.teardown = build_teardown(workflow)
+
+		script
 	end
 
 	def create_variables(workflow)
@@ -39,34 +41,57 @@ class TestScriptBuilder
 		end
 	end
 
-	def create_setup(workflow)
-		return unless workflow.setup
+	def build_setup(workflow)
+		return unless !workflow.setup.empty?
 
-		workflow.setup.each_with_object([]) do |setup, actions|
-			actions << create_setup_action(setup)
+		actions = workflow.setup.map do |action|
+			if action.class == WorkflowBuilder::Operation
+				FHIR::TestScript::Setup::Action.new(operation: build_operation(action))
+			else
+				FHIR::TestScript::Setup::Action.new(assert: build_assert(action))
+			end
 		end
 
-		FHIR::TestScript::Setup.new(action: actions)
+		FHIR::TestScript::Setup.new({action: actions})
 	end
 
-	def create_setup_action(operation)
-		create_operation(operation)
-
-		FHIR::TestScript::Setup::Action.new({
-			workflow_setup
+	def build_operation(operation)
+		FHIR::TestScript::Setup::Action::Operation.new({
+			params: operation.params,
+			method: operation.method,
+			sourceId: operation.sourceId,
+			resource: operation.resource,
+			responseId: operation.responseId
 		})
-		[create_operation]
 	end
 
-	def create_operation(operation)
-		FHIR::TestScript::Setup::Action::Operation.new()
+	def build_assert(assertion)
+		FHIR::TestScript::Setup::Action::Assert.new()
 	end
 
-	def create_test(workflow)
+	def build_test(workflow)
+		return unless workflow.test
 
+		workflow.test.map do |test|
+			actions = test.map do |action|
+				if action.class == WorkflowBuilder::Operation
+					FHIR::TestScript::Test::Action.new(operation: build_operation(action))
+				else
+					FHIR::TestScript::Test::Action.new(assert: build_assert(action))
+				end
+			end
+
+			FHIR::TestScript::Test.new(action: actions)
+		end
 	end
 
-	def create_teardown(workflow)
+	def build_teardown(workflow)
+		return unless workflow.teardown
 
+		actions = workflow.teardown.map do |action|
+			FHIR::TestScript::Teardown::Action.new(operation: build_operation(action))
+		end
+
+		FHIR::TestScript::Teardown.new(action: actions)
 	end
 end
