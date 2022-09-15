@@ -1,4 +1,3 @@
-require './generator'
 # <<<<<<< HEAD
 # require './TestScriptBuilder'
 
