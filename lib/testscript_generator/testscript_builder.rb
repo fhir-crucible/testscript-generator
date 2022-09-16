@@ -18,6 +18,7 @@ class TestScriptBuilder
 	def build_from_workflow(workflow)
 		script = FHIR::TestScript.new
 		script.variable = create_variables(workflow)
+		script.fixture = create_fixtures(workflow)
 
 		script.setup = build_setup(workflow)
 		script.test = build_test(workflow)
@@ -38,6 +39,13 @@ class TestScriptBuilder
 			end
 
 			FHIR::TestScript::Variable.new(input)
+		end
+	end
+
+	def create_fixtures(workflow)
+		workflow.fixtures.map do |fixture|
+			reference = FHIR::Reference.new(reference: "#{fixture}_reference")
+			FHIR::TestScript::Fixture.new(id: fixture, resource: reference, autocreate: false, autodelete: false)
 		end
 	end
 

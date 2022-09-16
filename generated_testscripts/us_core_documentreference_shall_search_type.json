@@ -6,13 +6,23 @@
   "title": "Us Core Documentreference Shall Search Type",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-16T00:46:00-07:00",
+  "date": "2022-09-16T01:04:12-07:00",
   "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_documentreference.json"
+      }
+    }
+  ],
   "variable": [
     {
-      "name": "yfwCl3K1mEdDLNGh",
+      "name": "zzKdcpZGGGQ7Affj",
       "headerField": "Location",
-      "sourceId": "YWK3dRkQygiztQ6L"
+      "sourceId": "Mw2QgjQba7sHOnWj"
     }
   ],
   "setup": {
@@ -21,8 +31,8 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "YWK3dRkQygiztQ6L",
-          "sourceId": "example_documentreference.json"
+          "responseId": "Mw2QgjQba7sHOnWj",
+          "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       }
     ]
@@ -34,7 +44,7 @@
           "operation": {
             "resource": "DocumentReference",
             "encodeRequestUrl": false,
-            "params": "/${yfwCl3K1mEdDLNGh}"
+            "params": "/${zzKdcpZGGGQ7Affj}"
           }
         }
       ]
@@ -47,7 +57,7 @@
           "resource": "DocumentReference",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${yfwCl3K1mEdDLNGh}"
+          "params": "/${zzKdcpZGGGQ7Affj}"
         }
       }
     ]

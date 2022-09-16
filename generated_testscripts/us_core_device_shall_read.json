@@ -6,13 +6,23 @@
   "title": "Us Core Device Shall Read",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-16T00:46:00-07:00",
+  "date": "2022-09-16T01:04:12-07:00",
   "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_device.json"
+      }
+    }
+  ],
   "variable": [
     {
-      "name": "bqjpX0VtSKg3yO9j",
+      "name": "aKCat2JDeAEozfRK",
       "path": "Location",
-      "sourceId": "KGM77bmuZO5tuuP0"
+      "sourceId": "AIZPlaCVgWk1OohJ"
     }
   ],
   "setup": {
@@ -21,8 +31,8 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "KGM77bmuZO5tuuP0",
-          "sourceId": "example_device.json"
+          "responseId": "AIZPlaCVgWk1OohJ",
+          "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       }
     ]
@@ -35,7 +45,7 @@
             "resource": "Device",
             "encodeRequestUrl": false,
             "method": "get",
-            "params": "/${bqjpX0VtSKg3yO9j}"
+            "params": "/${aKCat2JDeAEozfRK}"
           }
         }
       ]
@@ -48,7 +58,7 @@
           "resource": "Device",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${bqjpX0VtSKg3yO9j}"
+          "params": "/${aKCat2JDeAEozfRK}"
         }
       }
     ]

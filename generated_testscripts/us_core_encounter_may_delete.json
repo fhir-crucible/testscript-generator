@@ -6,13 +6,23 @@
   "title": "Us Core Encounter May Delete",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-16T00:46:00-07:00",
+  "date": "2022-09-16T01:04:12-07:00",
   "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_encounter.json"
+      }
+    }
+  ],
   "variable": [
     {
-      "name": "fMWjQO9EckmNnWGD",
+      "name": "PnOWQMdYgf5vxl4l",
       "path": "Location",
-      "sourceId": "mWSoMHNLEqokOvFe"
+      "sourceId": "B4IJEsn583FCYGvq"
     }
   ],
   "setup": {
@@ -21,8 +31,8 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "mWSoMHNLEqokOvFe",
-          "sourceId": "example_encounter.json"
+          "responseId": "B4IJEsn583FCYGvq",
+          "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       }
     ]
@@ -35,7 +45,7 @@
             "resource": "Encounter",
             "encodeRequestUrl": false,
             "method": "delete",
-            "params": "/${fMWjQO9EckmNnWGD}"
+            "params": "/${PnOWQMdYgf5vxl4l}"
           }
         }
       ]
@@ -48,7 +58,7 @@
           "resource": "Encounter",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${fMWjQO9EckmNnWGD}"
+          "params": "/${PnOWQMdYgf5vxl4l}"
         }
       }
     ]

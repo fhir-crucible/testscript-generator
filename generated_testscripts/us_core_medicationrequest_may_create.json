@@ -6,13 +6,23 @@
   "title": "Us Core Medicationrequest May Create",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-16T00:46:00-07:00",
+  "date": "2022-09-16T01:04:12-07:00",
   "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_medicationrequest.json"
+      }
+    }
+  ],
   "variable": [
     {
-      "name": "3rYuyjFd0n7hZfO9",
+      "name": "AD1qJl8nRTCpw8hR",
       "path": "Location",
-      "sourceId": "YSF8sgHhfXBq8o2z"
+      "sourceId": "AkQ8rSg6rOmybIg7"
     }
   ],
   "test": [
@@ -22,8 +32,8 @@
           "operation": {
             "encodeRequestUrl": false,
             "method": "post",
-            "responseId": "YSF8sgHhfXBq8o2z",
-            "sourceId": "example_medicationrequest.json"
+            "responseId": "AkQ8rSg6rOmybIg7",
+            "sourceId": "${EXAMPLE_RESOURCE_1}"
           }
         }
       ]
@@ -36,7 +46,7 @@
           "resource": "MedicationRequest",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${3rYuyjFd0n7hZfO9}"
+          "params": "/${AD1qJl8nRTCpw8hR}"
         }
       }
     ]

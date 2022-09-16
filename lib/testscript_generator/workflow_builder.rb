@@ -9,13 +9,14 @@ class WorkflowBuilder
               'search' => :get }
 
   class Workflow
-    attr_accessor :variables, :setup, :test, :teardown
+    attr_accessor :variables, :setup, :test, :teardown, :fixtures
 
     def initialize
       self.test = []
       self.setup = []
       self.teardown = []
       self.variables = []
+      self.fixtures = []
     end
   end
 
@@ -164,7 +165,8 @@ class WorkflowBuilder
   def determine_sourceId(method)
     if interactions_meta[method].staticReq.include? :resource
       @static_fixture_counter += 1
-      "${EXAMPLE_RESOURCE_#{@static_fixture_counter}}"
+      workflow.fixtures << "${EXAMPLE_RESOURCE_#{@static_fixture_counter}}"
+      workflow.fixtures.last
     elsif interactions_meta[method].dynamicReq.include? :resource
       responseIds[:resource]
     end
