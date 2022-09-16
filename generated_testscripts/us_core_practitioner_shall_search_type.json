@@ -7,6 +7,7 @@
   "status": "draft",
   "experimental": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "date": "2022-09-17T09:23:47-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -26,13 +27,30 @@
       "sourceId": "osi7zLNNB3ygbAYp"
 =======
   "date": "2022-09-16T00:46:00-07:00",
+=======
+  "date": "2022-09-16T01:04:12-07:00",
+>>>>>>> 7354161 (add fixture support)
   "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_practitioner.json"
+      }
+    }
+  ],
   "variable": [
     {
-      "name": "yfwCl3K1mEdDLNGh",
+      "name": "zzKdcpZGGGQ7Affj",
       "headerField": "Location",
+<<<<<<< HEAD
       "sourceId": "YWK3dRkQygiztQ6L"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+      "sourceId": "Mw2QgjQba7sHOnWj"
+>>>>>>> 7354161 (add fixture support)
     }
   ],
   "setup": {
@@ -42,12 +60,17 @@
           "encodeRequestUrl": false,
           "method": "post",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "responseId": "osi7zLNNB3ygbAYp",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
           "responseId": "YWK3dRkQygiztQ6L",
           "sourceId": "example_practitioner.json"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+          "responseId": "Mw2QgjQba7sHOnWj",
+          "sourceId": "${EXAMPLE_RESOURCE_1}"
+>>>>>>> 7354161 (add fixture support)
         }
       }
     ]
@@ -60,11 +83,15 @@
             "resource": "Practitioner",
             "encodeRequestUrl": false,
 <<<<<<< HEAD
+<<<<<<< HEAD
             "method": "get",
             "params": "/${M26L2KX0MyCs6AXz}"
 =======
             "params": "/${yfwCl3K1mEdDLNGh}"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+            "params": "/${zzKdcpZGGGQ7Affj}"
+>>>>>>> 7354161 (add fixture support)
           }
         }
       ]
@@ -78,10 +105,14 @@
           "encodeRequestUrl": false,
           "method": "delete",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${M26L2KX0MyCs6AXz}"
 =======
           "params": "/${yfwCl3K1mEdDLNGh}"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+          "params": "/${zzKdcpZGGGQ7Affj}"
+>>>>>>> 7354161 (add fixture support)
         }
       }
     ]

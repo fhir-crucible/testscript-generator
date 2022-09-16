@@ -86,10 +86,14 @@ class TestScriptGenerator
 								script_name = get_name(name, resource, target_verb, interaction)
 								add_boilerplate(script, script_name)
 <<<<<<< HEAD
+<<<<<<< HEAD
 								script = script.to_json.gsub("${RESOURCE_TYPE_1}", resource).gsub("${EXAMPLE_RESOURCE_1}_reference", "example_#{resource.downcase}.json")
 =======
 								script = script.to_json.gsub("${RESOURCE_TYPE_1}", resource).gsub("${EXAMPLE_RESOURCE_1}", "example_#{resource.downcase}.json")
 >>>>>>> 7559d10 (conformance testing support)
+=======
+								script = script.to_json.gsub("${RESOURCE_TYPE_1}", resource).gsub("${EXAMPLE_RESOURCE_1}_reference", "example_#{resource.downcase}.json")
+>>>>>>> 7354161 (add fixture support)
 								output_script(script, script_name)
 								output_example(resource)
 							else

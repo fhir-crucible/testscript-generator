@@ -7,6 +7,7 @@
   "status": "draft",
   "experimental": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "date": "2022-09-17T09:23:47-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -26,13 +27,30 @@
       "sourceId": "Tyfvxx6NDBFQAHdy"
 =======
   "date": "2022-09-16T00:46:00-07:00",
+=======
+  "date": "2022-09-16T01:04:12-07:00",
+>>>>>>> 7354161 (add fixture support)
   "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_careplan.json"
+      }
+    }
+  ],
   "variable": [
     {
-      "name": "qkx2Fe6lTaFYlhKz",
+      "name": "uVsDnmzq7D9BUzc3",
       "path": "Location",
+<<<<<<< HEAD
       "sourceId": "o6rlnPE66haej94B"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+      "sourceId": "oGZYWfrximsUhPTA"
+>>>>>>> 7354161 (add fixture support)
     }
   ],
   "setup": {
@@ -42,12 +60,17 @@
           "encodeRequestUrl": false,
           "method": "post",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "responseId": "Tyfvxx6NDBFQAHdy",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
           "responseId": "o6rlnPE66haej94B",
           "sourceId": "example_careplan.json"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+          "responseId": "oGZYWfrximsUhPTA",
+          "sourceId": "${EXAMPLE_RESOURCE_1}"
+>>>>>>> 7354161 (add fixture support)
         }
       },
       {
@@ -56,12 +79,17 @@
           "encodeRequestUrl": false,
           "method": "get",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${sSapm1U8Lru7VfWv}",
           "responseId": "M3mxvzl27bF1vln1"
 =======
           "params": "/${qkx2Fe6lTaFYlhKz}",
           "responseId": "d83IAUSBfQRc5B6k"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+          "params": "/${uVsDnmzq7D9BUzc3}",
+          "responseId": "gdH9GpFhlSNUYrxE"
+>>>>>>> 7354161 (add fixture support)
         }
       }
     ]
@@ -75,12 +103,17 @@
             "encodeRequestUrl": false,
             "method": "put",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "params": "/${sSapm1U8Lru7VfWv}",
             "sourceId": "M3mxvzl27bF1vln1"
 =======
             "params": "/${qkx2Fe6lTaFYlhKz}",
             "sourceId": "d83IAUSBfQRc5B6k"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+            "params": "/${uVsDnmzq7D9BUzc3}",
+            "sourceId": "gdH9GpFhlSNUYrxE"
+>>>>>>> 7354161 (add fixture support)
           }
         }
       ]
@@ -94,10 +127,14 @@
           "encodeRequestUrl": false,
           "method": "delete",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${sSapm1U8Lru7VfWv}"
 =======
           "params": "/${qkx2Fe6lTaFYlhKz}"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+          "params": "/${uVsDnmzq7D9BUzc3}"
+>>>>>>> 7354161 (add fixture support)
         }
       }
     ]

@@ -7,6 +7,7 @@
   "status": "draft",
   "experimental": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "date": "2022-09-17T09:23:48-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -26,13 +27,30 @@
       "sourceId": "gcIPKUwgR2gIu6NA"
 =======
   "date": "2022-09-16T00:46:00-07:00",
+=======
+  "date": "2022-09-16T01:04:12-07:00",
+>>>>>>> 7354161 (add fixture support)
   "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_procedure.json"
+      }
+    }
+  ],
   "variable": [
     {
-      "name": "fMWjQO9EckmNnWGD",
+      "name": "PnOWQMdYgf5vxl4l",
       "path": "Location",
+<<<<<<< HEAD
       "sourceId": "mWSoMHNLEqokOvFe"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+      "sourceId": "B4IJEsn583FCYGvq"
+>>>>>>> 7354161 (add fixture support)
     }
   ],
   "setup": {
@@ -42,12 +60,17 @@
           "encodeRequestUrl": false,
           "method": "post",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "responseId": "gcIPKUwgR2gIu6NA",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
           "responseId": "mWSoMHNLEqokOvFe",
           "sourceId": "example_procedure.json"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+          "responseId": "B4IJEsn583FCYGvq",
+          "sourceId": "${EXAMPLE_RESOURCE_1}"
+>>>>>>> 7354161 (add fixture support)
         }
       }
     ]
@@ -61,10 +84,14 @@
             "encodeRequestUrl": false,
             "method": "delete",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "params": "/${U0BA5zywzGYlRrrP}"
 =======
             "params": "/${fMWjQO9EckmNnWGD}"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+            "params": "/${PnOWQMdYgf5vxl4l}"
+>>>>>>> 7354161 (add fixture support)
           }
         }
       ]
@@ -78,10 +105,14 @@
           "encodeRequestUrl": false,
           "method": "delete",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${U0BA5zywzGYlRrrP}"
 =======
           "params": "/${fMWjQO9EckmNnWGD}"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+          "params": "/${PnOWQMdYgf5vxl4l}"
+>>>>>>> 7354161 (add fixture support)
         }
       }
     ]

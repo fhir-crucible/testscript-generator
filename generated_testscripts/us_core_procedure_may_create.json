@@ -7,6 +7,7 @@
   "status": "draft",
   "experimental": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "date": "2022-09-17T09:23:48-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -26,13 +27,30 @@
       "sourceId": "EmWVbjndvCSJSZaK"
 =======
   "date": "2022-09-16T00:46:00-07:00",
+=======
+  "date": "2022-09-16T01:04:12-07:00",
+>>>>>>> 7354161 (add fixture support)
   "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_procedure.json"
+      }
+    }
+  ],
   "variable": [
     {
-      "name": "3rYuyjFd0n7hZfO9",
+      "name": "AD1qJl8nRTCpw8hR",
       "path": "Location",
+<<<<<<< HEAD
       "sourceId": "YSF8sgHhfXBq8o2z"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+      "sourceId": "AkQ8rSg6rOmybIg7"
+>>>>>>> 7354161 (add fixture support)
     }
   ],
   "test": [
@@ -43,12 +61,17 @@
             "encodeRequestUrl": false,
             "method": "post",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "responseId": "EmWVbjndvCSJSZaK",
             "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
             "responseId": "YSF8sgHhfXBq8o2z",
             "sourceId": "example_procedure.json"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+            "responseId": "AkQ8rSg6rOmybIg7",
+            "sourceId": "${EXAMPLE_RESOURCE_1}"
+>>>>>>> 7354161 (add fixture support)
           }
         }
       ]
@@ -62,10 +85,14 @@
           "encodeRequestUrl": false,
           "method": "delete",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${eb8nrp1qPMvlgMPF}"
 =======
           "params": "/${3rYuyjFd0n7hZfO9}"
 >>>>>>> 7559d10 (conformance testing support)
+=======
+          "params": "/${AD1qJl8nRTCpw8hR}"
+>>>>>>> 7354161 (add fixture support)
         }
       }
     ]
