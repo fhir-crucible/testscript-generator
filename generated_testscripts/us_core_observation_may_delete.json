@@ -1,0 +1,57 @@
+{
+  "id": "us-core-observation-may-delete",
+  "url": "https://github.com/fhir-crucible/testscript-generator",
+  "version": "0.0",
+  "name": "us_core_observation_may_delete",
+  "title": "Us Core Observation May Delete",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-09-16T00:46:00-07:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "fMWjQO9EckmNnWGD",
+      "path": "Location",
+      "sourceId": "mWSoMHNLEqokOvFe"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "encodeRequestUrl": false,
+          "method": "post",
+          "responseId": "mWSoMHNLEqokOvFe",
+          "sourceId": "example_observation.json"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "resource": "Observation",
+            "encodeRequestUrl": false,
+            "method": "delete",
+            "params": "/${fMWjQO9EckmNnWGD}"
+          }
+        }
+      ]
+    }
+  ],
+  "teardown": {
+    "action": [
+      {
+        "operation": {
+          "resource": "Observation",
+          "encodeRequestUrl": false,
+          "method": "delete",
+          "params": "/${fMWjQO9EckmNnWGD}"
+        }
+      }
+    ]
+  },
+  "resourceType": "TestScript"
+}

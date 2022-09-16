@@ -1,0 +1,45 @@
+{
+  "id": "us-core-patient-may-create",
+  "url": "https://github.com/fhir-crucible/testscript-generator",
+  "version": "0.0",
+  "name": "us_core_patient_may_create",
+  "title": "Us Core Patient May Create",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-09-16T00:46:00-07:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "3rYuyjFd0n7hZfO9",
+      "path": "Location",
+      "sourceId": "YSF8sgHhfXBq8o2z"
+    }
+  ],
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "encodeRequestUrl": false,
+            "method": "post",
+            "responseId": "YSF8sgHhfXBq8o2z",
+            "sourceId": "example_patient.json"
+          }
+        }
+      ]
+    }
+  ],
+  "teardown": {
+    "action": [
+      {
+        "operation": {
+          "resource": "Patient",
+          "encodeRequestUrl": false,
+          "method": "delete",
+          "params": "/${3rYuyjFd0n7hZfO9}"
+        }
+      }
+    ]
+  },
+  "resourceType": "TestScript"
+}

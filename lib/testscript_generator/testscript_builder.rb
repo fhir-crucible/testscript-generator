@@ -1,4 +1,4 @@
-require './WorkflowBuilder'
+require_relative 'workflow_builder'
 
 class TestScriptBuilder
 	def scripts
@@ -61,7 +61,8 @@ class TestScriptBuilder
 			method: operation.method,
 			sourceId: operation.sourceId,
 			resource: operation.resource,
-			responseId: operation.responseId
+			responseId: operation.responseId,
+			encodeRequestUrl: false
 		})
 	end
 

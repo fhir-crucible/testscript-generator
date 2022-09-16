@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'fhir_models'
 require 'rubygems/package'
 
 class IG

@@ -5,7 +5,7 @@ class WorkflowBuilder
   METHODS = { 'create' => :post,
               'read' => :get,
               'update' => :put,
-              'delete' => :destroy,
+              'delete' => :delete,
               'search' => :get }
 
   class Workflow
@@ -85,7 +85,7 @@ class WorkflowBuilder
         modify: true,
         dynamicReq: [:id]
       }),
-      'search' => InteractionMeta.new({
+      'search-type' => InteractionMeta.new({
         fetch: true,
         getId: true,
         dynamicReq: [:id],

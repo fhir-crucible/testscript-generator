@@ -1,0 +1,57 @@
+{
+  "id": "us-core-observation-shall-read",
+  "url": "https://github.com/fhir-crucible/testscript-generator",
+  "version": "0.0",
+  "name": "us_core_observation_shall_read",
+  "title": "Us Core Observation Shall Read",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-09-16T00:46:00-07:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "bqjpX0VtSKg3yO9j",
+      "path": "Location",
+      "sourceId": "KGM77bmuZO5tuuP0"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "encodeRequestUrl": false,
+          "method": "post",
+          "responseId": "KGM77bmuZO5tuuP0",
+          "sourceId": "example_observation.json"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "resource": "Observation",
+            "encodeRequestUrl": false,
+            "method": "get",
+            "params": "/${bqjpX0VtSKg3yO9j}"
+          }
+        }
+      ]
+    }
+  ],
+  "teardown": {
+    "action": [
+      {
+        "operation": {
+          "resource": "Observation",
+          "encodeRequestUrl": false,
+          "method": "delete",
+          "params": "/${bqjpX0VtSKg3yO9j}"
+        }
+      }
+    ]
+  },
+  "resourceType": "TestScript"
+}

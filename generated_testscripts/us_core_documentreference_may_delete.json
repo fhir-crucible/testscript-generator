@@ -1,0 +1,57 @@
+{
+  "id": "us-core-documentreference-may-delete",
+  "url": "https://github.com/fhir-crucible/testscript-generator",
+  "version": "0.0",
+  "name": "us_core_documentreference_may_delete",
+  "title": "Us Core Documentreference May Delete",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-09-16T00:46:00-07:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "fMWjQO9EckmNnWGD",
+      "path": "Location",
+      "sourceId": "mWSoMHNLEqokOvFe"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "encodeRequestUrl": false,
+          "method": "post",
+          "responseId": "mWSoMHNLEqokOvFe",
+          "sourceId": "example_documentreference.json"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "resource": "DocumentReference",
+            "encodeRequestUrl": false,
+            "method": "delete",
+            "params": "/${fMWjQO9EckmNnWGD}"
+          }
+        }
+      ]
+    }
+  ],
+  "teardown": {
+    "action": [
+      {
+        "operation": {
+          "resource": "DocumentReference",
+          "encodeRequestUrl": false,
+          "method": "delete",
+          "params": "/${fMWjQO9EckmNnWGD}"
+        }
+      }
+    ]
+  },
+  "resourceType": "TestScript"
+}

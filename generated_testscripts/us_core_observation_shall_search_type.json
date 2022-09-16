@@ -1,0 +1,56 @@
+{
+  "id": "us-core-observation-shall-search-type",
+  "url": "https://github.com/fhir-crucible/testscript-generator",
+  "version": "0.0",
+  "name": "us_core_observation_shall_search_type",
+  "title": "Us Core Observation Shall Search Type",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-09-16T00:46:00-07:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "yfwCl3K1mEdDLNGh",
+      "headerField": "Location",
+      "sourceId": "YWK3dRkQygiztQ6L"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "encodeRequestUrl": false,
+          "method": "post",
+          "responseId": "YWK3dRkQygiztQ6L",
+          "sourceId": "example_observation.json"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "resource": "Observation",
+            "encodeRequestUrl": false,
+            "params": "/${yfwCl3K1mEdDLNGh}"
+          }
+        }
+      ]
+    }
+  ],
+  "teardown": {
+    "action": [
+      {
+        "operation": {
+          "resource": "Observation",
+          "encodeRequestUrl": false,
+          "method": "delete",
+          "params": "/${yfwCl3K1mEdDLNGh}"
+        }
+      }
+    ]
+  },
+  "resourceType": "TestScript"
+}
