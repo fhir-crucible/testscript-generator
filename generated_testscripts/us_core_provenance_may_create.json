@@ -6,6 +6,7 @@
   "title": "Us Core Provenance May Create",
   "status": "draft",
   "experimental": true,
+<<<<<<< HEAD
   "date": "2022-09-17T09:23:48-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -23,6 +24,15 @@
       "name": "eb8nrp1qPMvlgMPF",
       "expression": "Provenance.id",
       "sourceId": "EmWVbjndvCSJSZaK"
+=======
+  "date": "2022-09-16T00:46:00-07:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "3rYuyjFd0n7hZfO9",
+      "path": "Location",
+      "sourceId": "YSF8sgHhfXBq8o2z"
+>>>>>>> 7559d10 (conformance testing support)
     }
   ],
   "test": [
@@ -32,8 +42,13 @@
           "operation": {
             "encodeRequestUrl": false,
             "method": "post",
+<<<<<<< HEAD
             "responseId": "EmWVbjndvCSJSZaK",
             "sourceId": "${EXAMPLE_RESOURCE_1}"
+=======
+            "responseId": "YSF8sgHhfXBq8o2z",
+            "sourceId": "example_provenance.json"
+>>>>>>> 7559d10 (conformance testing support)
           }
         }
       ]
@@ -46,7 +61,11 @@
           "resource": "Provenance",
           "encodeRequestUrl": false,
           "method": "delete",
+<<<<<<< HEAD
           "params": "/${eb8nrp1qPMvlgMPF}"
+=======
+          "params": "/${3rYuyjFd0n7hZfO9}"
+>>>>>>> 7559d10 (conformance testing support)
         }
       }
     ]

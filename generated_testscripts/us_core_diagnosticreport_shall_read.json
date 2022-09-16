@@ -6,6 +6,7 @@
   "title": "Us Core Diagnosticreport Shall Read",
   "status": "draft",
   "experimental": true,
+<<<<<<< HEAD
   "date": "2022-09-17T09:23:47-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -23,6 +24,15 @@
       "name": "DuOHEvmVyIYoxMeY",
       "expression": "DiagnosticReport.id",
       "sourceId": "7Scjba1JVpvSIqbQ"
+=======
+  "date": "2022-09-16T00:46:00-07:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "bqjpX0VtSKg3yO9j",
+      "path": "Location",
+      "sourceId": "KGM77bmuZO5tuuP0"
+>>>>>>> 7559d10 (conformance testing support)
     }
   ],
   "setup": {
@@ -31,8 +41,13 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
+<<<<<<< HEAD
           "responseId": "7Scjba1JVpvSIqbQ",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
+=======
+          "responseId": "KGM77bmuZO5tuuP0",
+          "sourceId": "example_diagnosticreport.json"
+>>>>>>> 7559d10 (conformance testing support)
         }
       }
     ]
@@ -45,7 +60,11 @@
             "resource": "DiagnosticReport",
             "encodeRequestUrl": false,
             "method": "get",
+<<<<<<< HEAD
             "params": "/${DuOHEvmVyIYoxMeY}"
+=======
+            "params": "/${bqjpX0VtSKg3yO9j}"
+>>>>>>> 7559d10 (conformance testing support)
           }
         }
       ]
@@ -58,7 +77,11 @@
           "resource": "DiagnosticReport",
           "encodeRequestUrl": false,
           "method": "delete",
+<<<<<<< HEAD
           "params": "/${DuOHEvmVyIYoxMeY}"
+=======
+          "params": "/${bqjpX0VtSKg3yO9j}"
+>>>>>>> 7559d10 (conformance testing support)
         }
       }
     ]

@@ -6,7 +6,11 @@ class WorkflowBuilder
               'read' => :get,
               'update' => :put,
               'delete' => :delete,
+<<<<<<< HEAD
               'search-type' => :get }
+=======
+              'search' => :get }
+>>>>>>> 7559d10 (conformance testing support)
 
   class Workflow
     attr_accessor :variables, :setup, :test, :teardown, :fixtures

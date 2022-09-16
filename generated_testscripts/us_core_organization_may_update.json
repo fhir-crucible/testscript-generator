@@ -6,6 +6,7 @@
   "title": "Us Core Organization May Update",
   "status": "draft",
   "experimental": true,
+<<<<<<< HEAD
   "date": "2022-09-17T09:23:48-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -23,6 +24,15 @@
       "name": "sSapm1U8Lru7VfWv",
       "expression": "Organization.id",
       "sourceId": "Tyfvxx6NDBFQAHdy"
+=======
+  "date": "2022-09-16T00:46:00-07:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "qkx2Fe6lTaFYlhKz",
+      "path": "Location",
+      "sourceId": "o6rlnPE66haej94B"
+>>>>>>> 7559d10 (conformance testing support)
     }
   ],
   "setup": {
@@ -31,8 +41,13 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
+<<<<<<< HEAD
           "responseId": "Tyfvxx6NDBFQAHdy",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
+=======
+          "responseId": "o6rlnPE66haej94B",
+          "sourceId": "example_organization.json"
+>>>>>>> 7559d10 (conformance testing support)
         }
       },
       {
@@ -40,8 +55,13 @@
           "resource": "Organization",
           "encodeRequestUrl": false,
           "method": "get",
+<<<<<<< HEAD
           "params": "/${sSapm1U8Lru7VfWv}",
           "responseId": "M3mxvzl27bF1vln1"
+=======
+          "params": "/${qkx2Fe6lTaFYlhKz}",
+          "responseId": "d83IAUSBfQRc5B6k"
+>>>>>>> 7559d10 (conformance testing support)
         }
       }
     ]
@@ -54,8 +74,13 @@
             "resource": "Organization",
             "encodeRequestUrl": false,
             "method": "put",
+<<<<<<< HEAD
             "params": "/${sSapm1U8Lru7VfWv}",
             "sourceId": "M3mxvzl27bF1vln1"
+=======
+            "params": "/${qkx2Fe6lTaFYlhKz}",
+            "sourceId": "d83IAUSBfQRc5B6k"
+>>>>>>> 7559d10 (conformance testing support)
           }
         }
       ]
@@ -68,7 +93,11 @@
           "resource": "Organization",
           "encodeRequestUrl": false,
           "method": "delete",
+<<<<<<< HEAD
           "params": "/${sSapm1U8Lru7VfWv}"
+=======
+          "params": "/${qkx2Fe6lTaFYlhKz}"
+>>>>>>> 7559d10 (conformance testing support)
         }
       }
     ]

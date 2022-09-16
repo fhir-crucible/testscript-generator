@@ -6,6 +6,7 @@
   "title": "Us Core Immunization May Delete",
   "status": "draft",
   "experimental": true,
+<<<<<<< HEAD
   "date": "2022-09-17T09:23:47-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -23,6 +24,15 @@
       "name": "U0BA5zywzGYlRrrP",
       "expression": "Immunization.id",
       "sourceId": "gcIPKUwgR2gIu6NA"
+=======
+  "date": "2022-09-16T00:46:00-07:00",
+  "publisher": "The MITRE Corporation",
+  "variable": [
+    {
+      "name": "fMWjQO9EckmNnWGD",
+      "path": "Location",
+      "sourceId": "mWSoMHNLEqokOvFe"
+>>>>>>> 7559d10 (conformance testing support)
     }
   ],
   "setup": {
@@ -31,8 +41,13 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
+<<<<<<< HEAD
           "responseId": "gcIPKUwgR2gIu6NA",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
+=======
+          "responseId": "mWSoMHNLEqokOvFe",
+          "sourceId": "example_immunization.json"
+>>>>>>> 7559d10 (conformance testing support)
         }
       }
     ]
@@ -45,7 +60,11 @@
             "resource": "Immunization",
             "encodeRequestUrl": false,
             "method": "delete",
+<<<<<<< HEAD
             "params": "/${U0BA5zywzGYlRrrP}"
+=======
+            "params": "/${fMWjQO9EckmNnWGD}"
+>>>>>>> 7559d10 (conformance testing support)
           }
         }
       ]
@@ -58,7 +77,11 @@
           "resource": "Immunization",
           "encodeRequestUrl": false,
           "method": "delete",
+<<<<<<< HEAD
           "params": "/${U0BA5zywzGYlRrrP}"
+=======
+          "params": "/${fMWjQO9EckmNnWGD}"
+>>>>>>> 7559d10 (conformance testing support)
         }
       }
     ]
