@@ -5,6 +5,21 @@ class TestScriptBuilder
 		@scripts ||= {}
 	end
 
+	def operation_counter
+		@operation_counter ||= 0
+		@operation_counter += 1
+	end
+
+	def assert_counter
+		@assert_counter ||= 0
+		@assert_counter += 1
+	end
+
+	def test_counter
+		@test_counter ||= 0
+		@test_counter += 1
+	end
+
 	def build(workflow)
 		script = scripts[workflow]
 		return script if script
@@ -65,6 +80,7 @@ class TestScriptBuilder
 
 	def build_operation(operation)
 		FHIR::TestScript::Setup::Action::Operation.new({
+			label: "Operation_#{operation_counter}",
 			params: operation.params,
 			method: operation.method,
 			sourceId: operation.sourceId,
@@ -75,7 +91,7 @@ class TestScriptBuilder
 	end
 
 	def build_assert(assertion)
-		FHIR::TestScript::Setup::Action::Assert.new()
+		FHIR::TestScript::Setup::Action::Assert.new(label: "Assert_#{assert_counter}")
 	end
 
 	def build_test(workflow)
@@ -90,7 +106,7 @@ class TestScriptBuilder
 				end
 			end
 
-			FHIR::TestScript::Test.new(action: actions)
+			FHIR::TestScript::Test.new(name: "Test_#{test_counter}", action: actions)
 		end
 	end
 
