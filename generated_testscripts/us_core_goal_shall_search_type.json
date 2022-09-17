@@ -6,7 +6,7 @@
   "title": "Us Core Goal Shall Search Type",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-17T00:04:38-04:00",
+  "date": "2022-09-17T09:23:47-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "LqDHgXEkL7MrOYZ8",
+      "name": "M26L2KX0MyCs6AXz",
       "expression": "Goal.id",
-      "sourceId": "uRbYv0naqIfpYkFf"
+      "sourceId": "osi7zLNNB3ygbAYp"
     }
   ],
   "setup": {
@@ -31,7 +31,7 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "uRbYv0naqIfpYkFf",
+          "responseId": "osi7zLNNB3ygbAYp",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       }
@@ -45,7 +45,7 @@
             "resource": "Goal",
             "encodeRequestUrl": false,
             "method": "get",
-            "params": "/${LqDHgXEkL7MrOYZ8}"
+            "params": "/${M26L2KX0MyCs6AXz}"
           }
         }
       ]
@@ -58,7 +58,7 @@
           "resource": "Goal",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${LqDHgXEkL7MrOYZ8}"
+          "params": "/${M26L2KX0MyCs6AXz}"
         }
       }
     ]

@@ -6,7 +6,7 @@
   "title": "Us Core Medicationrequest May Update",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-17T00:04:38-04:00",
+  "date": "2022-09-17T09:23:48-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "lUlcuzGgK5eoColN",
+      "name": "sSapm1U8Lru7VfWv",
       "expression": "MedicationRequest.id",
-      "sourceId": "jfJS4qmzQQP3tSG1"
+      "sourceId": "Tyfvxx6NDBFQAHdy"
     }
   ],
   "setup": {
@@ -31,7 +31,7 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "jfJS4qmzQQP3tSG1",
+          "responseId": "Tyfvxx6NDBFQAHdy",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       },
@@ -40,8 +40,8 @@
           "resource": "MedicationRequest",
           "encodeRequestUrl": false,
           "method": "get",
-          "params": "/${lUlcuzGgK5eoColN}",
-          "responseId": "sPtF2MujlHE94gr9"
+          "params": "/${sSapm1U8Lru7VfWv}",
+          "responseId": "M3mxvzl27bF1vln1"
         }
       }
     ]
@@ -54,8 +54,8 @@
             "resource": "MedicationRequest",
             "encodeRequestUrl": false,
             "method": "put",
-            "params": "/${lUlcuzGgK5eoColN}",
-            "sourceId": "sPtF2MujlHE94gr9"
+            "params": "/${sSapm1U8Lru7VfWv}",
+            "sourceId": "M3mxvzl27bF1vln1"
           }
         }
       ]
@@ -68,7 +68,7 @@
           "resource": "MedicationRequest",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${lUlcuzGgK5eoColN}"
+          "params": "/${sSapm1U8Lru7VfWv}"
         }
       }
     ]

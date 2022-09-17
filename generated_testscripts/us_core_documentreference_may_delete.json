@@ -6,7 +6,7 @@
   "title": "Us Core Documentreference May Delete",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-17T00:04:38-04:00",
+  "date": "2022-09-17T09:23:47-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "cSeEFjJjlqhXs3cY",
+      "name": "U0BA5zywzGYlRrrP",
       "expression": "DocumentReference.id",
-      "sourceId": "mUaLQOv8r4xbL993"
+      "sourceId": "gcIPKUwgR2gIu6NA"
     }
   ],
   "setup": {
@@ -31,7 +31,7 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "mUaLQOv8r4xbL993",
+          "responseId": "gcIPKUwgR2gIu6NA",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       }
@@ -45,7 +45,7 @@
             "resource": "DocumentReference",
             "encodeRequestUrl": false,
             "method": "delete",
-            "params": "/${cSeEFjJjlqhXs3cY}"
+            "params": "/${U0BA5zywzGYlRrrP}"
           }
         }
       ]
@@ -58,7 +58,7 @@
           "resource": "DocumentReference",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${cSeEFjJjlqhXs3cY}"
+          "params": "/${U0BA5zywzGYlRrrP}"
         }
       }
     ]

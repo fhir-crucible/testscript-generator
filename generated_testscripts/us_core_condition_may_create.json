@@ -6,7 +6,7 @@
   "title": "Us Core Condition May Create",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-17T00:04:38-04:00",
+  "date": "2022-09-17T09:23:47-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "mn15bbn2zNMKoFCo",
+      "name": "eb8nrp1qPMvlgMPF",
       "expression": "Condition.id",
-      "sourceId": "fjir9cEAAcKPpsXa"
+      "sourceId": "EmWVbjndvCSJSZaK"
     }
   ],
   "test": [
@@ -32,7 +32,7 @@
           "operation": {
             "encodeRequestUrl": false,
             "method": "post",
-            "responseId": "fjir9cEAAcKPpsXa",
+            "responseId": "EmWVbjndvCSJSZaK",
             "sourceId": "${EXAMPLE_RESOURCE_1}"
           }
         }
@@ -46,7 +46,7 @@
           "resource": "Condition",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${mn15bbn2zNMKoFCo}"
+          "params": "/${eb8nrp1qPMvlgMPF}"
         }
       }
     ]
