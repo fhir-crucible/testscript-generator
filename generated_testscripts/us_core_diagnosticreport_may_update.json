@@ -6,7 +6,7 @@
   "title": "Us Core Diagnosticreport May Update",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-17T09:23:47-04:00",
+  "date": "2022-09-17T09:31:33-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "sSapm1U8Lru7VfWv",
+      "name": "yHWgpr3iTWEFSnZa",
       "expression": "DiagnosticReport.id",
-      "sourceId": "Tyfvxx6NDBFQAHdy"
+      "sourceId": "D49fTnxeFOOxAszm"
     }
   ],
   "setup": {
@@ -31,7 +31,7 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "Tyfvxx6NDBFQAHdy",
+          "responseId": "D49fTnxeFOOxAszm",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       },
@@ -40,8 +40,8 @@
           "resource": "DiagnosticReport",
           "encodeRequestUrl": false,
           "method": "get",
-          "params": "/${sSapm1U8Lru7VfWv}",
-          "responseId": "M3mxvzl27bF1vln1"
+          "params": "/${yHWgpr3iTWEFSnZa}",
+          "responseId": "ImGEEq6EN2TWapBC"
         }
       }
     ]
@@ -54,8 +54,8 @@
             "resource": "DiagnosticReport",
             "encodeRequestUrl": false,
             "method": "put",
-            "params": "/${sSapm1U8Lru7VfWv}",
-            "sourceId": "M3mxvzl27bF1vln1"
+            "params": "/${yHWgpr3iTWEFSnZa}",
+            "sourceId": "ImGEEq6EN2TWapBC"
           }
         }
       ]
@@ -68,7 +68,7 @@
           "resource": "DiagnosticReport",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${sSapm1U8Lru7VfWv}"
+          "params": "/${yHWgpr3iTWEFSnZa}"
         }
       }
     ]

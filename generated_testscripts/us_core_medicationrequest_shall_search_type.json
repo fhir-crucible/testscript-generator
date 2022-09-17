@@ -6,7 +6,7 @@
   "title": "Us Core Medicationrequest Shall Search Type",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-17T09:23:47-04:00",
+  "date": "2022-09-17T09:31:33-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "M26L2KX0MyCs6AXz",
+      "name": "VS9InqwxUhni8btP",
       "expression": "MedicationRequest.id",
-      "sourceId": "osi7zLNNB3ygbAYp"
+      "sourceId": "AIB4ZmJErd0Dr9kP"
     }
   ],
   "setup": {
@@ -31,7 +31,7 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "osi7zLNNB3ygbAYp",
+          "responseId": "AIB4ZmJErd0Dr9kP",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       }
@@ -45,7 +45,7 @@
             "resource": "MedicationRequest",
             "encodeRequestUrl": false,
             "method": "get",
-            "params": "/${M26L2KX0MyCs6AXz}"
+            "params": "/${VS9InqwxUhni8btP}"
           }
         }
       ]
@@ -58,7 +58,7 @@
           "resource": "MedicationRequest",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${M26L2KX0MyCs6AXz}"
+          "params": "/${VS9InqwxUhni8btP}"
         }
       }
     ]

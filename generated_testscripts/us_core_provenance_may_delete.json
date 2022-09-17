@@ -6,7 +6,7 @@
   "title": "Us Core Provenance May Delete",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-17T09:23:48-04:00",
+  "date": "2022-09-17T09:31:33-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "U0BA5zywzGYlRrrP",
+      "name": "IBlH7n3X636kbXov",
       "expression": "Provenance.id",
-      "sourceId": "gcIPKUwgR2gIu6NA"
+      "sourceId": "7h0AhcpGRlR0Wnkn"
     }
   ],
   "setup": {
@@ -31,7 +31,7 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "gcIPKUwgR2gIu6NA",
+          "responseId": "7h0AhcpGRlR0Wnkn",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       }
@@ -45,7 +45,7 @@
             "resource": "Provenance",
             "encodeRequestUrl": false,
             "method": "delete",
-            "params": "/${U0BA5zywzGYlRrrP}"
+            "params": "/${IBlH7n3X636kbXov}"
           }
         }
       ]
@@ -58,7 +58,7 @@
           "resource": "Provenance",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${U0BA5zywzGYlRrrP}"
+          "params": "/${IBlH7n3X636kbXov}"
         }
       }
     ]

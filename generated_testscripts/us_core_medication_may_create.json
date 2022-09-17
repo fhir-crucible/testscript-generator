@@ -6,7 +6,7 @@
   "title": "Us Core Medication May Create",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-17T09:23:47-04:00",
+  "date": "2022-09-17T09:31:33-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "eb8nrp1qPMvlgMPF",
+      "name": "2NbHuRB3qkHgGW1u",
       "expression": "Medication.id",
-      "sourceId": "EmWVbjndvCSJSZaK"
+      "sourceId": "ifFRsMLh0E9Xvjxa"
     }
   ],
   "test": [
@@ -32,7 +32,7 @@
           "operation": {
             "encodeRequestUrl": false,
             "method": "post",
-            "responseId": "EmWVbjndvCSJSZaK",
+            "responseId": "ifFRsMLh0E9Xvjxa",
             "sourceId": "${EXAMPLE_RESOURCE_1}"
           }
         }
@@ -46,7 +46,7 @@
           "resource": "Medication",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${eb8nrp1qPMvlgMPF}"
+          "params": "/${2NbHuRB3qkHgGW1u}"
         }
       }
     ]
