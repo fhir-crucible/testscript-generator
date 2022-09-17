@@ -42,7 +42,7 @@ class TestScriptGenerator
 	def add_boilerplate(script, script_name)
 		script.url = 'https://github.com/fhir-crucible/testscript-generator'
 		script.version = '0.0'
-		script.name = script_name
+		script.name = script_name.split('_').map(&:capitalize).join('')
 		script.title = script_name.split('_').map(&:capitalize).join(' ')
 		script.id = script_name.gsub('_', '-')
 		script.status = 'draft'
