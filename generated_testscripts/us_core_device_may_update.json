@@ -8,6 +8,7 @@
   "experimental": true,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "date": "2022-09-17T09:23:47-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -30,6 +31,9 @@
 =======
   "date": "2022-09-16T01:04:12-07:00",
 >>>>>>> 7354161 (add fixture support)
+=======
+  "date": "2022-09-17T00:04:38-04:00",
+>>>>>>> 19a7c13 (modify variable composition)
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -43,6 +47,7 @@
   ],
   "variable": [
     {
+<<<<<<< HEAD
       "name": "uVsDnmzq7D9BUzc3",
       "path": "Location",
 <<<<<<< HEAD
@@ -51,6 +56,11 @@
 =======
       "sourceId": "oGZYWfrximsUhPTA"
 >>>>>>> 7354161 (add fixture support)
+=======
+      "name": "lUlcuzGgK5eoColN",
+      "expression": "Device.id",
+      "sourceId": "jfJS4qmzQQP3tSG1"
+>>>>>>> 19a7c13 (modify variable composition)
     }
   ],
   "setup": {
@@ -61,6 +71,7 @@
           "method": "post",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "responseId": "Tyfvxx6NDBFQAHdy",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
@@ -69,6 +80,9 @@
 >>>>>>> 7559d10 (conformance testing support)
 =======
           "responseId": "oGZYWfrximsUhPTA",
+=======
+          "responseId": "jfJS4qmzQQP3tSG1",
+>>>>>>> 19a7c13 (modify variable composition)
           "sourceId": "${EXAMPLE_RESOURCE_1}"
 >>>>>>> 7354161 (add fixture support)
         }
@@ -78,6 +92,7 @@
           "resource": "Device",
           "encodeRequestUrl": false,
           "method": "get",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           "params": "/${sSapm1U8Lru7VfWv}",
@@ -90,6 +105,10 @@
           "params": "/${uVsDnmzq7D9BUzc3}",
           "responseId": "gdH9GpFhlSNUYrxE"
 >>>>>>> 7354161 (add fixture support)
+=======
+          "params": "/${lUlcuzGgK5eoColN}",
+          "responseId": "sPtF2MujlHE94gr9"
+>>>>>>> 19a7c13 (modify variable composition)
         }
       }
     ]
@@ -104,6 +123,7 @@
             "method": "put",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "params": "/${sSapm1U8Lru7VfWv}",
             "sourceId": "M3mxvzl27bF1vln1"
 =======
@@ -114,6 +134,10 @@
             "params": "/${uVsDnmzq7D9BUzc3}",
             "sourceId": "gdH9GpFhlSNUYrxE"
 >>>>>>> 7354161 (add fixture support)
+=======
+            "params": "/${lUlcuzGgK5eoColN}",
+            "sourceId": "sPtF2MujlHE94gr9"
+>>>>>>> 19a7c13 (modify variable composition)
           }
         }
       ]
@@ -128,6 +152,7 @@
           "method": "delete",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${sSapm1U8Lru7VfWv}"
 =======
           "params": "/${qkx2Fe6lTaFYlhKz}"
@@ -135,6 +160,9 @@
 =======
           "params": "/${uVsDnmzq7D9BUzc3}"
 >>>>>>> 7354161 (add fixture support)
+=======
+          "params": "/${lUlcuzGgK5eoColN}"
+>>>>>>> 19a7c13 (modify variable composition)
         }
       }
     ]

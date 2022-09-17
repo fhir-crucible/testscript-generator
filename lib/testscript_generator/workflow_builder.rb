@@ -7,10 +7,14 @@ class WorkflowBuilder
               'update' => :put,
               'delete' => :delete,
 <<<<<<< HEAD
+<<<<<<< HEAD
               'search-type' => :get }
 =======
               'search' => :get }
 >>>>>>> 7559d10 (conformance testing support)
+=======
+              'search-type' => :get }
+>>>>>>> 19a7c13 (modify variable composition)
 
   class Workflow
     attr_accessor :variables, :setup, :test, :teardown, :fixtures

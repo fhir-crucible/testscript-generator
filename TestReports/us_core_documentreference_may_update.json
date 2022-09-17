@@ -9,7 +9,11 @@
   "result": "pass",
   "score": 100.0,
   "tester": "The MITRE Corporation",
+<<<<<<< HEAD
   "issued": "2022-09-17T00:57:32-04:00",
+=======
+  "issued": "2022-09-17T00:23:22-04:00",
+>>>>>>> 19a7c13 (modify variable composition)
   "setup": {
     "action": [
       {

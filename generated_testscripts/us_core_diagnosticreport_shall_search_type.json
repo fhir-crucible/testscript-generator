@@ -8,6 +8,7 @@
   "experimental": true,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "date": "2022-09-17T09:23:47-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -30,6 +31,9 @@
 =======
   "date": "2022-09-16T01:04:12-07:00",
 >>>>>>> 7354161 (add fixture support)
+=======
+  "date": "2022-09-17T00:04:38-04:00",
+>>>>>>> 19a7c13 (modify variable composition)
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -43,6 +47,7 @@
   ],
   "variable": [
     {
+<<<<<<< HEAD
       "name": "zzKdcpZGGGQ7Affj",
       "headerField": "Location",
 <<<<<<< HEAD
@@ -51,6 +56,11 @@
 =======
       "sourceId": "Mw2QgjQba7sHOnWj"
 >>>>>>> 7354161 (add fixture support)
+=======
+      "name": "LqDHgXEkL7MrOYZ8",
+      "expression": "DiagnosticReport.id",
+      "sourceId": "uRbYv0naqIfpYkFf"
+>>>>>>> 19a7c13 (modify variable composition)
     }
   ],
   "setup": {
@@ -61,6 +71,7 @@
           "method": "post",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "responseId": "osi7zLNNB3ygbAYp",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
@@ -69,6 +80,9 @@
 >>>>>>> 7559d10 (conformance testing support)
 =======
           "responseId": "Mw2QgjQba7sHOnWj",
+=======
+          "responseId": "uRbYv0naqIfpYkFf",
+>>>>>>> 19a7c13 (modify variable composition)
           "sourceId": "${EXAMPLE_RESOURCE_1}"
 >>>>>>> 7354161 (add fixture support)
         }
@@ -84,6 +98,7 @@
             "encodeRequestUrl": false,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "method": "get",
             "params": "/${M26L2KX0MyCs6AXz}"
 =======
@@ -92,6 +107,10 @@
 =======
             "params": "/${zzKdcpZGGGQ7Affj}"
 >>>>>>> 7354161 (add fixture support)
+=======
+            "method": "get",
+            "params": "/${LqDHgXEkL7MrOYZ8}"
+>>>>>>> 19a7c13 (modify variable composition)
           }
         }
       ]
@@ -106,6 +125,7 @@
           "method": "delete",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${M26L2KX0MyCs6AXz}"
 =======
           "params": "/${yfwCl3K1mEdDLNGh}"
@@ -113,6 +133,9 @@
 =======
           "params": "/${zzKdcpZGGGQ7Affj}"
 >>>>>>> 7354161 (add fixture support)
+=======
+          "params": "/${LqDHgXEkL7MrOYZ8}"
+>>>>>>> 19a7c13 (modify variable composition)
         }
       }
     ]

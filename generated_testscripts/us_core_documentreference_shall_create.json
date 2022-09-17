@@ -8,6 +8,7 @@
   "experimental": true,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "date": "2022-09-17T09:23:47-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -30,6 +31,9 @@
 =======
   "date": "2022-09-16T01:04:12-07:00",
 >>>>>>> 7354161 (add fixture support)
+=======
+  "date": "2022-09-17T00:04:38-04:00",
+>>>>>>> 19a7c13 (modify variable composition)
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -43,6 +47,7 @@
   ],
   "variable": [
     {
+<<<<<<< HEAD
       "name": "AD1qJl8nRTCpw8hR",
       "path": "Location",
 <<<<<<< HEAD
@@ -51,6 +56,11 @@
 =======
       "sourceId": "AkQ8rSg6rOmybIg7"
 >>>>>>> 7354161 (add fixture support)
+=======
+      "name": "mn15bbn2zNMKoFCo",
+      "expression": "DocumentReference.id",
+      "sourceId": "fjir9cEAAcKPpsXa"
+>>>>>>> 19a7c13 (modify variable composition)
     }
   ],
   "test": [
@@ -62,6 +72,7 @@
             "method": "post",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "responseId": "EmWVbjndvCSJSZaK",
             "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
@@ -70,6 +81,9 @@
 >>>>>>> 7559d10 (conformance testing support)
 =======
             "responseId": "AkQ8rSg6rOmybIg7",
+=======
+            "responseId": "fjir9cEAAcKPpsXa",
+>>>>>>> 19a7c13 (modify variable composition)
             "sourceId": "${EXAMPLE_RESOURCE_1}"
 >>>>>>> 7354161 (add fixture support)
           }
@@ -86,6 +100,7 @@
           "method": "delete",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${eb8nrp1qPMvlgMPF}"
 =======
           "params": "/${3rYuyjFd0n7hZfO9}"
@@ -93,6 +108,9 @@
 =======
           "params": "/${AD1qJl8nRTCpw8hR}"
 >>>>>>> 7354161 (add fixture support)
+=======
+          "params": "/${mn15bbn2zNMKoFCo}"
+>>>>>>> 19a7c13 (modify variable composition)
         }
       }
     ]
