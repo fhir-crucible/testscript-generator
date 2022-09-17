@@ -10,9 +10,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 533e705 (update README)
   "date": "2022-09-17T09:23:47-04:00",
+=======
+  "date": "2022-09-17T09:31:33-04:00",
+>>>>>>> 266de91 (update .gitignore)
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -26,6 +30,7 @@
   ],
   "variable": [
     {
+<<<<<<< HEAD
       "name": "eb8nrp1qPMvlgMPF",
 <<<<<<< HEAD
       "expression": "Location.id",
@@ -69,6 +74,11 @@
       "expression": "Location.id",
       "sourceId": "EmWVbjndvCSJSZaK"
 >>>>>>> 533e705 (update README)
+=======
+      "name": "2NbHuRB3qkHgGW1u",
+      "expression": "Location.id",
+      "sourceId": "ifFRsMLh0E9Xvjxa"
+>>>>>>> 266de91 (update .gitignore)
     }
   ],
   "test": [
@@ -82,9 +92,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 533e705 (update README)
             "responseId": "EmWVbjndvCSJSZaK",
+=======
+            "responseId": "ifFRsMLh0E9Xvjxa",
+>>>>>>> 266de91 (update .gitignore)
             "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
             "responseId": "YSF8sgHhfXBq8o2z",
@@ -113,6 +127,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${eb8nrp1qPMvlgMPF}"
 =======
           "params": "/${3rYuyjFd0n7hZfO9}"
@@ -126,6 +141,9 @@
 =======
           "params": "/${eb8nrp1qPMvlgMPF}"
 >>>>>>> 533e705 (update README)
+=======
+          "params": "/${2NbHuRB3qkHgGW1u}"
+>>>>>>> 266de91 (update .gitignore)
         }
       }
     ]

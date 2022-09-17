@@ -10,9 +10,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 533e705 (update README)
   "date": "2022-09-17T09:23:47-04:00",
+=======
+  "date": "2022-09-17T09:31:33-04:00",
+>>>>>>> 266de91 (update .gitignore)
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -26,6 +30,7 @@
   ],
   "variable": [
     {
+<<<<<<< HEAD
       "name": "sSapm1U8Lru7VfWv",
 <<<<<<< HEAD
       "expression": "DiagnosticReport.id",
@@ -69,6 +74,11 @@
       "expression": "DiagnosticReport.id",
       "sourceId": "Tyfvxx6NDBFQAHdy"
 >>>>>>> 533e705 (update README)
+=======
+      "name": "yHWgpr3iTWEFSnZa",
+      "expression": "DiagnosticReport.id",
+      "sourceId": "D49fTnxeFOOxAszm"
+>>>>>>> 266de91 (update .gitignore)
     }
   ],
   "setup": {
@@ -81,9 +91,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 533e705 (update README)
           "responseId": "Tyfvxx6NDBFQAHdy",
+=======
+          "responseId": "D49fTnxeFOOxAszm",
+>>>>>>> 266de91 (update .gitignore)
           "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
           "responseId": "o6rlnPE66haej94B",
@@ -107,6 +121,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${sSapm1U8Lru7VfWv}",
           "responseId": "M3mxvzl27bF1vln1"
 =======
@@ -125,6 +140,10 @@
           "params": "/${sSapm1U8Lru7VfWv}",
           "responseId": "M3mxvzl27bF1vln1"
 >>>>>>> 533e705 (update README)
+=======
+          "params": "/${yHWgpr3iTWEFSnZa}",
+          "responseId": "ImGEEq6EN2TWapBC"
+>>>>>>> 266de91 (update .gitignore)
         }
       }
     ]
@@ -137,6 +156,7 @@
             "resource": "DiagnosticReport",
             "encodeRequestUrl": false,
             "method": "put",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -159,6 +179,10 @@
             "params": "/${sSapm1U8Lru7VfWv}",
             "sourceId": "M3mxvzl27bF1vln1"
 >>>>>>> 533e705 (update README)
+=======
+            "params": "/${yHWgpr3iTWEFSnZa}",
+            "sourceId": "ImGEEq6EN2TWapBC"
+>>>>>>> 266de91 (update .gitignore)
           }
         }
       ]
@@ -171,6 +195,7 @@
           "resource": "DiagnosticReport",
           "encodeRequestUrl": false,
           "method": "delete",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -188,6 +213,9 @@
 =======
           "params": "/${sSapm1U8Lru7VfWv}"
 >>>>>>> 533e705 (update README)
+=======
+          "params": "/${yHWgpr3iTWEFSnZa}"
+>>>>>>> 266de91 (update .gitignore)
         }
       }
     ]
