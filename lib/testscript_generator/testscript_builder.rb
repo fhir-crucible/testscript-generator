@@ -32,7 +32,7 @@ class TestScriptBuilder
 			input = { name: var[0], sourceId: var[2] }
 
 			if !var[1].start_with?('$HEADER_')
-				input.merge!({ path: var[1] })
+				input.merge!({ expression: var[1] })
 			else
 				var[1].slice!("$HEADER_")
 				input.merge!({ headerField: var[1] })

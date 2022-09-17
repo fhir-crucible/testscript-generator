@@ -6,7 +6,7 @@
   "title": "Us Core Medication May Delete",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-16T01:04:12-07:00",
+  "date": "2022-09-17T00:04:38-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "PnOWQMdYgf5vxl4l",
-      "path": "Location",
-      "sourceId": "B4IJEsn583FCYGvq"
+      "name": "cSeEFjJjlqhXs3cY",
+      "expression": "Medication.id",
+      "sourceId": "mUaLQOv8r4xbL993"
     }
   ],
   "setup": {
@@ -31,7 +31,7 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "B4IJEsn583FCYGvq",
+          "responseId": "mUaLQOv8r4xbL993",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       }
@@ -45,7 +45,7 @@
             "resource": "Medication",
             "encodeRequestUrl": false,
             "method": "delete",
-            "params": "/${PnOWQMdYgf5vxl4l}"
+            "params": "/${cSeEFjJjlqhXs3cY}"
           }
         }
       ]
@@ -58,7 +58,7 @@
           "resource": "Medication",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${PnOWQMdYgf5vxl4l}"
+          "params": "/${cSeEFjJjlqhXs3cY}"
         }
       }
     ]

@@ -6,7 +6,7 @@
   "title": "Us Core Provenance May Update",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-16T01:04:12-07:00",
+  "date": "2022-09-17T00:04:38-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "uVsDnmzq7D9BUzc3",
-      "path": "Location",
-      "sourceId": "oGZYWfrximsUhPTA"
+      "name": "lUlcuzGgK5eoColN",
+      "expression": "Provenance.id",
+      "sourceId": "jfJS4qmzQQP3tSG1"
     }
   ],
   "setup": {
@@ -31,7 +31,7 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "oGZYWfrximsUhPTA",
+          "responseId": "jfJS4qmzQQP3tSG1",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       },
@@ -40,8 +40,8 @@
           "resource": "Provenance",
           "encodeRequestUrl": false,
           "method": "get",
-          "params": "/${uVsDnmzq7D9BUzc3}",
-          "responseId": "gdH9GpFhlSNUYrxE"
+          "params": "/${lUlcuzGgK5eoColN}",
+          "responseId": "sPtF2MujlHE94gr9"
         }
       }
     ]
@@ -54,8 +54,8 @@
             "resource": "Provenance",
             "encodeRequestUrl": false,
             "method": "put",
-            "params": "/${uVsDnmzq7D9BUzc3}",
-            "sourceId": "gdH9GpFhlSNUYrxE"
+            "params": "/${lUlcuzGgK5eoColN}",
+            "sourceId": "sPtF2MujlHE94gr9"
           }
         }
       ]
@@ -68,7 +68,7 @@
           "resource": "Provenance",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${uVsDnmzq7D9BUzc3}"
+          "params": "/${lUlcuzGgK5eoColN}"
         }
       }
     ]

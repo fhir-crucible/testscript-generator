@@ -6,7 +6,7 @@
   "title": "Us Core Careteam Shall Search Type",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-16T01:04:12-07:00",
+  "date": "2022-09-17T00:04:38-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "zzKdcpZGGGQ7Affj",
-      "headerField": "Location",
-      "sourceId": "Mw2QgjQba7sHOnWj"
+      "name": "LqDHgXEkL7MrOYZ8",
+      "expression": "CareTeam.id",
+      "sourceId": "uRbYv0naqIfpYkFf"
     }
   ],
   "setup": {
@@ -31,7 +31,7 @@
         "operation": {
           "encodeRequestUrl": false,
           "method": "post",
-          "responseId": "Mw2QgjQba7sHOnWj",
+          "responseId": "uRbYv0naqIfpYkFf",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
         }
       }
@@ -44,7 +44,8 @@
           "operation": {
             "resource": "CareTeam",
             "encodeRequestUrl": false,
-            "params": "/${zzKdcpZGGGQ7Affj}"
+            "method": "get",
+            "params": "/${LqDHgXEkL7MrOYZ8}"
           }
         }
       ]
@@ -57,7 +58,7 @@
           "resource": "CareTeam",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${zzKdcpZGGGQ7Affj}"
+          "params": "/${LqDHgXEkL7MrOYZ8}"
         }
       }
     ]

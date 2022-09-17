@@ -1,0 +1,52 @@
+{
+  "id": "us-core-documentreference-may-update",
+  "name": "us_core_documentreference_may_update",
+  "status": "completed",
+  "testScript": {
+    "reference": "../testscript_generator/generated_testscripts/us_core_documentreference_may_update.json",
+    "type": "http://hl7.org/fhir/R4B/testscript.html"
+  },
+  "result": "pass",
+  "score": 100.0,
+  "tester": "The MITRE Corporation",
+  "issued": "2022-09-17T00:23:22-04:00",
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "id": "unlabeled operation",
+          "result": "pass"
+        }
+      },
+      {
+        "operation": {
+          "id": "unlabeled operation",
+          "result": "pass"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "id": "unlabeled operation",
+            "result": "pass"
+          }
+        }
+      ]
+    }
+  ],
+  "teardown": {
+    "action": [
+      {
+        "operation": {
+          "id": "unlabeled operation",
+          "result": "pass"
+        }
+      }
+    ]
+  },
+  "resourceType": "TestReport"
+}

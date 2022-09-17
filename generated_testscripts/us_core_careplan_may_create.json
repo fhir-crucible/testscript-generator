@@ -6,7 +6,7 @@
   "title": "Us Core Careplan May Create",
   "status": "draft",
   "experimental": true,
-  "date": "2022-09-16T01:04:12-07:00",
+  "date": "2022-09-17T00:04:38-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
     {
@@ -20,9 +20,9 @@
   ],
   "variable": [
     {
-      "name": "AD1qJl8nRTCpw8hR",
-      "path": "Location",
-      "sourceId": "AkQ8rSg6rOmybIg7"
+      "name": "mn15bbn2zNMKoFCo",
+      "expression": "CarePlan.id",
+      "sourceId": "fjir9cEAAcKPpsXa"
     }
   ],
   "test": [
@@ -32,7 +32,7 @@
           "operation": {
             "encodeRequestUrl": false,
             "method": "post",
-            "responseId": "AkQ8rSg6rOmybIg7",
+            "responseId": "fjir9cEAAcKPpsXa",
             "sourceId": "${EXAMPLE_RESOURCE_1}"
           }
         }
@@ -46,7 +46,7 @@
           "resource": "CarePlan",
           "encodeRequestUrl": false,
           "method": "delete",
-          "params": "/${AD1qJl8nRTCpw8hR}"
+          "params": "/${mn15bbn2zNMKoFCo}"
         }
       }
     ]

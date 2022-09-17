@@ -6,7 +6,7 @@ class WorkflowBuilder
               'read' => :get,
               'update' => :put,
               'delete' => :delete,
-              'search' => :get }
+              'search-type' => :get }
 
   class Workflow
     attr_accessor :variables, :setup, :test, :teardown, :fixtures
@@ -70,7 +70,7 @@ class WorkflowBuilder
         getId: true,
         modify: true,
         staticReq: [:resource],
-        expression: '$HEADER_Location'
+        expression: '${RESOURCE_TYPE_1}.id'
       }),
       'read' => InteractionMeta.new({
         fetch: true,
