@@ -85,7 +85,7 @@ class TestScriptGenerator
 								script = scripts[workflows[interaction]]
 								script_name = get_name(name, resource, target_verb, interaction)
 								add_boilerplate(script, script_name)
-								script = script.to_json.gsub("${RESOURCE_TYPE_1}", resource).gsub("${EXAMPLE_RESOURCE_1}_reference", "example_#{resource.downcase}.json")
+								script = script.to_json.gsub("${RESOURCE_TYPE_1}", resource).gsub("${EXAMPLE_RESOURCE_1}_reference", "example_#{resource.downcase}.json").gsub("${EXAMPLE_RESOURCE_1}", "example_#{resource.downcase}")
 								output_script(script, script_name)
 								output_example(resource)
 							else

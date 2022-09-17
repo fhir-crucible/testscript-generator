@@ -2,11 +2,16 @@ require 'SecureRandom'
 
 class WorkflowBuilder
 
-  METHODS = { 'create' => :post,
-              'read' => :get,
-              'update' => :put,
-              'delete' => :delete,
-              'search-type' => :get }
+  # methods = { 'create' => :post,
+  #             'read' => :get,
+  #             'update' => :put,
+  #             'delete' => :delete,
+  #             'search-type' => :get }
+
+ def methods(op_code_type)
+  return 'search' if op_code_type == 'search-type'
+  return op_code_type
+ end
 
   class Workflow
     attr_accessor :variables, :setup, :test, :teardown, :fixtures
@@ -123,7 +128,7 @@ class WorkflowBuilder
 
   def build_setup(setup)
     workflow.setup << Operation.new({
-      method: METHODS[setup],
+      method: methods(setup),
       params: determine_parameters(setup),
       sourceId: determine_sourceId(setup),
       resource: determine_resource(setup),
@@ -214,7 +219,7 @@ class WorkflowBuilder
     teardown = determine_teardown_method(method)
 
     workflow_teardown = Operation.new({
-      method: METHODS[teardown],
+      method: methods(teardown),
       params: determine_parameters(teardown),
       sourceId: determine_sourceId(teardown),
       resource: determine_resource(teardown)
@@ -238,7 +243,7 @@ class WorkflowBuilder
     responseId = determine_responseId(test) if interactions_meta[test].modify
 
     workflow.test << [Operation.new({
-      method: METHODS[test],
+      method: methods(test),
       resource: determine_resource(test),
       sourceId: determine_sourceId(test),
       responseId: responseId,
