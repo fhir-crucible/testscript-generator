@@ -44,7 +44,7 @@ class TestScriptBuilder
 
 	def create_fixtures(workflow)
 		workflow.fixtures.map do |fixture|
-			reference = FHIR::Reference.new(reference: "#{fixture}_reference")
+			reference = FHIR::Reference.new(reference: "fixtures/#{fixture}_reference")
 			FHIR::TestScript::Fixture.new(id: fixture, resource: reference, autocreate: false, autodelete: false)
 		end
 	end

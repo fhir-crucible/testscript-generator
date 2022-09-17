@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'zip'
 require 'fhir_models'
 require 'rubygems/package'
 
