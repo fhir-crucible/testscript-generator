@@ -1,0 +1,67 @@
+{
+  "id": "us-core-condition-may-delete",
+  "url": "https://github.com/fhir-crucible/testscript-generator",
+  "version": "0.0",
+  "name": "us_core_condition_may_delete",
+  "title": "Us Core Condition May Delete",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-09-17T09:23:47-04:00",
+  "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_condition.json"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "name": "U0BA5zywzGYlRrrP",
+      "expression": "Condition.id",
+      "sourceId": "gcIPKUwgR2gIu6NA"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "encodeRequestUrl": false,
+          "method": "post",
+          "responseId": "gcIPKUwgR2gIu6NA",
+          "sourceId": "${EXAMPLE_RESOURCE_1}"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "resource": "Condition",
+            "encodeRequestUrl": false,
+            "method": "delete",
+            "params": "/${U0BA5zywzGYlRrrP}"
+          }
+        }
+      ]
+    }
+  ],
+  "teardown": {
+    "action": [
+      {
+        "operation": {
+          "resource": "Condition",
+          "encodeRequestUrl": false,
+          "method": "delete",
+          "params": "/${U0BA5zywzGYlRrrP}"
+        }
+      }
+    ]
+  },
+  "resourceType": "TestScript"
+}

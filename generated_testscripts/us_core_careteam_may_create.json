@@ -1,0 +1,55 @@
+{
+  "id": "us-core-careteam-may-create",
+  "url": "https://github.com/fhir-crucible/testscript-generator",
+  "version": "0.0",
+  "name": "us_core_careteam_may_create",
+  "title": "Us Core Careteam May Create",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-09-17T09:23:47-04:00",
+  "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_careteam.json"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "name": "eb8nrp1qPMvlgMPF",
+      "expression": "CareTeam.id",
+      "sourceId": "EmWVbjndvCSJSZaK"
+    }
+  ],
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "encodeRequestUrl": false,
+            "method": "post",
+            "responseId": "EmWVbjndvCSJSZaK",
+            "sourceId": "${EXAMPLE_RESOURCE_1}"
+          }
+        }
+      ]
+    }
+  ],
+  "teardown": {
+    "action": [
+      {
+        "operation": {
+          "resource": "CareTeam",
+          "encodeRequestUrl": false,
+          "method": "delete",
+          "params": "/${eb8nrp1qPMvlgMPF}"
+        }
+      }
+    ]
+  },
+  "resourceType": "TestScript"
+}

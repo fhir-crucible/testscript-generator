@@ -1,0 +1,67 @@
+{
+  "id": "us-core-patient-shall-search-type",
+  "url": "https://github.com/fhir-crucible/testscript-generator",
+  "version": "0.0",
+  "name": "us_core_patient_shall_search_type",
+  "title": "Us Core Patient Shall Search Type",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-09-17T09:23:47-04:00",
+  "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_patient.json"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "name": "M26L2KX0MyCs6AXz",
+      "expression": "Patient.id",
+      "sourceId": "osi7zLNNB3ygbAYp"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "encodeRequestUrl": false,
+          "method": "post",
+          "responseId": "osi7zLNNB3ygbAYp",
+          "sourceId": "${EXAMPLE_RESOURCE_1}"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "resource": "Patient",
+            "encodeRequestUrl": false,
+            "method": "get",
+            "params": "/${M26L2KX0MyCs6AXz}"
+          }
+        }
+      ]
+    }
+  ],
+  "teardown": {
+    "action": [
+      {
+        "operation": {
+          "resource": "Patient",
+          "encodeRequestUrl": false,
+          "method": "delete",
+          "params": "/${M26L2KX0MyCs6AXz}"
+        }
+      }
+    ]
+  },
+  "resourceType": "TestScript"
+}

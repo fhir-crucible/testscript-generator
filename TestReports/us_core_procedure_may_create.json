@@ -1,0 +1,36 @@
+{
+  "id": "us-core-procedure-may-create",
+  "name": "us_core_procedure_may_create",
+  "status": "completed",
+  "testScript": {
+    "reference": "../testscript_generator/generated_testscripts/us_core_procedure_may_create.json",
+    "type": "http://hl7.org/fhir/R4B/testscript.html"
+  },
+  "result": "pass",
+  "score": 100.0,
+  "tester": "The MITRE Corporation",
+  "issued": "2022-09-17T00:57:44-04:00",
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "id": "unlabeled operation",
+            "result": "pass"
+          }
+        }
+      ]
+    }
+  ],
+  "teardown": {
+    "action": [
+      {
+        "operation": {
+          "id": "unlabeled operation",
+          "result": "pass"
+        }
+      }
+    ]
+  },
+  "resourceType": "TestReport"
+}

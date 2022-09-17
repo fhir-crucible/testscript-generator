@@ -1,0 +1,77 @@
+{
+  "id": "us-core-diagnosticreport-may-update",
+  "url": "https://github.com/fhir-crucible/testscript-generator",
+  "version": "0.0",
+  "name": "us_core_diagnosticreport_may_update",
+  "title": "Us Core Diagnosticreport May Update",
+  "status": "draft",
+  "experimental": true,
+  "date": "2022-09-17T09:23:47-04:00",
+  "publisher": "The MITRE Corporation",
+  "fixture": [
+    {
+      "id": "${EXAMPLE_RESOURCE_1}",
+      "autocreate": false,
+      "autodelete": false,
+      "resource": {
+        "reference": "example_diagnosticreport.json"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "name": "sSapm1U8Lru7VfWv",
+      "expression": "DiagnosticReport.id",
+      "sourceId": "Tyfvxx6NDBFQAHdy"
+    }
+  ],
+  "setup": {
+    "action": [
+      {
+        "operation": {
+          "encodeRequestUrl": false,
+          "method": "post",
+          "responseId": "Tyfvxx6NDBFQAHdy",
+          "sourceId": "${EXAMPLE_RESOURCE_1}"
+        }
+      },
+      {
+        "operation": {
+          "resource": "DiagnosticReport",
+          "encodeRequestUrl": false,
+          "method": "get",
+          "params": "/${sSapm1U8Lru7VfWv}",
+          "responseId": "M3mxvzl27bF1vln1"
+        }
+      }
+    ]
+  },
+  "test": [
+    {
+      "action": [
+        {
+          "operation": {
+            "resource": "DiagnosticReport",
+            "encodeRequestUrl": false,
+            "method": "put",
+            "params": "/${sSapm1U8Lru7VfWv}",
+            "sourceId": "M3mxvzl27bF1vln1"
+          }
+        }
+      ]
+    }
+  ],
+  "teardown": {
+    "action": [
+      {
+        "operation": {
+          "resource": "DiagnosticReport",
+          "encodeRequestUrl": false,
+          "method": "delete",
+          "params": "/${sSapm1U8Lru7VfWv}"
+        }
+      }
+    ]
+  },
+  "resourceType": "TestScript"
+}
