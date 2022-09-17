@@ -10,10 +10,14 @@
   "score": 100.0,
   "tester": "The MITRE Corporation",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "issued": "2022-09-17T00:57:48-04:00",
 =======
   "issued": "2022-09-17T00:23:48-04:00",
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+  "issued": "2022-09-17T00:57:48-04:00",
+>>>>>>> 533e705 (update README)
   "setup": {
     "action": [
       {

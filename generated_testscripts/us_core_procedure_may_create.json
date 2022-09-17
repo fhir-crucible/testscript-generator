@@ -9,6 +9,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 533e705 (update README)
   "date": "2022-09-17T09:23:48-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -24,6 +27,7 @@
   "variable": [
     {
       "name": "eb8nrp1qPMvlgMPF",
+<<<<<<< HEAD
       "expression": "Procedure.id",
       "sourceId": "EmWVbjndvCSJSZaK"
 =======
@@ -61,6 +65,10 @@
       "expression": "Procedure.id",
       "sourceId": "fjir9cEAAcKPpsXa"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+      "expression": "Procedure.id",
+      "sourceId": "EmWVbjndvCSJSZaK"
+>>>>>>> 533e705 (update README)
     }
   ],
   "test": [
@@ -73,6 +81,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 533e705 (update README)
             "responseId": "EmWVbjndvCSJSZaK",
             "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
@@ -101,6 +112,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${eb8nrp1qPMvlgMPF}"
 =======
           "params": "/${3rYuyjFd0n7hZfO9}"
@@ -111,6 +123,9 @@
 =======
           "params": "/${mn15bbn2zNMKoFCo}"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+          "params": "/${eb8nrp1qPMvlgMPF}"
+>>>>>>> 533e705 (update README)
         }
       }
     ]

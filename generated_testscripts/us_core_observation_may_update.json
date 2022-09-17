@@ -9,6 +9,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 533e705 (update README)
   "date": "2022-09-17T09:23:48-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -24,6 +27,7 @@
   "variable": [
     {
       "name": "sSapm1U8Lru7VfWv",
+<<<<<<< HEAD
       "expression": "Observation.id",
       "sourceId": "Tyfvxx6NDBFQAHdy"
 =======
@@ -61,6 +65,10 @@
       "expression": "Observation.id",
       "sourceId": "jfJS4qmzQQP3tSG1"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+      "expression": "Observation.id",
+      "sourceId": "Tyfvxx6NDBFQAHdy"
+>>>>>>> 533e705 (update README)
     }
   ],
   "setup": {
@@ -72,6 +80,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 533e705 (update README)
           "responseId": "Tyfvxx6NDBFQAHdy",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
@@ -95,6 +106,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${sSapm1U8Lru7VfWv}",
           "responseId": "M3mxvzl27bF1vln1"
 =======
@@ -109,6 +121,10 @@
           "params": "/${lUlcuzGgK5eoColN}",
           "responseId": "sPtF2MujlHE94gr9"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+          "params": "/${sSapm1U8Lru7VfWv}",
+          "responseId": "M3mxvzl27bF1vln1"
+>>>>>>> 533e705 (update README)
         }
       }
     ]
@@ -121,6 +137,7 @@
             "resource": "Observation",
             "encodeRequestUrl": false,
             "method": "put",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -138,6 +155,10 @@
             "params": "/${lUlcuzGgK5eoColN}",
             "sourceId": "sPtF2MujlHE94gr9"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+            "params": "/${sSapm1U8Lru7VfWv}",
+            "sourceId": "M3mxvzl27bF1vln1"
+>>>>>>> 533e705 (update README)
           }
         }
       ]
@@ -153,6 +174,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${sSapm1U8Lru7VfWv}"
 =======
           "params": "/${qkx2Fe6lTaFYlhKz}"
@@ -163,6 +185,9 @@
 =======
           "params": "/${lUlcuzGgK5eoColN}"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+          "params": "/${sSapm1U8Lru7VfWv}"
+>>>>>>> 533e705 (update README)
         }
       }
     ]

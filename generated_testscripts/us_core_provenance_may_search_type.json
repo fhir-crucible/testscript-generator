@@ -9,6 +9,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 533e705 (update README)
   "date": "2022-09-17T09:23:48-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -24,6 +27,7 @@
   "variable": [
     {
       "name": "M26L2KX0MyCs6AXz",
+<<<<<<< HEAD
       "expression": "Provenance.id",
       "sourceId": "osi7zLNNB3ygbAYp"
 =======
@@ -61,6 +65,10 @@
       "expression": "Provenance.id",
       "sourceId": "uRbYv0naqIfpYkFf"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+      "expression": "Provenance.id",
+      "sourceId": "osi7zLNNB3ygbAYp"
+>>>>>>> 533e705 (update README)
     }
   ],
   "setup": {
@@ -72,6 +80,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 533e705 (update README)
           "responseId": "osi7zLNNB3ygbAYp",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
@@ -109,8 +120,12 @@
 >>>>>>> 7354161 (add fixture support)
 =======
             "method": "get",
+<<<<<<< HEAD
             "params": "/${LqDHgXEkL7MrOYZ8}"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+            "params": "/${M26L2KX0MyCs6AXz}"
+>>>>>>> 533e705 (update README)
           }
         }
       ]
@@ -126,6 +141,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${M26L2KX0MyCs6AXz}"
 =======
           "params": "/${yfwCl3K1mEdDLNGh}"
@@ -136,6 +152,9 @@
 =======
           "params": "/${LqDHgXEkL7MrOYZ8}"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+          "params": "/${M26L2KX0MyCs6AXz}"
+>>>>>>> 533e705 (update README)
         }
       }
     ]

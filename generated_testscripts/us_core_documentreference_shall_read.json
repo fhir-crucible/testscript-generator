@@ -9,6 +9,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 533e705 (update README)
   "date": "2022-09-17T09:23:47-04:00",
   "publisher": "The MITRE Corporation",
   "fixture": [
@@ -24,6 +27,7 @@
   "variable": [
     {
       "name": "DuOHEvmVyIYoxMeY",
+<<<<<<< HEAD
       "expression": "DocumentReference.id",
       "sourceId": "7Scjba1JVpvSIqbQ"
 =======
@@ -61,6 +65,10 @@
       "expression": "DocumentReference.id",
       "sourceId": "J3G6zGwubQBKb0jP"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+      "expression": "DocumentReference.id",
+      "sourceId": "7Scjba1JVpvSIqbQ"
+>>>>>>> 533e705 (update README)
     }
   ],
   "setup": {
@@ -72,6 +80,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 533e705 (update README)
           "responseId": "7Scjba1JVpvSIqbQ",
           "sourceId": "${EXAMPLE_RESOURCE_1}"
 =======
@@ -100,6 +111,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "params": "/${DuOHEvmVyIYoxMeY}"
 =======
             "params": "/${bqjpX0VtSKg3yO9j}"
@@ -110,6 +122,9 @@
 =======
             "params": "/${bmenI3MsyizRREnX}"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+            "params": "/${DuOHEvmVyIYoxMeY}"
+>>>>>>> 533e705 (update README)
           }
         }
       ]
@@ -125,6 +140,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           "params": "/${DuOHEvmVyIYoxMeY}"
 =======
           "params": "/${bqjpX0VtSKg3yO9j}"
@@ -135,6 +151,9 @@
 =======
           "params": "/${bmenI3MsyizRREnX}"
 >>>>>>> 19a7c13 (modify variable composition)
+=======
+          "params": "/${DuOHEvmVyIYoxMeY}"
+>>>>>>> 533e705 (update README)
         }
       }
     ]
