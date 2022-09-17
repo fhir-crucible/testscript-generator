@@ -31,6 +31,10 @@ class TestScriptBuilder
 	end
 
 	def build_from_workflow(workflow)
+		@test_counter = nil
+		@assert_counter = nil
+		@operation_counter = nil
+
 		script = FHIR::TestScript.new
 		script.variable = create_variables(workflow)
 		script.fixture = create_fixtures(workflow)
@@ -82,7 +86,8 @@ class TestScriptBuilder
 		FHIR::TestScript::Setup::Action::Operation.new({
 			label: "Operation_#{operation_counter}",
 			params: operation.params,
-			method: operation.method,
+			#method: operation.method,
+			type: FHIR::Coding.new(system: "http://terminology.hl7.org/CodeSystem/testscript-operation-codes", code: operation.method),
 			sourceId: operation.sourceId,
 			resource: operation.resource,
 			responseId: operation.responseId,

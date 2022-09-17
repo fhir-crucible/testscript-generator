@@ -87,6 +87,7 @@ class TestScriptGenerator
 								add_boilerplate(script, script_name)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 								script = script.to_json.gsub("${RESOURCE_TYPE_1}", resource).gsub("${EXAMPLE_RESOURCE_1}_reference", "example_#{resource.downcase}.json")
 =======
 								script = script.to_json.gsub("${RESOURCE_TYPE_1}", resource).gsub("${EXAMPLE_RESOURCE_1}", "example_#{resource.downcase}.json")
@@ -94,6 +95,9 @@ class TestScriptGenerator
 =======
 								script = script.to_json.gsub("${RESOURCE_TYPE_1}", resource).gsub("${EXAMPLE_RESOURCE_1}_reference", "example_#{resource.downcase}.json")
 >>>>>>> 7354161 (add fixture support)
+=======
+								script = script.to_json.gsub("${RESOURCE_TYPE_1}", resource).gsub("${EXAMPLE_RESOURCE_1}_reference", "example_#{resource.downcase}.json").gsub("${EXAMPLE_RESOURCE_1}", "example_#{resource.downcase}")
+>>>>>>> c54e38d (use operation.type.code)
 								output_script(script, script_name)
 								output_example(resource)
 							else
