@@ -1,22 +1,6 @@
 require 'SecureRandom'
 
 class WorkflowBuilder
-
-<<<<<<< HEAD
-  METHODS = { 'create' => :post,
-              'read' => :get,
-              'update' => :put,
-              'delete' => :delete,
-<<<<<<< HEAD
-<<<<<<< HEAD
-              'search-type' => :get }
-=======
-              'search' => :get }
->>>>>>> 7559d10 (conformance testing support)
-=======
-              'search-type' => :get }
->>>>>>> 19a7c13 (modify variable composition)
-=======
   # methods = { 'create' => :post,
   #             'read' => :get,
   #             'update' => :put,
@@ -27,7 +11,6 @@ class WorkflowBuilder
   return 'search' if op_code_type == 'search-type'
   return op_code_type
  end
->>>>>>> c54e38d (use operation.type.code)
 
   class Workflow
     attr_accessor :variables, :setup, :test, :teardown, :fixtures
