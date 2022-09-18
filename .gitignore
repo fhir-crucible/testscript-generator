@@ -1,6 +1,7 @@
 .vscode
 
-testscripts/**
+TestReports/**
+generated_testscripts/**
 
 **/.DS_Store
 **/.DS_Store?

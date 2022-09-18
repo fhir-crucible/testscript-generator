@@ -5,6 +5,21 @@ class TestScriptBuilder
 		@scripts ||= {}
 	end
 
+	def operation_counter
+		@operation_counter ||= 0
+		@operation_counter += 1
+	end
+
+	def assert_counter
+		@assert_counter ||= 0
+		@assert_counter += 1
+	end
+
+	def test_counter
+		@test_counter ||= 0
+		@test_counter += 1
+	end
+
 	def build(workflow)
 		script = scripts[workflow]
 		return script if script
@@ -16,6 +31,10 @@ class TestScriptBuilder
 	end
 
 	def build_from_workflow(workflow)
+		@test_counter = nil
+		@assert_counter = nil
+		@operation_counter = nil
+
 		script = FHIR::TestScript.new
 		script.variable = create_variables(workflow)
 		script.fixture = create_fixtures(workflow)
@@ -44,7 +63,7 @@ class TestScriptBuilder
 
 	def create_fixtures(workflow)
 		workflow.fixtures.map do |fixture|
-			reference = FHIR::Reference.new(reference: "#{fixture}_reference")
+			reference = FHIR::Reference.new(reference: "fixtures/#{fixture}_reference")
 			FHIR::TestScript::Fixture.new(id: fixture, resource: reference, autocreate: false, autodelete: false)
 		end
 	end
@@ -65,8 +84,10 @@ class TestScriptBuilder
 
 	def build_operation(operation)
 		FHIR::TestScript::Setup::Action::Operation.new({
+			label: "Operation_#{operation_counter}",
 			params: operation.params,
-			method: operation.method,
+			#method: operation.method,
+			type: FHIR::Coding.new(system: "http://terminology.hl7.org/CodeSystem/testscript-operation-codes", code: operation.method),
 			sourceId: operation.sourceId,
 			resource: operation.resource,
 			responseId: operation.responseId,
@@ -75,7 +96,7 @@ class TestScriptBuilder
 	end
 
 	def build_assert(assertion)
-		FHIR::TestScript::Setup::Action::Assert.new()
+		FHIR::TestScript::Setup::Action::Assert.new(label: "Assert_#{assert_counter}")
 	end
 
 	def build_test(workflow)
@@ -90,7 +111,7 @@ class TestScriptBuilder
 				end
 			end
 
-			FHIR::TestScript::Test.new(action: actions)
+			FHIR::TestScript::Test.new(name: "Test_#{test_counter}", action: actions)
 		end
 	end
 
