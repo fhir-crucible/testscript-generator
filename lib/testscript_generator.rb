@@ -5,6 +5,7 @@ require 'fileutils'
 require_relative 'testscript_generator/ig'
 require_relative 'testscript_generator/workflow_builder'
 require_relative 'testscript_generator/testscript_builder'
+require_relative 'testscript_generator/resource_generator'
 
 class TestScriptGenerator
 	attr_accessor :igs_path, :output_path
@@ -61,9 +62,9 @@ class TestScriptGenerator
 	end
 
 	def output_example(resource)
-		example_resource = "FHIR::#{resource}".constantize.new.to_json
+		generated_resource = ResourceGenerator.generate("FHIR::#{resource}".constantize).to_json
 		FileUtils.mkdir_p("#{output_path}/fixtures")
-		File.write("#{output_path}/fixtures/example_#{resource.downcase}.json", example_resource)
+		File.write("#{output_path}/fixtures/example_#{resource.downcase}.json", generated_resource)
 	end
 
 	def generate_interaction_conformance
@@ -81,18 +82,18 @@ class TestScriptGenerator
 					target_verb_interactions.each do |interaction|
 						if ['create', 'read', 'update', 'delete', 'search-type'].include?(interaction)
 
-							if workflows[interaction]
-								script = scripts[workflows[interaction]]
-								script_name = get_name(name, resource, target_verb, interaction)
-								add_boilerplate(script, script_name)
-								script = script.to_json.gsub("${RESOURCE_TYPE_1}", resource).gsub("${EXAMPLE_RESOURCE_1}_reference", "example_#{resource.downcase}.json").gsub("${EXAMPLE_RESOURCE_1}", "example_#{resource.downcase}")
-								output_script(script, script_name)
-								output_example(resource)
-							else
+							if workflows[interaction].nil?
 								workflow = workflow_builder.build(test: interaction)
 								workflows[interaction] = workflow
 								scripts[workflow] = script_builder.build(workflow)
 							end
+
+							script = scripts[workflows[interaction]]
+							script_name = get_name(name, resource, target_verb, interaction)
+							add_boilerplate(script, script_name)
+							script = script.to_json.gsub("${RESOURCE_TYPE_1}", resource).gsub("${EXAMPLE_RESOURCE_1}_reference", "example_#{resource.downcase}.json").gsub("${EXAMPLE_RESOURCE_1}", "example_#{resource.downcase}")
+							output_script(script, script_name)
+							output_example(resource)
 
 							FHIR.logger.info "		Generated tests for #{resource} [#{interaction}]."
 						else
