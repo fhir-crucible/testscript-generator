@@ -35,7 +35,7 @@ Currently, generated TestScripts test one resource-level interactions on individ
   - `bundle install`
     - Functionality
       - This installs the dependencies specified in the Gemfile, allowing the generator to run. Run this command after downloading the repo and before running `ruby driver.rb` for the first time.
-  - `ruby bin/testscript_generator.rb [Optional: IG_DIRECTORY] [Optional: OUTPUT_DIRECTORY]`
+  - `bundle exec bin/testscript_generator [Optional: IG_DIRECTORY] [Optional: OUTPUT_DIRECTORY]`
     - Functionality
       - This runs the generator. It creates TestScripts that test the supported CRUDS interactions, as specified by the IG(s).
     - Input
