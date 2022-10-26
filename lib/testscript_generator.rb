@@ -13,7 +13,7 @@ require 'pry-nav'
 # giving the appropriate inputs to the builder, depending on the generation
 # intent (interaction, basic search, operations etc.)
 class TestScriptGenerator
-  attr_accessor :igs_path, :output_directory
+  attr_accessor :igs_path, :output_path
 
   def workflows
     @workflows ||= {}
@@ -32,17 +32,15 @@ class TestScriptGenerator
   end
 
   def igs
-    @igs ||= Dir.glob(igs_path).each_with_object({}) do |package, store|
+    @igs ||= Dir["#{igs_path}/**/*"].each_with_object({}) do |package, store|
       ig = IG.new(package)
       store[ig.name] = ig
     end
   end
 
-  def initialize(igs_path, output_directory)
+  def initialize(igs_path, output_path)
     self.igs_path = igs_path
-    self.output_directory = output_directory
-
-    igs_path.concat('/*') if File.directory?(igs_path)
+    self.output_path = output_path
   end
 
   def add_boilerplate(script)
@@ -54,12 +52,11 @@ class TestScriptGenerator
   end
 
   def customize_script(script, script_name)
-    binding.pry
     name = script_name.split('_').map(&:capitalize)
     script.name = name.join('')
     script.title = name.join(' ')
     script.id = script_name.gsub('_', '-')
-    script.date = Datetime.now.to_s
+    script.date = DateTime.now.to_s
   end
 
   def assign_script_details(script, script_name)
@@ -67,39 +64,42 @@ class TestScriptGenerator
     customize_script(script, script_name)
   end
 
-  def get_name(ig, resource, verb, interaction)
-    binding.pry
-    "#{ig}_#{resource}_#{verb}_#{interaction}".gsub('-', '_').downcase!
+  def build_name(*input)
+    input.map(&:downcase).join(" ").gsub("-", " ")
   end
 
-  def output_script(script, name)
-    FileUtils.mkdir_p(output_directory)
-    File.write("#{output_directory}/#{name}.json", script)
+  def output_script(path, script, name)
+    File.write("#{path}/#{name}.json", script)
   end
 
-  def output_example(resource)
+  def output_example(path, resource)
     example_resource = "FHIR::#{resource}".constantize.new.to_json
-    FileUtils.mkdir_p("#{output_directory}/fixtures")
-    File.write("#{output_directory}/fixtures/example_#{resource.downcase}.json", example_resource)
+    FileUtils.mkdir_p("#{path}/fixtures")
+    File.write("#{path}/fixtures/example_#{resource.downcase}.json", example_resource)
+  end
+
+  def make_directory(dir_name)
+    FileUtils.mkdir_p(dir_name)
   end
 
   def generate_interaction_conformance
-    igs.each do |ig_name, ig|
+    igs.each do |ig_name, ig_contents|
       FHIR.logger.info "Generating TestScripts from #{ig_name} IG ...\n"
-      make_directory(ig_name)
+      ig_directory = "#{output_path}/#{ig_name}"
+      make_directory(ig_directory)
 
-      %w[SHALL SHOULD MAY].each do |target_verb|
-        FHIR.logger.info "	Generating #{target_verb} support tests\n"
-        make_directory(target_verb)
+      %w[SHALL SHOULD MAY].each do |conformance_level|
+        FHIR.logger.info "	Generating #{conformance_level} support tests\n"
+        conformance_directory = "#{ig_directory}/#{conformance_level}"
+        make_directory(conformance_directory)
 
-        ig.interactions.each do |resource, verbs_map|
+        ig_contents.interactions.each do |resource, verbs_map|
           target_verb_interactions = verbs_map.filter_map do |action, verb|
-            action if verb == target_verb
+            action if verb == conformance_level
           end
 
           target_verb_interactions.each do |interaction|
             if %w[create read update delete search-type].include?(interaction)
-              script_name = get_name(ig_name, resource, target_verb, interaction)
 
               if workflows[interaction]
                 script = scripts[workflows[interaction]]
@@ -110,12 +110,13 @@ class TestScriptGenerator
                 script = scripts[workflow]
               end
 
-              assign_script_details(script, script_name)
+              script_name = build_name(ig_name, conformance_level, interaction, resource)
+              assign_script_details(script, ig_name)
               script = script.to_json.gsub('${RESOURCE_TYPE_1}', resource).gsub('${EXAMPLE_RESOURCE_1}_reference', "example_#{resource.downcase}.json").gsub(
                 '${EXAMPLE_RESOURCE_1}', "example_#{resource.downcase}"
               )
-              output_script(script, script_name)
-              output_example(resource)
+              output_script(conformance_directory, script, script_name)
+              output_example(conformance_directory, resource)
 
               FHIR.logger.info "		Generated tests for #{resource} [#{interaction}]."
             else
@@ -128,11 +129,7 @@ class TestScriptGenerator
         puts "\n"
       end
 
-      FHIR.logger.info "... finished generating TestScripts from #{name} IG.\n"
+      FHIR.logger.info "... finished generating TestScripts from #{ig_name} IG.\n"
     end
-  end
-
-  def make_directory(dir_name)
-    FileUtils.mkdir_p("#{output_directory}/#{dir_name}")
   end
 end
