@@ -1,4 +1,7 @@
+require_relative 'blueprint_builder'
+
 class Generator
-	def generate
-	end
+  def blueprinter
+    @blueprinter ||= BlueprintBuilder.new
+  end
 end
