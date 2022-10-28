@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require 'zip'
-require 'fhir_models'
+require 'fhir_client'
 require 'rubygems/package'
 
 class IG
