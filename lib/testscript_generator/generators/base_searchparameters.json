@@ -1,0 +1,409 @@
+{
+  "resourceType" : "Bundle",
+	"entry" : [{
+    "fullUrl" : "http://hl7.org/fhir/SearchParameter/Resource-id",
+    "resource" : {
+      "resourceType" : "SearchParameter",
+      "id" : "Resource-id",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
+      "url" : "http://hl7.org/fhir/SearchParameter/Resource-id",
+      "version" : "4.3.0",
+      "name" : "_id",
+      "status" : "draft",
+      "experimental" : false,
+      "date" : "2022-05-28T12:47:40+10:00",
+      "publisher" : "Health Level Seven International (FHIR Infrastructure)",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+      },
+      {
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/fiwg/index.cfm"
+        }]
+      }],
+      "description" : "Logical id of this artifact",
+      "code" : "_id",
+      "base" : ["Resource"],
+      "type" : "token",
+      "expression" : "Resource.id",
+      "xpath" : "f:Resource/f:id",
+      "xpathUsage" : "normal"
+    }
+  },
+	{
+    "fullUrl" : "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+    "resource" : {
+      "resourceType" : "SearchParameter",
+      "id" : "Resource-lastUpdated",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
+      "url" : "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+      "version" : "4.3.0",
+      "name" : "_lastUpdated",
+      "status" : "draft",
+      "experimental" : false,
+      "date" : "2022-05-28T12:47:40+10:00",
+      "publisher" : "Health Level Seven International (FHIR Infrastructure)",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+      },
+      {
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/fiwg/index.cfm"
+        }]
+      }],
+      "description" : "When the resource version last changed",
+      "code" : "_lastUpdated",
+      "base" : ["Resource"],
+      "type" : "date",
+      "expression" : "Resource.meta.lastUpdated",
+      "xpath" : "f:Resource/f:meta/f:lastUpdated",
+      "xpathUsage" : "normal",
+      "comparator" : ["eq",
+      "ne",
+      "gt",
+      "ge",
+      "lt",
+      "le",
+      "sa",
+      "eb",
+      "ap"]
+    }
+  },
+	{
+    "fullUrl" : "http://hl7.org/fhir/SearchParameter/Resource-tag",
+    "resource" : {
+      "resourceType" : "SearchParameter",
+      "id" : "Resource-tag",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
+      "url" : "http://hl7.org/fhir/SearchParameter/Resource-tag",
+      "version" : "4.3.0",
+      "name" : "_tag",
+      "status" : "draft",
+      "experimental" : false,
+      "date" : "2022-05-28T12:47:40+10:00",
+      "publisher" : "Health Level Seven International (FHIR Infrastructure)",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+      },
+      {
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/fiwg/index.cfm"
+        }]
+      }],
+      "description" : "Tags applied to this resource",
+      "code" : "_tag",
+      "base" : ["Resource"],
+      "type" : "token",
+      "expression" : "Resource.meta.tag",
+      "xpath" : "f:Resource/f:meta/f:tag",
+      "xpathUsage" : "normal"
+    }
+  },
+	{
+    "fullUrl" : "http://hl7.org/fhir/SearchParameter/Resource-profile",
+    "resource" : {
+      "resourceType" : "SearchParameter",
+      "id" : "Resource-profile",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
+      "url" : "http://hl7.org/fhir/SearchParameter/Resource-profile",
+      "version" : "4.3.0",
+      "name" : "_profile",
+      "status" : "draft",
+      "experimental" : false,
+      "date" : "2022-05-28T12:47:40+10:00",
+      "publisher" : "Health Level Seven International (FHIR Infrastructure)",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+      },
+      {
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/fiwg/index.cfm"
+        }]
+      }],
+      "description" : "Profiles this resource claims to conform to",
+      "code" : "_profile",
+      "base" : ["Resource"],
+      "type" : "uri",
+      "expression" : "Resource.meta.profile",
+      "xpath" : "f:Resource/f:meta/f:profile",
+      "xpathUsage" : "normal"
+    }
+  },
+	{
+    "fullUrl" : "http://hl7.org/fhir/SearchParameter/Resource-security",
+    "resource" : {
+      "resourceType" : "SearchParameter",
+      "id" : "Resource-security",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
+      "url" : "http://hl7.org/fhir/SearchParameter/Resource-security",
+      "version" : "4.3.0",
+      "name" : "_security",
+      "status" : "draft",
+      "experimental" : false,
+      "date" : "2022-05-28T12:47:40+10:00",
+      "publisher" : "Health Level Seven International (FHIR Infrastructure)",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+      },
+      {
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/fiwg/index.cfm"
+        }]
+      }],
+      "description" : "Security Labels applied to this resource",
+      "code" : "_security",
+      "base" : ["Resource"],
+      "type" : "token",
+      "expression" : "Resource.meta.security",
+      "xpath" : "f:Resource/f:meta/f:security",
+      "xpathUsage" : "normal"
+    }
+  },
+	{
+    "fullUrl" : "http://hl7.org/fhir/SearchParameter/Resource-source",
+    "resource" : {
+      "resourceType" : "SearchParameter",
+      "id" : "Resource-source",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
+      "url" : "http://hl7.org/fhir/SearchParameter/Resource-source",
+      "version" : "4.3.0",
+      "name" : "_source",
+      "status" : "draft",
+      "experimental" : false,
+      "date" : "2022-05-28T12:47:40+10:00",
+      "publisher" : "Health Level Seven International (FHIR Infrastructure)",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+      },
+      {
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/fiwg/index.cfm"
+        }]
+      }],
+      "description" : "Identifies where the resource comes from",
+      "code" : "_source",
+      "base" : ["Resource"],
+      "type" : "uri",
+      "expression" : "Resource.meta.source",
+      "xpath" : "f:Resource/f:meta/f:source",
+      "xpathUsage" : "normal"
+    }
+  },
+	{
+    "fullUrl" : "http://hl7.org/fhir/SearchParameter/Resource-text",
+    "resource" : {
+      "resourceType" : "SearchParameter",
+      "id" : "Resource-text",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
+      "url" : "http://hl7.org/fhir/SearchParameter/Resource-text",
+      "version" : "4.3.0",
+      "name" : "_text",
+      "status" : "draft",
+      "experimental" : false,
+      "date" : "2022-05-28T12:47:40+10:00",
+      "publisher" : "Health Level Seven International (FHIR Infrastructure)",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+      },
+      {
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/fiwg/index.cfm"
+        }]
+      }],
+      "description" : "Search on the narrative text (html) of the resource",
+      "code" : "_text",
+      "base" : ["Resource"],
+      "type" : "string",
+      "xpathUsage" : "normal"
+    }
+  },
+	{
+    "fullUrl" : "http://hl7.org/fhir/SearchParameter/Resource-content",
+    "resource" : {
+      "resourceType" : "SearchParameter",
+      "id" : "Resource-content",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
+      "url" : "http://hl7.org/fhir/SearchParameter/Resource-content",
+      "version" : "4.3.0",
+      "name" : "_content",
+      "status" : "draft",
+      "experimental" : false,
+      "date" : "2022-05-28T12:47:40+10:00",
+      "publisher" : "Health Level Seven International (FHIR Infrastructure)",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+      },
+      {
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/fiwg/index.cfm"
+        }]
+      }],
+      "description" : "Search on the entire content of the resource",
+      "code" : "_content",
+      "base" : ["Resource"],
+      "type" : "string",
+      "xpathUsage" : "normal"
+    }
+  },
+	{
+    "fullUrl" : "http://hl7.org/fhir/SearchParameter/Resource-list",
+    "resource" : {
+      "resourceType" : "SearchParameter",
+      "id" : "Resource-list",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
+      "url" : "http://hl7.org/fhir/SearchParameter/Resource-list",
+      "version" : "4.3.0",
+      "name" : "_list",
+      "status" : "draft",
+      "experimental" : false,
+      "date" : "2022-05-28T12:47:40+10:00",
+      "publisher" : "Health Level Seven International (FHIR Infrastructure)",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+      },
+      {
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/fiwg/index.cfm"
+        }]
+      }],
+      "description" : "All resources in nominated list (by id, Type/id, url or one of the magic List types)",
+      "code" : "_list",
+      "base" : ["Resource"],
+      "type" : "string",
+      "xpathUsage" : "normal"
+    }
+  },
+	{
+    "fullUrl" : "http://hl7.org/fhir/SearchParameter/Resource-has",
+    "resource" : {
+      "resourceType" : "SearchParameter",
+      "id" : "Resource-has",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
+      "url" : "http://hl7.org/fhir/SearchParameter/Resource-has",
+      "version" : "4.3.0",
+      "name" : "_has",
+      "status" : "draft",
+      "experimental" : false,
+      "date" : "2022-05-28T12:47:40+10:00",
+      "publisher" : "Health Level Seven International (FHIR Infrastructure)",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+      },
+      {
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/fiwg/index.cfm"
+        }]
+      }],
+      "description" : "Provides limited support for reverse chaining - that is, selecting resources based on the properties of resources that refer to them (instead of chaining where resources can be selected based on the properties of resources that they refer to). See the FHIR search page for further documentation",
+      "code" : "_has",
+      "base" : ["Resource"],
+      "type" : "string",
+      "xpathUsage" : "other"
+    }
+  },
+	{
+    "fullUrl" : "http://hl7.org/fhir/SearchParameter/Resource-type",
+    "resource" : {
+      "resourceType" : "SearchParameter",
+      "id" : "Resource-type",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
+      "url" : "http://hl7.org/fhir/SearchParameter/Resource-type",
+      "version" : "4.3.0",
+      "name" : "_type",
+      "status" : "draft",
+      "experimental" : false,
+      "date" : "2022-05-28T12:47:40+10:00",
+      "publisher" : "Health Level Seven International (FHIR Infrastructure)",
+      "contact" : [{
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+      },
+      {
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/fiwg/index.cfm"
+        }]
+      }],
+      "description" : "Used when a search is performed in a context which doesn't limit the search to indicate which types are being searched. See the FHIR search page for further discussion",
+      "code" : "_type",
+      "base" : ["Resource"],
+      "type" : "token",
+      "xpathUsage" : "other"
+    }
+  }]
+}
