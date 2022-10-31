@@ -57,10 +57,10 @@ class Generator
   end
 
   def customize_script(script, script_name)
-    name = script_name.split('_').map(&:capitalize)
-    script.name = name.join('')
-    script.title = name.join(' ')
-    script.id = script_name.gsub('_', '-')
+    name = script_name.split(' ').map(&:capitalize)
+    script.name = name.join('_')
+    script.title = script_name
+    script.id = name.join('-')
     script.date = DateTime.now.to_s
   end
 end

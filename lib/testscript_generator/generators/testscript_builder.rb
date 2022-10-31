@@ -20,34 +20,34 @@ class TestScriptBuilder
 		@test_counter += 1
 	end
 
-	def build(workflow)
-		script = scripts[workflow]
+	def build(blueprint)
+		script = scripts[blueprint]
 		return script if script
 
-		script = build_from_workflow(workflow)
-		scripts[workflow] = script
+		script = build_from_blueprint(blueprint)
+		scripts[blueprint] = script
 
 		script
 	end
 
-	def build_from_workflow(workflow)
+	def build_from_blueprint(blueprint)
 		@test_counter = nil
 		@assert_counter = nil
 		@operation_counter = nil
 
 		script = FHIR::TestScript.new
-		script.variable = create_variables(workflow)
-		script.fixture = create_fixtures(workflow)
+		script.variable = create_variables(blueprint)
+		script.fixture = create_fixtures(blueprint)
 
-		script.setup = build_setup(workflow)
-		script.test = build_test(workflow)
-		script.teardown = build_teardown(workflow)
+		script.setup = build_setup(blueprint)
+		script.test = build_test(blueprint)
+		script.teardown = build_teardown(blueprint)
 
 		script
 	end
 
-	def create_variables(workflow)
-		workflow.variables.map do |var|
+	def create_variables(blueprint)
+		blueprint.variables.map do |var|
 			input = { name: var[0], sourceId: var[2] }
 
 			if !var[1].start_with?('$HEADER_')
@@ -61,18 +61,18 @@ class TestScriptBuilder
 		end
 	end
 
-	def create_fixtures(workflow)
-		workflow.fixtures.map do |fixture|
+	def create_fixtures(blueprint)
+		blueprint.fixtures.map do |fixture|
 			reference = FHIR::Reference.new(reference: "fixtures/#{fixture}_reference")
 			FHIR::TestScript::Fixture.new(id: fixture, resource: reference, autocreate: false, autodelete: false)
 		end
 	end
 
-	def build_setup(workflow)
-		return unless !workflow.setup.empty?
+	def build_setup(blueprint)
+		return unless !blueprint.setup.empty?
 
-		actions = workflow.setup.map do |action|
-			if action.class == WorkflowBuilder::Operation
+		actions = blueprint.setup.map do |action|
+			if action.class == BlueprintBuilder::Operation
 				FHIR::TestScript::Setup::Action.new(operation: build_operation(action))
 			else
 				FHIR::TestScript::Setup::Action.new(assert: build_assert(action))
@@ -99,12 +99,12 @@ class TestScriptBuilder
 		FHIR::TestScript::Setup::Action::Assert.new(label: "Assert_#{assert_counter}")
 	end
 
-	def build_test(workflow)
-		return unless workflow.test
+	def build_test(blueprint)
+		return unless blueprint.test
 
-		workflow.test.map do |test|
+		blueprint.test.map do |test|
 			actions = test.map do |action|
-				if action.class == WorkflowBuilder::Operation
+				if action.class == BlueprintBuilder::Operation
 					FHIR::TestScript::Test::Action.new(operation: build_operation(action))
 				else
 					FHIR::TestScript::Test::Action.new(assert: build_assert(action))
@@ -115,10 +115,10 @@ class TestScriptBuilder
 		end
 	end
 
-	def build_teardown(workflow)
-		return unless workflow.teardown
+	def build_teardown(blueprint)
+		return unless blueprint.teardown
 
-		actions = workflow.teardown.map do |action|
+		actions = blueprint.teardown.map do |action|
 			FHIR::TestScript::Teardown::Action.new(operation: build_operation(action))
 		end
 

@@ -242,7 +242,7 @@ class BlueprintBuilder
 
   def build_test(test, test_params)
     if test_params
-      params = test_params.code
+      params = "?" + test_params.code
       params = params + "=${#{variables[:id]}}" if test_params.expression
     else
       params = determine_parameters(test)

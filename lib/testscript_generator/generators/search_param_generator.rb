@@ -13,6 +13,7 @@ class SearchParameterGenerator < Generator
 
   def generate_base_searchparams
     base_searchparam_resources.each do |key, value|
+      value.expression&.gsub!("Resource", '${RESOURCE_TYPE_1}')
       blueprints[key] = blueprinter.build(test: "search-type", test_params: value)
     end
 
@@ -23,8 +24,8 @@ class SearchParameterGenerator < Generator
       make_directory("#{output_path}/#{key}")
 
       ig.structure_defs.keys.each do |resource|
-        script_name = build_name(ig.name, 'search', key.gsub("_", ""), resource)
-        assign_script_details(script, ig.name)
+        script_name = build_name(ig.name, resource, 'search_by', key.gsub("_", ""))
+        assign_script_details(script, script_name)
         new_script = script.to_json.gsub('${RESOURCE_TYPE_1}', resource).gsub('${EXAMPLE_RESOURCE_1}_reference', "example_#{resource.downcase}.json").gsub(
           '${EXAMPLE_RESOURCE_1}', "example_#{resource.downcase}"
         )
