@@ -11,4 +11,4 @@ unless parameters.empty?
 end
 
 generator = TestScriptGenerator.new(ig_directory, output_path)
-generator.generate_interaction_conformance
+generator.generate_all_tests
