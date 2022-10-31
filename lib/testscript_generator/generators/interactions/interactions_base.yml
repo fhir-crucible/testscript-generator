@@ -1,0 +1,53 @@
+read: # requires setup
+  methods:
+    - get
+  dynamic_reqs:
+    - id
+    - type
+vread:
+  methods:
+    - get
+  dynamic_reqs:
+    - id
+    - type
+    - vid
+update:
+  methods:
+    - put
+  dynamic_reqs:
+    - id
+    - type
+patch:
+  methods:
+    - patch
+  dynamic_reqs:
+    - id
+    - type
+delete:
+  methods:
+    - delete
+  dynamic_reqs:
+    - id
+    - type
+create:
+  methods:
+    - post
+  dynamic_reqs: []
+search:
+  methods:
+    - get
+    - post
+  dynamic_reqs:
+    - type
+capabilities:
+  methods:
+    - get
+batch:
+  methods:
+    - post
+history:
+  methods:
+    - get
+  dynamic_reqs:
+    - id
+    - type
