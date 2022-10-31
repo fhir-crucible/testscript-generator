@@ -1,6 +1,9 @@
 require 'SecureRandom'
+require_relative 'interactions/interactions'
 
 class BlueprintBuilder
+  include Interactions
+
   # methods = { 'create' => :post,
   #             'read' => :get,
   #             'update' => :put,
@@ -60,7 +63,6 @@ class BlueprintBuilder
       self.fetch = input[:fetch] || nil
       self.getId = input[:getId] || nil
       self.modify = input[:modify] || nil
-      self.expression = input[:expression] || nil
       self.getResource = input[:getResource] || nil
       self.staticReq = Array(input[:staticReq]) || []
       self.dynamicReq = Array(input[:dynamicReq]) || []
@@ -117,7 +119,7 @@ class BlueprintBuilder
 
     if setup_required?(test)
       setup_methods = Array(setup || determine_setup_method(test))
-      setup_methods.each { |method| build_setup(method) }
+      setup_methods.each { |method| build_setup(method, test_params) }
     end
 
     build_test(test, test_params)
@@ -125,7 +127,8 @@ class BlueprintBuilder
     workflow
   end
 
-  def build_setup(setup)
+  def build_setup(setup, test_params)
+
     workflow.setup << Operation.new({
       method: methods(setup),
       params: determine_parameters(setup),
@@ -134,7 +137,7 @@ class BlueprintBuilder
       responseId: determine_responseId(setup)
     })
 
-    build_variable(setup)
+    build_variable(setup, test_params)
     build_teardown(setup)
   end
 
@@ -201,11 +204,11 @@ class BlueprintBuilder
     !!interactions_meta[method].getId
   end
 
-  def build_variable(method)
+  def build_variable(method, param = nil)
     return unless variable_required?(method)
 
     variable = fresh_variable
-    workflow.variables << [variable, interactions_meta[method].expression, responseIds[:id]]
+    workflow.variables << [variable, param.expression || '${RESOURCE_TYPE_1}.id', responseIds[:id]]
     variables[:id] = variable
   end
 
@@ -237,8 +240,13 @@ class BlueprintBuilder
     'delete' if interactions_meta[method].send
   end
 
-  def build_test(test, params)
-    params = params || determine_parameters(test)
+  def build_test(test, test_params)
+    if test_params
+      params = test_params.code
+      params = params + "=${#{variables[:id]}}" if test_params.expression
+    else
+      params = determine_parameters(test)
+    end
     responseId = determine_responseId(test) if interactions_meta[test].modify
 
     workflow.test << [Operation.new({
