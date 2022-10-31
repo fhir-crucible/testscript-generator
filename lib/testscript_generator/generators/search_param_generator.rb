@@ -12,20 +12,35 @@ class SearchParameterGenerator < Generator
   end
 
   def generate_base_searchparams
-    # Expected type ? But more we need to know the path so that we can snag it from the
-    # setup
-    binding.pry
+    base_searchparam_resources.each do |key, value|
+      blueprints[key] = blueprinter.build(test: "search-type", test_params: value)
+    end
+
+    FHIR.logger.info "	Generating basic search parameter tests\n"
+
+    blueprints.each do |key, value|
+      script = script_builder.build(value)
+      make_directory("#{output_path}/#{key}")
+
+      ig.structure_defs.keys.each do |resource|
+        script_name = build_name(ig.name, 'search', key.gsub("_", ""), resource)
+        assign_script_details(script, ig.name)
+        new_script = script.to_json.gsub('${RESOURCE_TYPE_1}', resource).gsub('${EXAMPLE_RESOURCE_1}_reference', "example_#{resource.downcase}.json").gsub(
+          '${EXAMPLE_RESOURCE_1}', "example_#{resource.downcase}"
+        )
+        output_script("#{output_path}/#{key}", new_script, script_name.gsub(" ", "_"))
+        output_example("#{output_path}/#{key}", resource)
+
+        FHIR.logger.info "		Generated test for #{resource} search by #{key}."
+      end
+    end
+    puts
+    FHIR.logger.info "	... finished generating basic search parameters tests\n"
   end
 
   def generate_supported_searchparams
-    # Check which params apply to all, and which params apply only to specific resources
-    # Expected type of value
-
-    # Filter for a given resource, all the params that may or not be applied to that given resource type
-
   end
 
   def generate_all_searchparams
-
   end
 end
