@@ -4,6 +4,7 @@ require 'fileutils'
 require_relative 'testscript_generator/ig'
 require_relative 'testscript_generator/workflow_builder'
 require_relative 'testscript_generator/testscript_builder'
+require_relative 'testscript_generator/generators/search_param_generator'
 
 require 'pry-nav'
 
@@ -82,54 +83,60 @@ class TestScriptGenerator
     FileUtils.mkdir_p(dir_name)
   end
 
-  def generate_interaction_conformance
+  def generate_all_tests
     igs.each do |ig_name, ig_contents|
       FHIR.logger.info "Generating TestScripts from #{ig_name} IG ...\n"
       ig_directory = "#{output_path}/#{ig_name}"
       make_directory(ig_directory)
 
-      %w[SHALL SHOULD MAY].each do |conformance_level|
-        FHIR.logger.info "	Generating #{conformance_level} support tests\n"
-        conformance_directory = "#{ig_directory}/#{conformance_level}"
-        make_directory(conformance_directory)
+      generate_interaction_conformance(ig_directory, ig_contents, ig_name)
+      search_generator = SearchParameterGenerator.new(ig_directory, ig_contents)
+      search_generator.generate_base_searchparams
+      FHIR.logger.info "... finished generating TestScripts from #{ig_name} IG.\n"
+    end
+  end
 
-        ig_contents.interactions.each do |resource, verbs_map|
-          target_verb_interactions = verbs_map.filter_map do |action, verb|
-            action if verb == conformance_level
-          end
+  def generate_interaction_conformance(ig_directory, ig_contents, ig_name)
+    ig_directory = "#{ig_directory}/interaction_conformance"
+    %w[SHALL SHOULD MAY].each do |conformance_level|
+      FHIR.logger.info "	Generating #{conformance_level} support tests\n"
+      conformance_directory = "#{ig_directory}/#{conformance_level}"
+      make_directory(conformance_directory)
 
-          target_verb_interactions.each do |interaction|
-            if %w[create read update delete search-type].include?(interaction)
-
-              if workflows[interaction]
-                script = scripts[workflows[interaction]]
-              else
-                workflow = workflow_builder.build(test: interaction)
-                workflows[interaction] = workflow
-                scripts[workflow] = script_builder.build(workflow)
-                script = scripts[workflow]
-              end
-
-              script_name = build_name(ig_name, conformance_level, interaction, resource)
-              assign_script_details(script, ig_name)
-              script = script.to_json.gsub('${RESOURCE_TYPE_1}', resource).gsub('${EXAMPLE_RESOURCE_1}_reference', "example_#{resource.downcase}.json").gsub(
-                '${EXAMPLE_RESOURCE_1}', "example_#{resource.downcase}"
-              )
-              output_script(conformance_directory, script, script_name)
-              output_example(conformance_directory, resource)
-
-              FHIR.logger.info "		Generated tests for #{resource} [#{interaction}]."
-            else
-              FHIR.logger.info "		Skipping test generation for #{resource} [#{interaction}]. Currently only CRUD + Search interactions supported."
-              next
-            end
-          end
+      ig_contents.interactions.each do |resource, verbs_map|
+        target_verb_interactions = verbs_map.filter_map do |action, verb|
+          action if verb == conformance_level
         end
 
-        puts "\n"
+        target_verb_interactions.each do |interaction|
+          if %w[create read update delete search-type].include?(interaction)
+
+            if workflows[interaction]
+              script = scripts[workflows[interaction]]
+            else
+              workflow = workflow_builder.build(test: interaction)
+              workflows[interaction] = workflow
+              scripts[workflow] = script_builder.build(workflow)
+              script = scripts[workflow]
+            end
+
+            script_name = build_name(ig_name, conformance_level, interaction, resource)
+            assign_script_details(script, ig_name)
+            script = script.to_json.gsub('${RESOURCE_TYPE_1}', resource).gsub('${EXAMPLE_RESOURCE_1}_reference', "example_#{resource.downcase}.json").gsub(
+              '${EXAMPLE_RESOURCE_1}', "example_#{resource.downcase}"
+            )
+            output_script(conformance_directory, script, script_name.gsub(" ", "_"))
+            output_example(conformance_directory, resource)
+
+            FHIR.logger.info "		Generated tests for #{resource} [#{interaction}]."
+          else
+            FHIR.logger.info "		Skipping test generation for #{resource} [#{interaction}]. Currently only CRUD + Search interactions supported."
+            next
+          end
+        end
       end
 
-      FHIR.logger.info "... finished generating TestScripts from #{ig_name} IG.\n"
+      puts "\n"
     end
   end
 end
