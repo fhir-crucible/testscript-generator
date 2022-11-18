@@ -14,6 +14,8 @@ class IG
     @capability_statements ||= []
   end
 
+  # Specifically, only interested in the capability Statement associated with
+  # the endpoint implementation vis-a-vis the 'server'
   def capability_statement(statement = nil)
     @capability_statement = statement if statement
     @capability_statement ||= capability_statements.find { |cs| cs.rest.find { |rest| rest.mode == 'server' } }

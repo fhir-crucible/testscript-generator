@@ -1,5 +1,9 @@
 require 'yaml'
 
+# I would focus more on confirming the logic that ought to go into the
+# interactions_base file first and then build this out based on the info you
+# find yourself constantly reaching for from the interactions objects.
+
 # What is a dynamic requirement? It's something that needs to be known, specifically, in order
 # to access a specific resource on the endpoint
 

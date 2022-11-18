@@ -4,6 +4,8 @@ require 'testscript_generator'
 ig_directory = Dir.getwd + '/igs'
 output_path = Dir.getwd + '/generated_testscripts'
 
+# TODO: Alter ARGV consumption so that users don't have to provide an input
+# 		directory in order to specify the output path.
 parameters = ARGV
 unless parameters.empty?
 	ig_directory = parameters[0]
