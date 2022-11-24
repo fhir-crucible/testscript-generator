@@ -5,6 +5,7 @@ require_relative 'testscript_generator/ig'
 require_relative 'testscript_generator/workflow_builder'
 require_relative 'testscript_generator/testscript_builder'
 require_relative 'testscript_generator/generators/search_param_generator'
+require_relative 'testscript_generator/templates/must_support_element_template'
 
 require 'pry-nav'
 
@@ -89,9 +90,12 @@ class TestScriptGenerator
       ig_directory = "#{output_path}/#{ig_name}"
       make_directory(ig_directory)
 
-      generate_interaction_conformance(ig_directory, ig_contents, ig_name)
-      search_generator = SearchParameterGenerator.new(ig_directory, ig_contents)
-      search_generator.generate_base_searchparams
+      #generate_interaction_conformance(ig_directory, ig_contents, ig_name)
+      #search_generator = SearchParameterGenerator.new(ig_directory, ig_contents)
+      #search_generator.generate_base_searchparams
+
+      must_support_element_template = MustSupportElementTemplate.new(ig_directory, ig_contents)
+      must_support_element_template.instantiate
       FHIR.logger.info "... finished generating TestScripts from #{ig_name} IG.\n"
     end
   end
