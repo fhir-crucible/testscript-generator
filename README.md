@@ -1,6 +1,19 @@
 
 # TestScript Generator
 
+The TestScript Generator is an open source, command-line tool for generating [Fast
+Healthcare Interoperability Resources (FHIR)](http://hl7.org/fhir/) TestScript resources. It requires a FHIR Implentation Guide (IG) to direct how it creates TestScripts.
+
+## Running the Generator
+
+Clone [this repository](https://github.com/fhir-crucible/testscript-generator) and navigate to your local copy. Once there, run: `bundle install`, followed by `bundle exec bin/testscript_generator`. This will start the generator within the context of your local copy.
+
+## Configure the Generator
+
+Currently, the only configuration options required by the generator are the path to folder containing the IG(s) from which to generate and the path to the directory in which to output these TestScripts. Any IG in the directory should be in `.tgz` or `.zip ` format. By default, the generator looks for an `/ig` directory in the current working path, and creates an output directory in the same path titled `/generated_testscripts`. To set an optional `OUTPUT_DIRECTORY`, the `IG_DIRECTORY` must also be specified:
+
+`bundle exec bin/testscript_generator [Optional: IG_DIRECTORY] [Optional: OUTPUT_DIRECTORY]`
+
 ## Background and Overview
 
 The TestScript Generator aims to ease the testing process by creating a complete suite of TestScripts to be leveraged against any FHIR endpoint that conforms to a given Implementation Guide (IG). *__The generator accomplishes this through several steps__*:
@@ -18,7 +31,7 @@ This generator is intended to be used in concert with the [TestScript Engine](ht
 
 ## Generation Methodology
 
-Currently, generated TestScripts test one resource-level interactions on individual resource types (*e.g.*, read an AllergyIntolerance or create a Patient).
+Currently, the generator can create two types of TestScripts. The first tests single resource-level interactions on individual resource types (*e.g.*, read an AllergyIntolerance or create a Patient). These tests are known as interaction conformance tests. A second type of tests the generator creates are the basic search parameter tests, which test whether the implementation supports interactions with simple search params (e.g. `_id`). Both types of tests depend on the Capability Statement being included within the consumed IG.
 
 ## Future Directions
 
@@ -28,18 +41,6 @@ Currently, generated TestScripts test one resource-level interactions on individ
     - Instead of generating/storing by conformance level, generate by interaction type or by resource
 - [x] Command-line option for pipeline between TestScript Generator and TestScript Engine
 - [ ] Generating tests that verify multi-system interactions
-
-## Running the Generator
-
-**Commands:**
-  - `bundle install`
-    - Functionality
-      - This installs the dependencies specified in the Gemfile, allowing the generator to run.
-  - `bundle exec bin/testscript_generator [Optional: IG_DIRECTORY] [Optional: OUTPUT_DIRECTORY]`
-    - Functionality
-      - This runs the generator. It creates TestScripts that test the supported CRUDS interactions, as specified by the IG(s).
-    - Input
-        - The IG(s) to be used for generation should be in `.tgz` or `.zip ` form and pointed to by the optional `IG_DIRECTORY` command-line argument. To set an optional `OUTPUT_DIRECTORY`, the `IG_DIRECTORY` must also be specified.
 
 ## License
 Copyright 2022 The MITRE Corporation

@@ -1,3 +1,14 @@
+# This file is not yet integrated into the generators. The reason is that the
+# logic from the interactions_meta variable in the workflow builder needs to
+# be double checked and ported into here. The logic in that variable only
+# currently holds for the interaction confromance tests; not necessarily for
+# the basic search params tests. But, as it is refined and confirmed, it should
+# be added into here as well. Then, rather than hard-code the interactions_meta
+# variable, just load it up from this file into a memoized variable contained
+# within the Interactions module. So, currently, the interactions_meta variable
+# is being used, but as this file and the Interactions module is built out, the
+# dependency should be on this.
+
 read: # requires setup
   methods:
     - get

@@ -1,5 +1,7 @@
 require_relative 'blueprint_builder'
 
+# This class is responsible for inflating a Blueprint into a fully-fledged
+# TestScript.
 class TestScriptBuilder
 	def scripts
 		@scripts ||= {}

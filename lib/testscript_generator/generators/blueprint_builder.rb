@@ -1,20 +1,25 @@
 require 'SecureRandom'
 require_relative 'interactions/interactions'
 
+# This is a duplicate of the workflow_builder in the /testscript_generator
+# folder. It is renamed as workflow is not a solid name for this class.
+# The search param generator, and each generator added to the generators
+# folder, ought to rely on the Blueprint and not the Workflow. However, until
+# the conformance generator is added to the generators folder, the
+# workflow_builder file has to stay in the /testscript_generator folder to
+# support generating the conformance TestScripts.
 class BlueprintBuilder
   include Interactions
 
-  # methods = { 'create' => :post,
-  #             'read' => :get,
-  #             'update' => :put,
-  #             'delete' => :delete,
-  #             'search-type' => :get }
+  # All the operation types match up with HTTP methods, except for
+  # 'search-type'
+  def methods(op_code_type)
+    return 'search' if op_code_type == 'search-type'
+    return op_code_type
+  end
 
- def methods(op_code_type)
-  return 'search' if op_code_type == 'search-type'
-  return op_code_type
- end
-
+  # Essentially a barebones representation of everything that goes into a
+  # TestScript. Besides the different 'phases' it tracks variables and fixturs.
   class Workflow
     attr_accessor :variables, :setup, :test, :teardown, :fixtures
 
@@ -27,6 +32,10 @@ class BlueprintBuilder
     end
   end
 
+  # Instances of this Operation class are stored within the different 'phases'
+  # of the Blueprint (i.e. teardown, setup). Again, it's a very bare bones
+  # encapsulation of the same pertinent information you'd expect to find in
+  # a TestScript.
   class Operation
     attr_accessor :method, :sourceId, :params, :resource, :responseId
 
@@ -38,6 +47,7 @@ class BlueprintBuilder
       self.responseId = input[:responseId] || nil
     end
 
+    # This allows comparisions between this custom Operation object
     def eql?(input)
       return false unless input.class == WorkflowBuilder::Operation
       return false unless self.params == input.params &&
@@ -50,22 +60,25 @@ class BlueprintBuilder
     end
   end
 
+  # TODO: Figure out how to calculate which assertions are relevant based on
+  # a given operation
   class Assertion
     def initialize(input)
     end
   end
 
+  # Same information covered in the interactions_base.yml file.
   class InteractionMeta
     attr_accessor :send, :fetch, :modify, :getId, :dynamicReq, :staticReq, :getResource, :expression
 
     def initialize(input)
-      self.send = input[:send] || nil
-      self.fetch = input[:fetch] || nil
-      self.getId = input[:getId] || nil
-      self.modify = input[:modify] || nil
-      self.getResource = input[:getResource] || nil
-      self.staticReq = Array(input[:staticReq]) || []
-      self.dynamicReq = Array(input[:dynamicReq]) || []
+      self.send = input[:send] || nil # Does it send a body?
+      self.fetch = input[:fetch] || nil # Does it fetch a resource?
+      self.getId = input[:getId] || nil # Can you get the id of ~some~ resource with it?
+      self.modify = input[:modify] || nil # Does it modify the state of ~some~ resource on the server?
+      self.getResource = input[:getResource] || nil # Can you retrieve ~some~ resource with it? Here, the idea of what's guaranteed if also interesting. What if the search parameters don't find a single conformant resource?
+      self.staticReq = Array(input[:staticReq]) || [] # What needs to be statically loaded for the interaction? i.e. a Body
+      self.dynamicReq = Array(input[:dynamicReq]) || [] # What needs to be known from the server? I.e. an existing ID
     end
   end
 

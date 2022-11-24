@@ -1,6 +1,12 @@
 require_relative 'blueprint_builder'
 require_relative 'testscript_builder'
 
+# This is the generic generator class. Right now, it really only covers
+# containing the different pieces (blueprint builder, testscript builder) in
+# one place, as well as outputting and storing. A lot of this code is repeated
+# from the testscript_generator.rb file, which should be the case until the
+# generator that is currently baked into that file (interaction conformance) is
+# extracted into its own class.
 class Generator
   attr_accessor :ig, :ig_name, :output_path
 
