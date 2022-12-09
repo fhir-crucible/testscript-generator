@@ -1,0 +1,18 @@
+{
+    "resourceType": "TestScript",
+    "title": "[TEMPLATE for a test that the generator cannot currently generate]",
+    "test": [
+      {
+        "name": "Generation Feature Not Implemented",
+        "action": [
+          {
+            "assert": {
+              "label": "Fail - not implemented in generator: [MISSING FEATURE]",
+              "warningOnly": false,
+              "expression": "1!=1"
+            }
+          }
+        ]
+      }
+    ]
+  }

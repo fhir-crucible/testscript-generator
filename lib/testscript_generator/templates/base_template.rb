@@ -48,4 +48,17 @@ class BaseTemplate
     FHIR.from_contents File.read(target_file)
   end
 
+  # Generates and outputs a TestScript instance that always fails
+  #   and indicates that a generation feature isn't implemented
+  # Used to indicate that a test is needed to check something, but that it
+  #   can't yet be generated
+  def generate_not_implmented(script_name, missing_feature_description, output_path)
+    script = load_template("not_implemented_template.json")
+    assign_script_details(script, script_name)
+    script_json = script.to_json
+    script_json.gsub!('[MISSING FEATURE]', missing_feature_description)
+
+    output_script(output_path, script_json, script_name.gsub(" ", "_"))
+  end
+
 end

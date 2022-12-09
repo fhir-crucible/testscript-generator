@@ -53,7 +53,8 @@
               },
               "resource": "[BASE_RESOURCE]",
               "encodeRequestUrl": false,
-              "params": "/${targetResourceId}"
+              "params": "/${targetResourceId}",
+              "responseId": "targetInstance"
             }
           },
           {
@@ -73,18 +74,18 @@
           },
           {
             "assert": {
-              "description": "Assert returned instance donforms to the [PROFILE_NAME] Profile",
-              "label": "Assert_Instance_Conforms_to_[PROFILE_NAME]_Profile",
-              "warningOnly": false,
-              "validateProfileId": "targetProfile"
-            }
-          },
-          {
-            "assert": {
               "description": "Assert [ELEMENT_PATH] is populated on the returned instance",
               "label": "Assert_[ELEMENT_PATH]_is_populated",
               "warningOnly": false,
               "expression": "[ELEMENT_EXISTENCE_FHIR_PATH]"
+            }
+          },
+          {
+            "assert": {
+              "description": "Assert returned instance conforms to the [PROFILE_NAME] Profile",
+              "label": "Assert_Instance_Conforms_to_[PROFILE_NAME]_Profile",
+              "warningOnly": false,
+              "validateProfileId": "targetProfile"
             }
           }
         ]
