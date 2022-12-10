@@ -23,19 +23,18 @@ def instantiate_profile(structure_def)
     if (element.mustSupport && element.path.include?(".")) # must support and not the base Resource
       
       # basic
-      instantiate_element(structure_def, element)
-      instantiate_element_choices(structure_def, element) if element.path.end_with?("[x]")
+      instantiate_element(structure_def, element, "must_support_element")
+      instantiate_element_choices(structure_def, element) if element.path.end_with?("[x]") && element.type.length() > 1
     end
   end
 end
 
-def instantiate_element(structure_def, element)
-  FHIR.logger.info "    Generating test for element #{element.id}"
+def instantiate_element(structure_def, element, the_case)
+  FHIR.logger.info "    Generating test #{the_case} for element #{element.id}"
   
   # output details
   file_location = "#{output_path}/#{structure_def.name}"
-  # TODO: make this name unique if this method gets reused
-  script_name = build_name(ig.name, structure_def.name, 'must_support_element', element.id.gsub(".", "_"))
+  script_name = build_name(ig.name, structure_def.name, the_case, element.id.gsub(".", "_"))
   
   begin
     # load template
@@ -46,31 +45,15 @@ def instantiate_element(structure_def, element)
     
     # add additional details, if needed
     # - reference type: fetch and validate the referenced resource, possibly against a profile
-    # - nested elements: add logic to skip test if parent(s) are not populated
     if (element.type.length() == 1 && element.type[0].code == "Reference")
       add_reference_checks(resolved_path, element, script)
     end
-    element_level = element.path.count(".")
-    if (element_level > 1) # nested
-      levels = element.path.split(".")
-      for level in 1..(element_level - 1) do
-        ancestor_path = levels[0..level].reduce("") { |agg, oneLevel| "#{agg}.#{oneLevel}" }[1..]
-        skip_if_ancestor_doesnt_exist = 
-          FHIR::TestScript::Setup::Action::Assert.new(
-            description: "skip unless #{ancestor_path} exists",
-            label: "skip_unless_#{ancestor_path}_exists",
-            warningOnly: true,
-            expression: "#{ancestor_path}.exists()"
-          )
-        script.test[0].action << FHIR::TestScript::Setup::Action.new(assert: skip_if_ancestor_doesnt_exist)
-        FHIR.logger.info "      Adding check for ancestor path #{ancestor_path}"
-      end
-
-
+    # - nested elements: add logic to skip test if parent(s) are not populated
+    if (element.path.count(".") > 1) # nested
+      add_ancestor_checks(resolved_path, element, script)
     end
 
     # add metadata (name, id, etc.)
-    script_name = build_name(ig.name, structure_def.name, 'must_support_element', element.path.gsub(".", "_"))
     assign_script_details(script, script_name)
 
     # export to JSON and replace string keys
@@ -91,8 +74,30 @@ def instantiate_element(structure_def, element)
   end
 end
 
+# create a test specifically targeting each type that is listed as must support
 def instantiate_element_choices(structure_def, element)
-  # todo
+  
+  for type_index in 0..element.type.length()-1 do
+    one_type = element.type[type_index]
+    break if (one_type == nil)
+    
+    type_name = one_type.code
+    must_support_type = one_type.extension.reduce(false) { |ms, ext| ms || (ext.url == "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support" ? ext.valueBoolean : false)}
+    if (must_support_type)
+      if (type_name == "Reference")
+        FHIR.logger.info "    Generating test must_support_element_type_#{type_name} for element #{element.id}"
+        FHIR.logger.info "      failed: Must Support Reference Choice Type"
+      else
+      
+        element_mod = element.clone
+        element_mod.type.clear
+        element_mod.type << one_type
+        
+        instantiate_element(structure_def, element_mod, "must_support_element_type_#{type_name}")
+      end
+    end
+  end
+
   # possible idea = doctor the element once for each must support type and call instantiate_element
 
 end
@@ -160,8 +165,9 @@ def resolve_slices_in_element_path(structure_def, element)
     else
       raise "Elements Under Slices"
     end
-
-    filter = "#{prefix[..-11]}.extension(#{profile})"
+    # use .where so that everything follows the same pattern of
+    # adding an extra filter function to resolve slices
+    filter = "#{prefix}.where(url='#{profile}')"
   else
     raise "Non-extension slices"
   end
@@ -235,6 +241,37 @@ def add_reference_checks(resolved_path, element, script)
 
   end
 
+end
+
+# adds an assertion checking whether the parent is present
+# special handling needed for slices since in the resolved_path
+# there will be an extra .[filter function]() present
+def add_ancestor_checks(resolved_path, element, script)
+  id_levels = element.id.split(".")
+  resolved_path_levels = resolved_path.split(".")
+  
+  ancestor_path = resolved_path_levels[0]
+  id_level = 0
+  resolved_path_level = 0
+  while id_level < id_levels.length() - 2
+    id_level += 1
+    resolved_path_level += 1
+    ancestor_path += ".#{resolved_path_levels[resolved_path_level]}"
+    if (id_levels[id_level].include?(":"))
+      # add the filter function as well
+      resolved_path_level += 1
+      ancestor_path += ".#{resolved_path_levels[resolved_path_level]}"
+    end
+    skip_if_ancestor_doesnt_exist = 
+      FHIR::TestScript::Setup::Action::Assert.new(
+        description: "skip unless #{ancestor_path} exists",
+        label: "skip_unless_#{ancestor_path}_exists",
+        warningOnly: true,
+        expression: "#{ancestor_path}.exists()"
+      )
+    script.test[0].action << FHIR::TestScript::Setup::Action.new(assert: skip_if_ancestor_doesnt_exist)
+    FHIR.logger.info "      Adding check for ancestor path #{ancestor_path}"
+  end
 end
 
 end
