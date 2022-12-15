@@ -163,25 +163,114 @@ def resolve_slices_in_element_path(structure_def, element)
   prefix, sliceNameAndSuffix = element.id.split(":", 2) 
   sliceName, suffix = sliceNameAndSuffix.split(".", 2)
   
+  slice_element_id = "#{prefix}:#{sliceName}"
+  slice_element = element
+  if (slice_element.id != slice_element_id)
+    slice_element = structure_def.snapshot.element.find { |search_element| search_element.id == slice_element_id }
+    raise "Could not find slice definition for #{prefix}:#{sliceName}" if slice_element == nil
+  end
+
   if (prefix.end_with?(".extension"))
     
     # get the url to use
-    target_element_id = "#{prefix}:#{sliceName}"
-    if (element.id == target_element_id)
-      profile = element.type[0].profile[0]
-    else
-      # find this 
-      sliceElement = structure_def.snapshot.element.find { |searchElement| searchElement.id == target_element_id }
-      raise "Could not find slice definition for #{prefix}:#{sliceName}" if sliceElement == nil
-      profile = sliceElement.type[0].profile[0]
-    end
+    profile = slice_element.type[0].profile[0]
+
     # use .where so that everything follows the same pattern of
     # adding an extra filter function to resolve slices
     replace_key = "[#{sliceName}_PROFILE]"
     filter = "#{prefix}.where(url='#{replace_key}')"
     replacement_list << [replace_key, profile]
   else
-    raise "Non-extension slices"
+
+    # get the element with the discriminator
+    discriminator_element = structure_def.snapshot.element.find { |search_element| search_element.id == prefix }
+    if (discriminator_element == nil || 
+        discriminator_element.slicing == nil || 
+        discriminator_element.slicing.discriminator == nil ||
+        discriminator_element.slicing.discriminator.length == 0)
+      raise "No slice discriminator" 
+    end
+    raise "multiple discriminators" if discriminator_element.slicing.discriminator.length > 1
+    discriminator_type = discriminator_element.slicing.discriminator[0].type
+    if (discriminator_type == "profile")
+      raise "profile discriminator type needs looping in TestScript"
+    end
+
+    # get the element that will provide futher details on the filter requirements
+    filter_path = discriminator_element.slicing.discriminator[0].path
+    if (filter_path == "$this")
+      value_element = slice_element
+    else
+      value_element = structure_def.snapshot.element.find { |search_element| search_element.id == "#{slice_element_id}.#{filter_path}" }
+    end
+    if value_element == nil
+      raise "No discriminating value element for slice" 
+    end
+    
+    
+    if (discriminator_type == "value" || discriminator_type == "pattern")
+      if (value_element.type == nil ||
+          value_element.type.length == 0 ||
+          value_element.type.length > 1)
+        raise "No unique type for discriminator value"
+      end
+
+      # get the type of the element - needed to get the expected value
+      filter_type = value_element.type[0].code
+      if (filter_type[0].downcase == filter_type[0])
+        # primitive case
+        
+        type_filter_suffix = filter_type[0].downcase == filter_type[0] ? filter_type[0].upcase + filter_type[1..] : filter_type
+        
+        # get the expected value
+        filter_value = nil
+        filter_value = value_element.send("pattern#{type_filter_suffix}")
+        filter_value = value_element.send("fixed#{type_filter_suffix}") if filter_value == nil
+        raise "no discriminator value found for #{filter_type}" if filter_value == nil
+
+        # adding an extra filter function to resolve slices
+        # use keys to avoid adding extra "." characters that 
+        # muck up other logic
+        replace_path_key = "[#{sliceName}_FILTER_PATH]"
+        replace_value_key = "[#{sliceName}_FILTER_VALUE]"
+        filter = "#{prefix}.where(#{replace_path_key}='#{replace_value_key}')"
+        replacement_list << [replace_path_key, filter_path]
+        replacement_list << [replace_value_key, filter_value]
+      elsif (filter_type == "CodeableConcept")
+        filter_cc = nil
+        filter_cc = value_element.patternCodeableConcept
+        filter_cc = value_element.fixedCodeableConcept if filter_cc == nil
+        if filter_cc == nil
+          raise "no discriminator value found for CodeableConcept"
+        end
+          raise "no discriminator system value found for CodeableConcept" if filter_cc.coding[0].system == nil
+        raise "no discriminator code value found for CodeableConcept" if filter_cc.coding[0].code == nil
+
+        # adding an extra filter function to resolve slices
+        # use keys to avoid adding extra "." characters that 
+        # muck up other logic
+        codeable_concept_filter = "#{filter_path}.coding.where(system = '#{filter_cc.coding[0].system}' and code = '#{filter_cc.coding[0].code}').exists()"
+        replace_codeable_concept_filter_key = "[#{sliceName}_CODEABLECONCEPT_FILTER]"
+        filter = "#{prefix}.where(#{replace_codeable_concept_filter_key})"
+        replacement_list << [replace_codeable_concept_filter_key, codeable_concept_filter]
+
+      else 
+        raise "unsupported discriminator element type #{filter_type}"
+      end
+    elsif (discriminator_type == "type")
+      if (value_element.type == nil ||
+          value_element.type.length == 0 ||
+          value_element.type.length > 1)
+        raise "No unique type for discriminator value"
+      end
+      filter_type = value_element.type[0].code
+
+      filter = "#{prefix.gsub("[x]",'')}.where($this is #{filter_type})"
+    elsif (discriminator_type == "profile")
+      raise "profile discriminator type needs looping in TestScript"
+    else
+      raise "non-supported discriminator type #{discriminator_type}"
+    end
   end
 
   if (suffix != nil && suffix.length > 0)
