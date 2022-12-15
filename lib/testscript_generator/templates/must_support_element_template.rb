@@ -23,7 +23,7 @@ def instantiate_profile(structure_def)
     if (element.mustSupport && element.path.include?(".")) # must support and not the base Resource
       
       # basic
-      instantiate_element(structure_def, element, "must_support_element")
+      instantiate_element(structure_def, element, "Must Support Element")
       instantiate_element_choices(structure_def, element) if element.path.end_with?("[x]") && element.type.length() > 1
     end
   end
@@ -40,7 +40,13 @@ def instantiate_element(structure_def, element, the_case)
 
   # output details
   file_location = "#{output_path}/#{structure_def.name}"
-  script_name = build_name(ig.name, structure_def.name, the_case, element.id.gsub(".", "_"))
+  script_name_dict = {
+    "IG" => ig.name,
+    "Profile" => structure_def.name,
+    "Case" => the_case, 
+    "Element" => element.id
+  }
+  #script_name = build_name("IG:", ig.name, ", Profile:", structure_def.name, ", Case:", the_case, ", Element:", element.id)
   
   begin
     # load template
@@ -62,18 +68,18 @@ def instantiate_element(structure_def, element, the_case)
     end
     
     # add metadata (name, id, etc.)
-    assign_script_details(script, script_name)
+    assign_script_details(script, script_name_dict)
 
     # export to JSON and replace string keys
     new_script = script_to_instantiated_json_string(script)
        
     # save to file
-    output_script(file_location, new_script, script_name.gsub(" ", "_"))
+    output_script(file_location, new_script, script.name)
   rescue Exception => e  
     FHIR.logger.info "      failed: #{e.message}"
     
     # generate stub
-    generate_not_implmented(script_name, e.message, file_location)
+    generate_not_implmented(script_name_dict, e.message, file_location)
   end
 end
 
@@ -96,7 +102,7 @@ def instantiate_element_choices(structure_def, element)
         element_mod.type.clear
         element_mod.type << one_type
         
-        instantiate_element(structure_def, element_mod, "must_support_element_type_#{type_name}")
+        instantiate_element(structure_def, element_mod, "Must Support Element Type #{type_name}")
       end
     end
   end

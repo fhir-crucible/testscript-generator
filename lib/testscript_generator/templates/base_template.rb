@@ -1,4 +1,5 @@
 require 'fhir_models'
+require 'digest'
 
 class BaseTemplate
   attr_accessor :ig, :output_path, :replacement_list
@@ -54,12 +55,12 @@ class BaseTemplate
   end
 
   def build_name(*input)
-    input.map(&:downcase).join(" ").gsub("-", " ")
+    input.join(" ")
   end
 
-  def assign_script_details(script, script_name)
+  def assign_script_details(script, script_info_dict)
     add_boilerplate(script)
-    customize_script(script, script_name)
+    customize_script(script, script_info_dict)
   end
 
   def add_boilerplate(script)
@@ -69,13 +70,22 @@ class BaseTemplate
     script.publisher = 'The MITRE Corporation'
   end
 
-  def customize_script(script, script_name)
-    name = script_name.split(' ').map(&:capitalize)
-    script.name = name.join('_')
-    script.title = script_name
-    script.id = name.join('-')
-    script.date = DateTime.now.to_s
+  # Key elements and how they are set
+  # - title: built by the specific template, but typically IG + profile + case + specifier if needed (e.g., element)
+  # - name: similar to the title, but without the keys and stripped of non-alphanumeric characters
+  # - id: SHA-256 hash of the name to create a deterministic instance id
+  # - url: root plus the id
+  # - date: current timestamp
+  def customize_script(script, script_info_dict)
+    # put together the title and name from the 
+    
+    script.title = script_info_dict.reduce("") { |agg, (key, value)|
+      "#{agg}#{", " unless agg == ""}#{key}: #{value}"
+    }
+    script.name = script_info_dict.values.map { |v| v.gsub(/[^0-9a-z]/i, ' ')}.join(' ').split(' ').map(&:capitalize).join('')
+    script.id = Digest::SHA2.hexdigest script.name
     script.url = "https://github.com/fhir-crucible/testscript-generator/#{script.id}"
+    script.date = DateTime.now.to_s
   end
 
   def load_template(template_path)
@@ -87,13 +97,13 @@ class BaseTemplate
   #   and indicates that a generation feature isn't implemented
   # Used to indicate that a test is needed to check something, but that it
   #   can't yet be generated
-  def generate_not_implmented(script_name, missing_feature_description, output_path)
+  def generate_not_implmented(script_name_dict, missing_feature_description, output_path)
     script = load_template("not_implemented_template.json")
-    assign_script_details(script, script_name)
+    assign_script_details(script, script_name_dict)
     script_json = script.to_json
     script_json.gsub!('[MISSING FEATURE]', missing_feature_description)
 
-    output_script(output_path, script_json, script_name.gsub(" ", "_"))
+    output_script(output_path, script_json, script.name)
   end
 
   def add_after_placeholder(key, to_add, script)
