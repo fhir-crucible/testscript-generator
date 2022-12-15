@@ -73,6 +73,9 @@
             }
           },
           {
+            "id": "PLACEHOLDER-ancestor-checks"
+          },
+          {
             "assert": {
               "description": "Assert [ELEMENT_PATH] is populated on the returned instance",
               "label": "Assert_[ELEMENT_PATH]_is_populated",

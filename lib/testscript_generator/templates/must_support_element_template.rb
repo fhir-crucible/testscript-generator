@@ -32,6 +32,12 @@ end
 def instantiate_element(structure_def, element, the_case)
   FHIR.logger.info "    Generating test #{the_case} for element #{element.id}"
   
+  replacement_list.clear
+  replacement_list << ['[PROFILE_URL]', structure_def.url]
+  replacement_list << ['[PROFILE_NAME]', structure_def.name]
+  replacement_list << ['[BASE_RESOURCE]', structure_def.type]
+  replacement_list << ['[ELEMENT_PATH]', element.path]
+
   # output details
   file_location = "#{output_path}/#{structure_def.name}"
   script_name = build_name(ig.name, structure_def.name, the_case, element.id.gsub(".", "_"))
@@ -42,28 +48,25 @@ def instantiate_element(structure_def, element, the_case)
 
     # get the base path
     resolved_path = element.id.include?(":") ? resolve_slices_in_element_path(structure_def, element) : element.path
-    
+    # put at the start of the replacement_list so that any slices given names get replaced afterwards
+    replacement_list.insert(0, ['[ELEMENT_EXISTENCE_FHIR_PATH]', get_existance_fhirPath(structure_def, element, resolved_path)])
+
     # add additional details, if needed
-    # - reference type: fetch and validate the referenced resource, possibly against a profile
-    if (element.type.length() == 1 && element.type[0].code == "Reference")
-      add_reference_checks(resolved_path, element, script)
-    end
     # - nested elements: add logic to skip test if parent(s) are not populated
     if (element.path.count(".") > 1) # nested
       add_ancestor_checks(resolved_path, element, script)
     end
-
+    # - reference type: fetch and validate the referenced resource, possibly against a profile
+    if (element.type.length() == 1 && element.type[0].code == "Reference")
+      add_reference_checks(resolved_path.gsub("[x]", 'Reference'), element, script)
+    end
+    
     # add metadata (name, id, etc.)
     assign_script_details(script, script_name)
 
     # export to JSON and replace string keys
-    new_script = script.to_json
-    new_script.gsub!('[PROFILE_URL]', structure_def.url)
-    new_script.gsub!('[PROFILE_NAME]', structure_def.name)
-    new_script.gsub!('[BASE_RESOURCE]', structure_def.type)
-    new_script.gsub!('[ELEMENT_PATH]', element.path)
-    new_script.gsub!('[ELEMENT_EXISTENCE_FHIR_PATH]', get_existance_fhirPath(structure_def, element, resolved_path))
-        
+    new_script = script_to_instantiated_json_string(script)
+       
     # save to file
     output_script(file_location, new_script, script_name.gsub(" ", "_"))
   rescue Exception => e  
@@ -97,9 +100,6 @@ def instantiate_element_choices(structure_def, element)
       end
     end
   end
-
-  # possible idea = doctor the element once for each must support type and call instantiate_element
-
 end
 
 # Steps
@@ -107,10 +107,10 @@ end
 # 2. build the check expression, handling
 #   - choice types
 #   - primitives
-def get_existance_fhirPath(structure_def, element, checkPath)
+def get_existance_fhirPath(structure_def, element, check_path)
 
   # determine the check to make on that path
-  if (checkPath.end_with?("[x]"))
+  if (check_path.end_with?("[x]"))
     # path is not a something to look for, [x] needs to be replaced with a specific type
     # if data found at any of the allowed type paths, this succeeds
     expression = ""
@@ -122,14 +122,14 @@ def get_existance_fhirPath(structure_def, element, checkPath)
       #   and that it conforms to one of the required profiles (if any)
       #   Not clear how to do this in a TestScript instance now, so defering until later
       
-      stem = checkPath.gsub("[x]", typeSuffix)
+      stem = check_path.gsub("[x]", typeSuffix)
       expression += "#{stem}.#{get_existance_fhirPath_forType(oneType.code)} or "
     }
     return expression.chomp(" or ") # remove trailing ' or '
 
   elsif (element.type.size == 1) # single type
     typeCode = element.type[0].code
-    return "#{element.path}.#{get_existance_fhirPath_forType(typeCode)}"
+    return "#{check_path}.#{get_existance_fhirPath_forType(typeCode)}"
 
   else
     raise "MULTIPLE TYPES ON A NON-CHOICE ELEMENT?"
@@ -160,22 +160,31 @@ def resolve_slices_in_element_path(structure_def, element)
   if (prefix.end_with?(".extension"))
     
     # get the url to use
-    if (element.id == "#{prefix}:#{sliceName}")
+    target_element_id = "#{prefix}:#{sliceName}"
+    if (element.id == target_element_id)
       profile = element.type[0].profile[0]
     else
-      raise "Elements Under Slices"
+      # find this 
+      sliceElement = structure_def.snapshot.element.find { |searchElement| searchElement.id == target_element_id }
+      raise "Could not find slice definition for #{prefix}:#{sliceName}" if sliceElement == nil
+      profile = sliceElement.type[0].profile[0]
     end
     # use .where so that everything follows the same pattern of
     # adding an extra filter function to resolve slices
-    filter = "#{prefix}.where(url='#{profile}')"
+    replace_key = "[#{sliceName}_PROFILE]"
+    filter = "#{prefix}.where(url='#{replace_key}')"
+    replacement_list << [replace_key, profile]
   else
     raise "Non-extension slices"
   end
 
   if (suffix != nil && suffix.length > 0)
-    # discard the slice name and recurse
-    # return filter + "." + "elementsUnderSlicesNotImplemented()"
-    raise "Elements under slices"
+    if (suffix.include?(":"))
+      raise "nested slices"
+    else
+      return "#{filter}.#{suffix}"
+    end
+    
   else
     
     return filter
@@ -195,10 +204,10 @@ def add_reference_checks(resolved_path, element, script)
   # - check that location has data
   referencePopulatedAssert = 
     FHIR::TestScript::Setup::Action::Assert.new(
-      description: "#{element.path} contains reference element",
-      label: "#{element.path}_contains_reference_element",
+      description: "resolved path contains reference element",
+      label: "resolved_path_contains_reference_element",
       warningOnly: false,
-      expression: "#{element.path}.reference.hasValue()"
+      expression: "#{resolved_path}.reference.hasValue()"
     )
   script.test[0].action << FHIR::TestScript::Setup::Action.new(assert: referencePopulatedAssert)
   # - read operation based on variable
@@ -269,8 +278,18 @@ def add_ancestor_checks(resolved_path, element, script)
         warningOnly: true,
         expression: "#{ancestor_path}.exists()"
       )
-    script.test[0].action << FHIR::TestScript::Setup::Action.new(assert: skip_if_ancestor_doesnt_exist)
+    add_after_test_placeholder("ancestor-checks", FHIR::TestScript::Setup::Action.new(assert: skip_if_ancestor_doesnt_exist), script)
     FHIR.logger.info "      Adding check for ancestor path #{ancestor_path}"
+  end
+end
+
+def split_respect_quotes(the_string, separator)
+  the_split = the_string.split(separator)
+  index = 0
+  while (index < the_split.length)
+    if (the_split[index].includes("'"))
+      
+    end
   end
 end
 
