@@ -240,19 +240,29 @@ def resolve_slices_in_element_path(structure_def, element)
         filter_cc = nil
         filter_cc = value_element.patternCodeableConcept
         filter_cc = value_element.fixedCodeableConcept if filter_cc == nil
-        if filter_cc == nil
+        if filter_cc != nil
+          raise "no discriminator system value found for CodeableConcept" if filter_cc.coding[0].system == nil
+          raise "no discriminator code value found for CodeableConcept" if filter_cc.coding[0].code == nil
+
+          # adding an extra filter function to resolve slices
+          # use keys to avoid adding extra "." characters that 
+          # muck up other logic
+          codeable_concept_filter = "#{filter_path}.coding.where(system = '#{filter_cc.coding[0].system}' and code = '#{filter_cc.coding[0].code}').exists()"
+          replace_codeable_concept_filter_key = "[#{sliceName}_CODEABLECONCEPT_FILTER]"
+          filter = "#{prefix}.where(#{replace_codeable_concept_filter_key})"
+          replacement_list << [replace_codeable_concept_filter_key, codeable_concept_filter]
+        elsif (value_element.binding != nil)
+          raise "CodeableConcept slice pattern binding not required" if value_element.binding.strength != "required"
+          
+          value_set_filter = "#{filter_path}.memberOf('#{value_element.binding.valueSet}')"
+          replace_value_set_filter = "[#{sliceName}_CODEABLECONCEPT_VALUE_SET_FILTER]"
+          filter = "#{prefix}.where(#{replace_value_set_filter})"
+          replacement_list << [replace_value_set_filter, value_set_filter]
+        else
           raise "no discriminator value found for CodeableConcept"
         end
-          raise "no discriminator system value found for CodeableConcept" if filter_cc.coding[0].system == nil
-        raise "no discriminator code value found for CodeableConcept" if filter_cc.coding[0].code == nil
-
-        # adding an extra filter function to resolve slices
-        # use keys to avoid adding extra "." characters that 
-        # muck up other logic
-        codeable_concept_filter = "#{filter_path}.coding.where(system = '#{filter_cc.coding[0].system}' and code = '#{filter_cc.coding[0].code}').exists()"
-        replace_codeable_concept_filter_key = "[#{sliceName}_CODEABLECONCEPT_FILTER]"
-        filter = "#{prefix}.where(#{replace_codeable_concept_filter_key})"
-        replacement_list << [replace_codeable_concept_filter_key, codeable_concept_filter]
+        
+        
 
       else 
         raise "unsupported discriminator element type #{filter_type}"
