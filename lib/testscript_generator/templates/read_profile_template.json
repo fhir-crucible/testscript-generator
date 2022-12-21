@@ -1,0 +1,63 @@
+{
+    "resourceType": "TestScript",
+    "title": "[TEMPLATE for atomic test of a read of a resource conforming to a profile]",
+    "variable": [
+      {
+        "name": "targetResourceId",
+        "defaultValue": "example",
+        "hint": "[resource.id]",
+        "description": "Enter a known instance id on the destination system."
+      }
+    ],
+    "profile": [
+      {
+        "id": "targetProfile",
+        "reference": "[PROFILE_URL]"
+      }
+    ],
+    "test": [
+      {
+        "name": "Validate the identified resource conforms to the [PROFILE_NAME] profile",
+        "action": [
+          {
+            "operation": {
+              "description": "Read [BASE_RESOURCE] Instance",
+              "label": "Read_[BASE_RESOURCE]_Instance",
+              "type": {
+                "code": "read",
+                "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes"
+              },
+              "resource": "[BASE_RESOURCE]",
+              "encodeRequestUrl": false,
+              "params": "/${targetResourceId}",
+              "responseId": "targetInstance"
+            }
+          },
+          {
+            "assert": {
+              "label": "Assert_Response_OK",
+              "warningOnly": false,
+              "response": "okay"
+            }
+          },
+          {
+            "assert": {
+              "description": "Assert [BASE_RESOURCE] Returned",
+              "label": "Assert_[BASE_RESOURCE]_Returned",
+              "warningOnly": false,
+              "resource": "[BASE_RESOURCE]"
+            }
+          },
+          {
+            "assert": {
+              "description": "Assert returned instance conforms to the [PROFILE_NAME] Profile",
+              "label": "Assert_Instance_Conforms_to_[PROFILE_NAME]_Profile",
+              "warningOnly": false,
+              "validateProfileId": "targetProfile"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  
