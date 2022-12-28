@@ -161,7 +161,7 @@ class ReadProfileTemplate < BaseTemplate
       description: "Execute Read Subtest on #{profile_name} instances",
       label: "Execute_Read_Subtest_on_#{profile_name}_instances",
       warningOnly: false,
-      expression: "entry.where(fullUrl.contains('#{profile_def.type}')).fullUrl.replaceMatches('.*/', '')"
+      expression: "entry.where(fullUrl.contains('#{profile_def.type}')).select(fullUrl.replaceMatches('.*/', ''))"
     )
     instances_subtesteach_assert.extension << build_subtest_each_extension(subtest_name, "targetResourceId#{profile_name}", pass_criteria)
     search_and_read_test.action << FHIR::TestScript::Setup::Action.new(assert: instances_subtesteach_assert)
