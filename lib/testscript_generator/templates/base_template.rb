@@ -80,12 +80,17 @@ class BaseTemplate
     # put together the title and name from the 
     
     script.title = script_info_dict.reduce("") { |agg, (key, value)|
-      "#{agg}#{", " unless agg == ""}#{key}: #{value}"
+      "#{agg}#{"; " unless agg == ""}#{key}: #{value}"
     }
-    script.name = script_info_dict.values.map { |v| v.gsub(/[^0-9a-z]/i, ' ')}.join(' ').split(' ').map(&:capitalize).join('')
+    script.name = script_info_dict.values.map { |v| v.gsub(/[^0-9a-z]/i, ' ')}.join(' ').split(' ').map{ |str| str.sub(/^(.)/) { $1.capitalize }}.join('')
     script.id = Digest::SHA2.hexdigest script.name
     script.url = "https://github.com/fhir-crucible/testscript-generator/#{script.id}"
     script.date = DateTime.now.to_s
+  end
+
+  def captialize_first(str)
+    str[0] = str[0].capitalize
+    return str
   end
 
   def load_template(template_path)

@@ -3,15 +3,15 @@
     "title": "[TEMPLATE for atomic test of a read of a resource conforming to a profile]",
     "variable": [
       {
-        "name": "targetResourceId",
+        "name": "targetResourceId[PROFILE_NAME]",
         "defaultValue": "example",
         "hint": "[resource.id]",
-        "description": "Enter a known instance id on the destination system."
+        "description": "Enter a known instance id on the destination system. Will be checked for conformance against profile [PROFILE_NAME]."
       }
     ],
     "profile": [
       {
-        "id": "targetProfile",
+        "id": "targetProfile[PROFILE_NAME]",
         "reference": "[PROFILE_URL]"
       }
     ],
@@ -29,7 +29,7 @@
               },
               "resource": "[BASE_RESOURCE]",
               "encodeRequestUrl": false,
-              "params": "/${targetResourceId}",
+              "params": "/${targetResourceId[PROFILE_NAME]}",
               "responseId": "targetInstance"
             }
           },
@@ -53,7 +53,7 @@
               "description": "Assert returned instance conforms to the [PROFILE_NAME] Profile",
               "label": "Assert_Instance_Conforms_to_[PROFILE_NAME]_Profile",
               "warningOnly": false,
-              "validateProfileId": "targetProfile"
+              "validateProfileId": "targetProfile[PROFILE_NAME]"
             }
           }
         ]
