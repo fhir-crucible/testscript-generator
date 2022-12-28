@@ -16,7 +16,7 @@ require 'pry-nav'
 # giving the appropriate inputs to the builder, depending on the generation
 # intent (interaction, basic search, operations etc.)
 class TestScriptGenerator
-  attr_accessor :igs_path, :output_path
+  attr_accessor :igs_path, :output_path, :generate_which
 
   def workflows
     @workflows ||= {}
@@ -41,9 +41,10 @@ class TestScriptGenerator
     end
   end
 
-  def initialize(igs_path, output_path)
+  def initialize(igs_path, output_path, generate_which = nil)
     self.igs_path = igs_path
     self.output_path = output_path
+    self.generate_which = generate_which
   end
 
   def add_boilerplate(script)
@@ -91,14 +92,21 @@ class TestScriptGenerator
       ig_output_directory = "#{output_path}/#{ig_name}"
       make_directory(ig_output_directory)
 
-      #generate_interaction_conformance(ig_directory, ig_contents, ig_name)
-      #search_generator = SearchParameterGenerator.new(ig_directory, ig_contents)
-      #search_generator.generate_base_searchparams
-
-      #must_support_element_template = MustSupportElementTemplate.new(ig_directory, ig_contents)
-      #must_support_element_template.instantiate
-      read_profile_template = ReadProfileTemplate.new(ig_output_directory, ig_contents)
-      read_profile_template.instantiate
+      if (!generate_which || generate_which.include?("interaction"))
+        generate_interaction_conformance(ig_output_directory, ig_contents, ig_name)
+      end
+      if (!generate_which || generate_which.include?("search"))
+        search_generator = SearchParameterGenerator.new(ig_output_directory, ig_contents)
+        search_generator.generate_base_searchparams
+      end
+      if (!generate_which || generate_which.include?("mustSupport"))
+        must_support_element_template = MustSupportElementTemplate.new(ig_output_directory, ig_contents)
+        must_support_element_template.instantiate
+      end
+      if (!generate_which || generate_which.include?("read"))
+        read_profile_template = ReadProfileTemplate.new(ig_output_directory, ig_contents)
+        read_profile_template.instantiate
+      end
       FHIR.logger.info "... finished generating TestScripts from #{ig_name} IG.\n"
     end
   end

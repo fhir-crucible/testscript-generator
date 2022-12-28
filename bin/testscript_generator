@@ -1,14 +1,22 @@
 #!/usr/bin/env ruby
 require 'testscript_generator'
 
-ig_directory = Dir.getwd + '/igs'
-output_path = Dir.getwd + '/generated_testscripts'
+ig_directory = File.join(Dir.getwd, '/igs')
+output_path = File.join(Dir.getwd, 'generated_testscripts')
+generate_which = []
 
 parameters = ARGV
 unless parameters.empty?
-	ig_directory = parameters[0]
-	output_path = paramsers[1] if parameters[1]
+	parameters.each { |one_parameter|
+		if one_parameter.starts_with?("ig_directory=")
+			ig_directory = File.join(Dir.getwd, one_parameter.split("=",2)[1])
+		elsif one_parameter.starts_with?("output_path=")
+			output_path = File.join(Dir.getwd, one_parameter.split("=",2)[1])
+		else
+			generate_which << one_parameter
+		end
+	}
 end
 
-generator = TestScriptGenerator.new(ig_directory, output_path)
+generator = TestScriptGenerator.new(ig_directory, output_path, generate_which.length > 0 ? generate_which : nil)
 generator.generate_all_tests
