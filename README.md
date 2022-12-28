@@ -1,6 +1,22 @@
 
 # TestScript Generator
 
+The TestScript Generator is an open source, command-line tool for generating [Fast
+Healthcare Interoperability Resources (FHIR)](http://hl7.org/fhir/) TestScript resources. It requires a FHIR Implentation Guide (IG) to direct how it creates TestScripts.
+
+## Running the Generator
+
+Clone [this repository](https://github.com/fhir-crucible/testscript-generator) and navigate to your local copy. Once there, run: `bundle install`, followed by `bundle exec bin/testscript_generator`. This will start the generator within the context of your local copy.
+
+## Configure the Generator
+
+- Command-line arguments
+  - `ig_directory=[path]`: overrides the default ig directory, which is `./igs`
+  - `output_path=[path]`: overrides the default output directory, which is `./generated_testscripts`
+  - `[type]`: specifies a specific test type to generate. If none are provided, then all types are generated. If one or more are provided, then only those specified types are generated. See above for the supported types.
+- Inputs
+    - The IG(s) to be used for generation should be in `.tgz` or `.zip` form and pointed to by the optional `ig_directory=` command-line argument.
+
 ## Background and Overview
 
 The TestScript Generator aims to ease the testing process by creating a suite of [FHIR TestScript](http://www.hl7.org/fhir/testscript.html) instances to be executed against FHIR servers to check conformance to a given Implementation Guide (IG). FHIR IGs include formal definitions of data structure requirements, interaction patterns, and other details that can be used to generate tests. By attempting to use this information to generate tests as TestScript instances the TestScript Generator project seeks to provide feedback to the FHIR community around
@@ -119,7 +135,7 @@ To generate these specific tests, run `bundle exec bin/testscript_generator inte
 - Filters those interactions by conformance level (i.e. **SHALL**, **SHOULD**, **MAY**) and creates tests organized by their level of conformance
 - Writes the generated tests out, organizing them by their related conformance level
 
-Currently, generated TestScripts test one resource-level interactions on individual resource types (*e.g.*, read an AllergyIntolerance or create a Patient).
+Currently, the generator can create two types of TestScripts. The first tests single resource-level interactions on individual resource types (*e.g.*, read an AllergyIntolerance or create a Patient). These tests are known as interaction conformance tests. A second type of tests the generator creates are the basic search parameter tests, which test whether the implementation supports interactions with simple search params (e.g. `_id`). Both types of tests depend on the Capability Statement being included within the consumed IG.
 
 #### Relevant Code
 
@@ -132,22 +148,6 @@ Under the [testscript_generator](https://github.com/fhir-crucible/testscript-gen
 These generated tests currently will not execute and represent a rough idea about how interactions could be tested. Additional work needed to
 - identify examples in the IG to use as fixtures
 - define the specific checks that are needed
-
-## Running the Generator
-
-**Commands:**
-  - `bundle install`
-    - Functionality
-      - This installs the dependencies specified in the Gemfile, allowing the generator to run.
-  - `bundle exec bin/testscript_generator [parameters]`
-    - Functionality
-      - This runs the generator. It creates TestScripts that test the supported CRUDS interactions, as specified by the IG(s).
-    - Parameters
-      - `ig_directory=[path]`: overrides the default ig directory, which is `./igs`
-      - `output_path=[path]`: overrides the default output directory, which is `./generated_testscripts`
-      - `[type]`: specifies a specific test type to generate. If none are provided, then all types are generated. If one or more are provided, then only those specified types are generated. See above for the supported types.
-    - Input
-        - The IG(s) to be used for generation should be in `.tgz` or `.zip ` form and pointed to by the optional `ig_directory=` command-line argument.
 
 ## Future Directions
 

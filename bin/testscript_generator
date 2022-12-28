@@ -5,6 +5,8 @@ ig_directory = File.join(Dir.getwd, '/igs')
 output_path = File.join(Dir.getwd, 'generated_testscripts')
 generate_which = []
 
+# TODO: Alter ARGV consumption so that users don't have to provide an input
+# 		directory in order to specify the output path.
 parameters = ARGV
 unless parameters.empty?
 	parameters.each { |one_parameter|

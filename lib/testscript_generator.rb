@@ -47,6 +47,8 @@ class TestScriptGenerator
     self.generate_which = generate_which
   end
 
+  # TODO: Find a way to add this into the testscript_builder class. It
+  #       currently lives here for reasons unknown.
   def add_boilerplate(script)
     script.url = 'https://github.com/fhir-crucible/testscript-generator'
     script.version = '0.0'
@@ -55,6 +57,9 @@ class TestScriptGenerator
     script.publisher = 'The MITRE Corporation'
   end
 
+  # TODO: Solidify naming conventions - both in TestScript Generation here but
+  #       also in the output TestReports created through the Engine. Unsure
+  #       which element is the best to canonize as the basis for naming.
   def customize_script(script, script_name)
     name = script_name.split('_').map(&:capitalize)
     script.name = name.join('')
@@ -76,6 +81,10 @@ class TestScriptGenerator
     File.write("#{path}/#{name}.json", script)
   end
 
+  # TODO: Integrate from Crucible auto-populating elements of the example
+  #       resources so that they are 'valid' upon creation. Currently, they're
+  #       likely to gum-up the Engine because they're technically invalid
+  #       (missing elements with cardinality 1 when just using FHIR Models).
   def output_example(path, resource)
     example_resource = "FHIR::#{resource}".constantize.new.to_json
     FileUtils.mkdir_p("#{path}/fixtures")
@@ -86,6 +95,10 @@ class TestScriptGenerator
     FileUtils.mkdir_p(dir_name)
   end
 
+  # TODO: Seperate out the generate_interaction_conformance and the
+  #       search_generator so that the user can call either at runtime (and by
+  #       default, generate all). This will be most easily accomplished using
+  #       Thor (check CLI issue on github for explanation).
   def generate_all_tests
     igs.each do |ig_name, ig_contents|
       FHIR.logger.info "Generating TestScripts from #{ig_name} IG ...\n"
