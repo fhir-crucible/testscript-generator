@@ -88,8 +88,8 @@ class TestScriptGenerator
   def generate_all_tests
     igs.each do |ig_name, ig_contents|
       FHIR.logger.info "Generating TestScripts from #{ig_name} IG ...\n"
-      ig_directory = "#{output_path}/#{ig_name}"
-      make_directory(ig_directory)
+      ig_output_directory = "#{output_path}/#{ig_name}"
+      make_directory(ig_output_directory)
 
       #generate_interaction_conformance(ig_directory, ig_contents, ig_name)
       #search_generator = SearchParameterGenerator.new(ig_directory, ig_contents)
@@ -97,7 +97,7 @@ class TestScriptGenerator
 
       #must_support_element_template = MustSupportElementTemplate.new(ig_directory, ig_contents)
       #must_support_element_template.instantiate
-      read_profile_template = ReadProfileTemplate.new(ig_directory, ig_contents)
+      read_profile_template = ReadProfileTemplate.new(ig_output_directory, ig_contents)
       read_profile_template.instantiate
       FHIR.logger.info "... finished generating TestScripts from #{ig_name} IG.\n"
     end

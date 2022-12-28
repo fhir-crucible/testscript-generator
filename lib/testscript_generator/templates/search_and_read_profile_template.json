@@ -1,0 +1,12 @@
+{
+  "resourceType": "TestScript",
+  "title": "[TEMPLATE for composite test of searching for and reading profiles starting from a root patient]",
+  "variable": [
+    {
+      "name": "root[IG]IGPatientId",
+      "defaultValue": "example",
+      "hint": "[resource.id]",
+      "description": "Enter a known [IG] IG patient id on the destination system."
+    }
+  ]
+}
