@@ -13,7 +13,7 @@ Clone [this repository](https://github.com/fhir-crucible/testscript-generator) a
 - Command-line arguments
   - `ig_directory=[path]`: overrides the default ig directory, which is `./igs`
   - `output_path=[path]`: overrides the default output directory, which is `./generated_testscripts`
-  - `[type]`: specifies a specific test type to generate. If none are provided, then all types are generated. If one or more are provided, then only those specified types are generated. See above for the supported types.
+  - `[type]`: specifies a specific test type to generate. If none are provided, then all types are generated. If one or more are provided, then only those specified types are generated. See below for the supported types.
 - Inputs
     - The IG(s) to be used for generation should be in `.tgz` or `.zip` form and pointed to by the optional `ig_directory=` command-line argument.
 
