@@ -61,10 +61,10 @@ Uses the template approach under the [templates](https://github.com/fhir-crucibl
 - [read_profile_template.rb](https://github.com/fhir-crucible/testscript-generator/tree/main/lib/testscript_generator/templates/read_profile_template.rb): test generation logic, including simple logic for the individual profile read tests and more complex logic for the combined search and read test
 - [read_profile_template.json](https://github.com/fhir-crucible/testscript-generator/tree/main/lib/testscript_generator/templates/read_profile_template.json): base template for an individual profile read test
 - [search_and_read_profile_template.json](https://github.com/fhir-crucible/testscript-generator/tree/main/lib/testscript_generator/templates/search_and_read_profile_template.json): base template for an combined search and read test. Minimal details as it is all built up.
-- profile_scope_search_spec.json: additional IG-specific input that provides details on the search to use to identify instances of the profile and whether all instances returned by the search should be expected to conform. For a specific ig will look for the file `profile_scope_search_spec.csv` within the `extra_input/[ig directory]` folder where `[ig directory]` will be the name of the loaded zip or tgz file containing the IG without the extention ([example](https://github.com/fhir-crucible/testscript-generator/tree/main/extra_input/us-mCODE/profile_scope_search_spec.csv) for the mCODE pre-STU3 build from December 2022). The csv will have 3 columns with headers `profile`, `search`, and `passCriteria`. Each row has the following information in these columns
+- profile_scope_search_spec.json: additional IG-specific input that provides details on the search to use to identify instances of the profile and whether all instances returned by the search should be expected to conform. For a specific ig will look for the file `profile_scope_search_spec.csv` within the `extra_input/[ig directory]` folder where `[ig directory]` will be the name of the loaded zip or tgz file containing the IG without the extention ([example](https://github.com/fhir-crucible/testscript-generator/tree/main/extra_input/us-mCODE/profile_scope_search_spec.csv) for the mCODE pre-STU3 build from December 2022). The csv will have 3 columns with headers `profile`, `search`, and `returnsOnlyProfile`. Each row has the following information in these columns
   - `profile`: name of the profile from the StructureDefinition `name` element. Profiles in the IG that don't have a corresponding row are not included in the combined test.
   - `search`: search criteria that would go into a FHIR search url, e.g. `code=http://loinc.org|89243-0` to search on a specific LOINC code. Currently only supports a single criteria and the `=` operator. May also be `SPECIFIC` if no scoping search is possible for the profile, in which case a input variable for a specific instance id is included in the generated TestScript. Must be at least one row with the value `ROOT` which indicates this is the patient profile to use. May also be empty if searching on the resource type is sufficient. When a search is performed, the search will also be restricted to the specific patient.
-  - `passCriteria`: `all` if all returned instances must conform to the profile. `one` if not all of them will necessarily conform. Not used when `search` is `SPECIFIC` or `ROOT`.
+  - `returnsOnlyProfile`: `true` if all returned instances will/must conform to the profile. `false` if not all of them will necessarily conform. Not used when `search` is `SPECIFIC` or `ROOT`.
 
 #### Current Status
 
@@ -148,6 +148,10 @@ Under the [testscript_generator](https://github.com/fhir-crucible/testscript-gen
 These generated tests currently will not execute and represent a rough idea about how interactions could be tested. Additional work needed to
 - identify examples in the IG to use as fixtures
 - define the specific checks that are needed
+
+### Extensions
+
+The TestScript Generator supports several extensions to the [TestScript](https://fhir-crucible.github.io/testscript-engine-ig/StructureDefinition-testscript-engine-testscript.html) resource that the [TestScript Engine](https://github.com/fhir-crucible/testscript-engine) also supports. Details on these extensions are their use can be found in [this IG](https://fhir-crucible.github.io/testscript-engine-ig/). Feedback on the need for and approach to these extensions welcome.
 
 ## Future Directions
 

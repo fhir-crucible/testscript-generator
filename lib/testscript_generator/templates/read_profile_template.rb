@@ -17,7 +17,7 @@ class ReadProfileTemplate < BaseTemplate
       # pull in details
       scope_search_spec_csv = CSV.parse(File.read(scope_search_spec_target_filepath), headers: true)
       scope_search_spec = {}
-      scope_search_spec_csv.each { |one_row| scope_search_spec[one_row["profile"]] = [one_row["search"], one_row["passCriteria"]]}
+      scope_search_spec_csv.each { |one_row| scope_search_spec[one_row["profile"]] = [one_row["search"], one_row["returnsOnlyProfile"]]}
    
       # get template setup
       search_and_read_script = load_template(@@search_and_read_template_path)
@@ -49,7 +49,7 @@ class ReadProfileTemplate < BaseTemplate
               search_and_read_script.variable << FHIR::TestScript::Variable.new(name: "targetResourceId#{structure_def.name}", "defaultValue": "example", "description": "Enter a known instance id on the destination system. Will be checked for conformance against profile #{structure_def.name}.", "hint": "[resource.id]")
             else
               # search and use in subtesteach
-              search_and_read_test = build_search_and_read_test(structure_def, script_name, scope_search_spec[structure_def.name][0], scope_search_spec[structure_def.name][1])
+              search_and_read_test = build_search_and_read_test(structure_def, script_name, scope_search_spec[structure_def.name][0], scope_search_spec[structure_def.name][1].downcase == "true" ? true : false)
               search_and_read_script.test << search_and_read_test
             end
           end  
@@ -124,7 +124,7 @@ class ReadProfileTemplate < BaseTemplate
 
   end
 
-  def build_search_and_read_test(profile_def, subtest_name, scope_search_criteria, pass_criteria)
+  def build_search_and_read_test(profile_def, subtest_name, scope_search_criteria, all_must_pass)
     profile_name = profile_def.name
     search_and_read_test = FHIR::TestScript::Test.new(
       name: "Search for #{profile_name} instances and read each"
@@ -163,7 +163,7 @@ class ReadProfileTemplate < BaseTemplate
       warningOnly: false,
       expression: "entry.where(fullUrl.contains('#{profile_def.type}')).select(fullUrl.replaceMatches('.*/', ''))"
     )
-    instances_subtesteach_assert.extension << build_subtest_each_extension(subtest_name, "targetResourceId#{profile_name}", pass_criteria)
+    instances_subtesteach_assert.extension << build_subtest_each_extension(subtest_name, "targetResourceId#{profile_name}", all_must_pass)
     search_and_read_test.action << FHIR::TestScript::Setup::Action.new(assert: instances_subtesteach_assert)
 
     return search_and_read_test
@@ -172,7 +172,7 @@ class ReadProfileTemplate < BaseTemplate
 
   def build_subtest_extension(subtest_name, variable_name_map)
     root_extension = FHIR::Extension.new(
-      url: "urn:mitre:fhirfoundry:subtest"
+      url: "https://fhir-crucible.github.io/testscript-engine-ig/StructureDefinition/assert-subtest"
     )
     subtest_name_extension = FHIR::Extension.new(
       url: "testName",
@@ -185,17 +185,17 @@ class ReadProfileTemplate < BaseTemplate
 
   end
 
-  def build_subtest_each_extension(subtest_name, bind_each_target, pass_criteria, variable_name_map = {})
+  def build_subtest_each_extension(subtest_name, bind_each_target, all_must_pass, variable_name_map = {})
     root_extension = FHIR::Extension.new(
-      url: "urn:mitre:fhirfoundry:subtestEach"
+      url: "https://fhir-crucible.github.io/testscript-engine-ig/StructureDefinition/assert-subtest-each"
     )
     root_extension.extension << FHIR::Extension.new(
       url: "testName",
       valueString: subtest_name
     )
     root_extension.extension << FHIR::Extension.new(
-      url: "passCriteria",
-      valueCode: pass_criteria
+      url: "allMustPass",
+      valueBoolean: all_must_pass
     )
     root_extension.extension << FHIR::Extension.new(
       url: "bindEachTarget",
