@@ -3,7 +3,7 @@
     "title": "[TEMPLATE for atomic test of an individual must support element]",
     "variable": [
       {
-        "name": "targetResourceId",
+        "name": "targetResourceId[PROFILE_NAME]",
         "defaultValue": "example",
         "hint": "[resource.id]",
         "description": "Enter a known instance id on the destination system."
@@ -15,30 +15,6 @@
         "reference": "[PROFILE_URL]"
       }
     ],
-    "setup": {
-      "action": [
-        {
-          "operation": {
-            "description": "Read Metadata",
-            "label": "Read_Metadata",
-            "type": {
-              "code": "read",
-              "system": "http://terminology.hl7.org/CodeSystem/testscript-operation-codes"
-            },
-            "encodeRequestUrl": false,
-            "url": "/metadata"
-          }
-        },
-        {
-          "assert": {
-            "description": "Validate Target Profile Support",
-            "label": "Validate_Target_Profile_Support",
-            "warningOnly": false,
-            "expression": "rest.resource.where(type = '[BASE_RESOURCE]').supportedProfile contains '[PROFILE_URL]'"
-          }
-        }
-      ]
-    },
     "test": [
       {
         "name": "Validate the identified resource instance has [ELEMENT_PATH] populated and is conformant to the [PROFILE_NAME] profile",
