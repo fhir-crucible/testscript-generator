@@ -2,7 +2,7 @@
 # TestScript Generator
 
 The TestScript Generator is an open source, command-line tool for generating [Fast
-Healthcare Interoperability Resources (FHIR)](http://hl7.org/fhir/) TestScript resources. It requires a FHIR Implentation Guide (IG) to direct how it creates TestScripts.
+Healthcare Interoperability Resources (FHIR)](http://hl7.org/fhir/) TestScript resources. It requires a FHIR Implementation Guide (IG) to direct how it creates TestScripts.
 
 ## Running the Generator
 
